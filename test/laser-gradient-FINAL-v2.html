@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAYGUN OS - FINAL Laser (Performance Optimized)</title>
+  <link rel="stylesheet" href="../styles/tokens.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      padding: var(--space-12);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: var(--space-12);
+    }
+
+    h1 {
+      font-family: var(--font-heading);
+      font-size: var(--text-6xl);
+      font-weight: var(--font-bold);
+      color: var(--color-orange);
+      margin-bottom: var(--space-4);
+    }
+
+    .subtitle {
+      font-size: var(--text-xl);
+      color: var(--text-secondary);
+      margin-bottom: var(--space-2);
+    }
+
+    .perf-note {
+      font-size: var(--text-sm);
+      color: var(--color-gold);
+      font-style: italic;
+    }
+
+    .theme-toggle {
+      background: var(--color-orange);
+      color: white;
+      border: none;
+      padding: var(--space-4) var(--space-8);
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-size: var(--text-lg);
+      font-weight: var(--font-semibold);
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-lg);
+      margin-top: var(--space-6);
+    }
+
+    .theme-toggle:hover {
+      background: var(--color-orange-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .theme-toggle:active {
+      transform: translateY(0);
+    }
+
+    .gradient-showcase {
+      background: var(--bg-secondary);
+      border: 3px solid var(--color-orange);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-10);
+      margin-bottom: var(--space-8);
+      box-shadow: var(--shadow-2xl);
+    }
+
+    .current-mode {
+      text-align: center;
+      margin-bottom: var(--space-8);
+    }
+
+    .mode-badge {
+      display: inline-block;
+      padding: var(--space-2) var(--space-6);
+      background: var(--color-orange);
+      color: white;
+      font-family: var(--font-heading);
+      font-size: var(--text-sm);
+      font-weight: var(--font-bold);
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .laser-container {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      background: var(--bg-primary);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: var(--space-8);
+      box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .laser-svg {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 30px;
+      transform: translateY(-50%);
+    }
+
+    /* OPTIMIZED: Match adapthuman performance */
+    .laser-beam {
+      opacity: 0;
+      transform-origin: left center;
+      transform: scaleX(0);
+      /* Specific color filters (not currentColor) for better performance */
+      filter: drop-shadow(0 0 8px rgba(230, 126, 34, 0.6))
+              drop-shadow(0 0 16px rgba(230, 126, 34, 0.4));
+      /* GPU acceleration hint */
+      will-change: transform, opacity;
+    }
+
+    /* Dark mode filter adjustment */
+    body.dark-mode .laser-beam {
+      filter: drop-shadow(0 0 8px rgba(255, 69, 0, 0.6))
+              drop-shadow(0 0 16px rgba(255, 69, 0, 0.4));
+    }
+
+    /* OPTIMIZED: Match adapthuman timing and easing */
+    .laser-beam.firing {
+      animation: beamFire 1000ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+    }
+
+    @keyframes beamFire {
+      0% {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+      10% {
+        opacity: 0.95; /* Flash at start for punch */
+      }
+      100% {
+        opacity: 0.9;
+        transform: scaleX(1);
+      }
+    }
+
+    .laser-beam.visible {
+      opacity: 0.9;
+      transform: scaleX(1);
+    }
+
+    /* OPTIMIZED: Match adapthuman retract timing */
+    .laser-beam.retracting {
+      animation: beamRetract 600ms cubic-bezier(0.65, 0, 0.35, 1) forwards;
+    }
+
+    @keyframes beamRetract {
+      0% {
+        opacity: 0.9;
+        transform: scaleX(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+    }
+
+    /* Mobile performance: remove filters */
+    @media (max-width: 768px) {
+      .laser-beam {
+        filter: none !important;
+      }
+    }
+
+    .fire-button {
+      width: 100%;
+      background: var(--color-orange);
+      color: white;
+      border: none;
+      padding: var(--space-6);
+      border-radius: var(--radius-lg);
+      font-family: var(--font-heading);
+      font-size: var(--text-2xl);
+      font-weight: var(--font-bold);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .fire-button:hover {
+      background: var(--color-orange-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .fire-button:active {
+      transform: translateY(0);
+    }
+
+    .optimizations {
+      background: var(--bg-secondary);
+      border: 2px solid var(--color-gold);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      margin-top: var(--space-8);
+    }
+
+    .optimizations h3 {
+      font-family: var(--font-heading);
+      color: var(--color-gold);
+      margin-bottom: var(--space-4);
+      font-size: var(--text-xl);
+    }
+
+    .optimizations ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .optimizations li {
+      padding: var(--space-2) 0;
+      color: var(--text-secondary);
+      line-height: var(--line-relaxed);
+    }
+
+    .optimizations li::before {
+      content: "✓ ";
+      color: var(--color-gold);
+      font-weight: bold;
+      margin-right: var(--space-2);
+    }
+
+    .optimizations code {
+      background: var(--bg-tertiary);
+      padding: 2px 6px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      color: var(--color-orange);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🔫 RAYGUN OS Laser (Optimized)</h1>
+      <p class="subtitle">Performance-matched to adapthuman.com</p>
+      <p class="perf-note">Should be buttery smooth now!</p>
+      <button class="theme-toggle" id="themeToggle">Toggle Dark Mode</button>
+    </header>
+
+    <div class="gradient-showcase">
+      <div class="current-mode">
+        <span class="mode-badge" id="modeBadge">Light Mode</span>
+      </div>
+
+      <div class="laser-container">
+        <svg class="laser-svg" viewBox="0 0 100 20" preserveAspectRatio="none">
+          <defs>
+            <!-- Light mode: Teal → Aqua → Tangerine → Gold -->
+            <linearGradient id="beamGradientLight" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color: #008080" />
+              <stop offset="33%" style="stop-color: #20B2AA" />
+              <stop offset="66%" style="stop-color: #FFB347" />
+              <stop offset="100%" style="stop-color: #DAA520" />
+            </linearGradient>
+
+            <!-- Dark mode: Red-Orange → Dark Orange → Pink → Lime -->
+            <linearGradient id="beamGradientDark" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color: #FF4500" />
+              <stop offset="33%" style="stop-color: #FF8C00" />
+              <stop offset="66%" style="stop-color: #FF69B4" />
+              <stop offset="100%" style="stop-color: #ADFF2F" />
+            </linearGradient>
+          </defs>
+
+          <polygon points="0,10 100,4 100,16"
+                   class="laser-beam"
+                   id="laserBeam"
+                   fill="url(#beamGradientLight)" />
+        </svg>
+      </div>
+
+      <button class="fire-button" id="fireButton">🔥 Fire Laser!</button>
+    </div>
+
+    <div class="optimizations">
+      <h3>Performance Optimizations Applied</h3>
+      <ul>
+        <li><strong>Duration:</strong> Reduced from 1200ms → <code>1000ms</code> (matches adapthuman)</li>
+        <li><strong>Easing:</strong> Changed to <code>cubic-bezier(0.25, 0.1, 0.25, 1)</code> (smoother curve)</li>
+        <li><strong>Opacity flash:</strong> Added 10% keyframe at <code>0.95 opacity</code> for immediate punch</li>
+        <li><strong>GPU acceleration:</strong> Added <code>will-change: transform, opacity</code> hint</li>
+        <li><strong>Filter specifics:</strong> Using rgba values instead of currentColor</li>
+        <li><strong>Mobile:</strong> Filters removed on mobile for performance (<code>filter: none</code>)</li>
+        <li><strong>Retract timing:</strong> 600ms with <code>cubic-bezier(0.65, 0, 0.35, 1)</code></li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const modeBadge = document.getElementById('modeBadge');
+    const body = document.body;
+    const laserBeam = document.getElementById('laserBeam');
+
+    // Check for saved theme
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    if (currentTheme === 'dark') {
+      body.classList.add('dark-mode');
+      modeBadge.textContent = 'Dark Mode';
+      updateBeamGradient();
+    }
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      const theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+      localStorage.setItem('theme', theme);
+      modeBadge.textContent = theme === 'dark' ? 'Dark Mode' : 'Light Mode';
+
+      // Retract and refire with new gradient
+      retractAndRefire();
+    });
+
+    // Update beam gradient based on theme
+    function updateBeamGradient() {
+      const isDark = body.classList.contains('dark-mode');
+      const gradientId = isDark ? 'beamGradientDark' : 'beamGradientLight';
+      laserBeam.setAttribute('fill', `url(#${gradientId})`);
+    }
+
+    // Fire laser
+    function fireLaser() {
+      updateBeamGradient();
+
+      laserBeam.classList.remove('firing', 'visible', 'retracting');
+      void laserBeam.offsetWidth; // Force reflow
+
+      laserBeam.classList.add('firing');
+
+      setTimeout(() => {
+        laserBeam.classList.remove('firing');
+        laserBeam.classList.add('visible');
+      }, 1000); // Match animation duration
+    }
+
+    // Retract and refire (for theme toggle)
+    function retractAndRefire() {
+      laserBeam.classList.remove('visible', 'firing');
+      laserBeam.classList.add('retracting');
+
+      setTimeout(() => {
+        laserBeam.classList.remove('retracting');
+        setTimeout(() => {
+          fireLaser();
+        }, 100);
+      }, 600);
+    }
+
+    // Fire button
+    document.getElementById('fireButton').addEventListener('click', () => {
+      retractAndRefire();
+    });
+
+    // Auto-fire on load
+    setTimeout(() => {
+      fireLaser();
+    }, 500);
+  </script>
+</body>
+</html>

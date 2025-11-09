@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RAYGUN OS - A complete cognitive operating system for experiment-driven minds. 45 years of experiments, now open-sourced.">
+  <title>RAYGUN OS - Coming Soon</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/raygun_original_clear 16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/raygun_original_clear 32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/images/raygun_original_clear 48x48.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Design System -->
+  <link rel="stylesheet" href="styles/tokens.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-4);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 600px;
+    }
+
+    .raygun-icon {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto var(--space-6);
+      filter: drop-shadow(0 0 20px var(--color-orange-faint));
+    }
+
+    h1 {
+      font-family: var(--font-heading);
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--color-orange);
+      margin-bottom: var(--space-4);
+      letter-spacing: -0.02em;
+    }
+
+    .tagline {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-6);
+      line-height: 1.6;
+    }
+
+    .status {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      color: var(--text-tertiary);
+      padding: var(--space-2) var(--space-4);
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      display: inline-block;
+      margin-bottom: var(--space-8);
+    }
+
+    .status::before {
+      content: '⚡';
+      margin-right: var(--space-2);
+    }
+
+    .coming-soon {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-top: var(--space-8);
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: var(--space-4);
+      right: var(--space-4);
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-full);
+      padding: var(--space-2) var(--space-3);
+      cursor: pointer;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      transition: all 0.2s ease;
+    }
+
+    .theme-toggle:hover {
+      background: var(--bg-hover);
+      border-color: var(--color-orange);
+      color: var(--color-orange);
+    }
+
+    @media (max-width: 640px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .tagline {
+        font-size: 1.125rem;
+      }
+
+      .raygun-icon {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" onclick="toggleTheme()">
+    <span id="theme-icon">🌙</span>
+  </button>
+
+  <!-- Main Content -->
+  <div class="container">
+    <img src="assets/images/raygun_original_clear.png" alt="RAYGUN OS" class="raygun-icon">
+
+    <h1>RAYGUN OS</h1>
+
+    <p class="tagline">
+      Mad scientist laboratory loading...
+    </p>
+
+    <div class="status">
+      Design system locked → Infrastructure deploying
+    </div>
+
+    <p class="coming-soon">
+      A complete cognitive operating system for experiment-driven minds.<br>
+      45 years of experiments, now open-sourced.
+    </p>
+  </div>
+
+  <script>
+    // Simple dark mode toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      const icon = document.getElementById('theme-icon');
+
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      icon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    }
+
+    // Initialize theme from localStorage
+    (function() {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      const icon = document.getElementById('theme-icon');
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      icon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+    })();
+  </script>
+</body>
+</html>
