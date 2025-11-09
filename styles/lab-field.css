@@ -1,0 +1,135 @@
+/* Lab Field Background - 3-Layer Implementation
+ *
+ * Layer 1: Energy substrate (this file - CSS)
+ * Layer 2: Drifting orbs (lab-field.js)
+ * Layer 3: Micro bursts (lab-field.js)
+ *
+ * Philosophy: Controlled chaos. Things are happening, but not overwhelming.
+ * Accessibility: Respects prefers-reduced-motion.
+ */
+
+/* ============================================
+   LAYER 1: ENERGY SUBSTRATE
+   ============================================ */
+
+.lab-field-substrate {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+
+  /* Warm radial gradients creating energy hotspots */
+  background:
+    radial-gradient(circle at 30% 50%, var(--lab-field-accent), transparent 50%),
+    radial-gradient(circle at 70% 30%, var(--lab-field-accent), transparent 50%),
+    radial-gradient(circle at 50% 80%, var(--lab-field-noise), transparent 40%),
+    var(--lab-field-base);
+
+  /* Subtle reality warping animation */
+  animation: substrateWarp 20s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+/* Warping animation - gentle breathing of the field */
+@keyframes substrateWarp {
+  0%, 100% {
+    filter: blur(60px) brightness(1);
+    transform: scale(1);
+  }
+  50% {
+    filter: blur(80px) brightness(1.1);
+    transform: scale(1.02);
+  }
+}
+
+/* Dark mode: deeper, more mysterious */
+[data-theme="dark"] .lab-field-substrate {
+  opacity: 0.4;
+}
+
+/* ============================================
+   LAYER 2: DRIFTING ORBS CONTAINER
+   ============================================ */
+
+.lab-field-orbs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Individual orb styling (created by JavaScript) */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(20px);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Orb color variants */
+.orb-orange {
+  background: radial-gradient(circle, var(--color-orange), transparent);
+  box-shadow: 0 0 40px var(--color-orange-faint);
+}
+
+.orb-gold {
+  background: radial-gradient(circle, var(--color-gold), transparent);
+  box-shadow: 0 0 40px var(--color-gold-faint);
+}
+
+.orb-magenta {
+  background: radial-gradient(circle, var(--color-magenta), transparent);
+  box-shadow: 0 0 40px var(--color-magenta-faint);
+}
+
+/* Dark mode: brighter orbs */
+[data-theme="dark"] .orb {
+  opacity: 0.4;
+}
+
+/* ============================================
+   ACCESSIBILITY: REDUCED MOTION
+   ============================================ */
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  /* Substrate stays visible, but no animation */
+  .lab-field-substrate {
+    animation: none;
+    filter: blur(60px) brightness(1);
+    transform: scale(1);
+  }
+
+  /* Orbs stay visible but don't move (JavaScript will respect this too) */
+  .orb {
+    animation: none !important;
+  }
+}
+
+/* ============================================
+   MOBILE OPTIMIZATIONS
+   ============================================ */
+
+/* Reduce complexity on smaller screens */
+@media (max-width: 768px) {
+  .lab-field-substrate {
+    opacity: 0.4;
+  }
+
+  [data-theme="dark"] .lab-field-substrate {
+    opacity: 0.3;
+  }
+
+  /* Fewer/smaller orbs on mobile (handled by JavaScript) */
+  .orb {
+    opacity: 0.2;
+  }
+}

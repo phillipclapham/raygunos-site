@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="RAYGUN OS - A complete cognitive operating system for experiment-driven minds. 45 years of experiments, now open-sourced.">
-  <title>RAYGUN OS - Coming Soon</title>
+  <title>RAYGUN OS - Cognitive Operating System</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="16x16" href="assets/images/raygun_original_clear 16x16.png">
@@ -16,144 +16,67 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- Design System -->
+  <!-- Design System & Styles -->
   <link rel="stylesheet" href="styles/tokens.css">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: var(--font-body);
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: var(--space-4);
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    .container {
-      text-align: center;
-      max-width: 600px;
-    }
-
-    .raygun-icon {
-      width: 120px;
-      height: 120px;
-      margin: 0 auto var(--space-6);
-      filter: drop-shadow(0 0 20px var(--color-orange-faint));
-    }
-
-    h1 {
-      font-family: var(--font-heading);
-      font-size: 3.5rem;
-      font-weight: 800;
-      color: var(--color-orange);
-      margin-bottom: var(--space-4);
-      letter-spacing: -0.02em;
-    }
-
-    .tagline {
-      font-size: 1.25rem;
-      color: var(--text-secondary);
-      margin-bottom: var(--space-6);
-      line-height: 1.6;
-    }
-
-    .status {
-      font-family: var(--font-mono);
-      font-size: 0.875rem;
-      color: var(--text-tertiary);
-      padding: var(--space-2) var(--space-4);
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-md);
-      display: inline-block;
-      margin-bottom: var(--space-8);
-    }
-
-    .status::before {
-      content: '⚡';
-      margin-right: var(--space-2);
-    }
-
-    .coming-soon {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      margin-top: var(--space-8);
-    }
-
-    .theme-toggle {
-      position: fixed;
-      top: var(--space-4);
-      right: var(--space-4);
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-full);
-      padding: var(--space-2) var(--space-3);
-      cursor: pointer;
-      font-size: 0.875rem;
-      color: var(--text-secondary);
-      transition: all 0.2s ease;
-    }
-
-    .theme-toggle:hover {
-      background: var(--bg-hover);
-      border-color: var(--color-orange);
-      color: var(--color-orange);
-    }
-
-    @media (max-width: 640px) {
-      h1 {
-        font-size: 2.5rem;
-      }
-
-      .tagline {
-        font-size: 1.125rem;
-      }
-
-      .raygun-icon {
-        width: 80px;
-        height: 80px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles/lab-field.css">
+  <link rel="stylesheet" href="styles/hero.css">
+  <link rel="stylesheet" href="styles/effects.css">
 </head>
 <body>
+  <!-- Lab Field Background Layers -->
+  <div class="lab-field-substrate" aria-hidden="true"></div>
+  <div class="lab-field-orbs" aria-hidden="true"></div>
+
   <!-- Theme Toggle -->
-  <button class="theme-toggle" onclick="toggleTheme()">
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
     <span id="theme-icon">🌙</span>
   </button>
 
-  <!-- Main Content -->
-  <div class="container">
-    <img src="assets/images/raygun_original_clear.png" alt="RAYGUN OS" class="raygun-icon">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <!-- Raygun Icon with Treatment -->
+      <div class="raygun-container">
+        <img src="assets/images/raygun_original_clear.png" alt="RAYGUN OS" class="raygun-icon">
+      </div>
 
-    <h1>RAYGUN OS</h1>
+      <!-- Hero Headline -->
+      <h1 class="hero-headline">
+        Stop trying to fix your brain.
+        <span class="break">Start using how it <span class="glow-word">actually works</span>.</span>
+      </h1>
 
-    <p class="tagline">
-      Mad scientist laboratory loading...
-    </p>
+      <!-- Hero Subheading -->
+      <p class="hero-subheading">
+        45 years of <span class="glow-word">experiments</span> with minds that are <span class="glow-word glow-word-emphasis">ALIVE</span>.
+      </p>
 
-    <div class="status">
-      Design system locked → Infrastructure deploying
+      <!-- CTA Button -->
+      <a href="#framework" class="cta-button">
+        <span class="cta-arrow">→</span> Enter the Lab
+      </a>
     </div>
+  </section>
 
-    <p class="coming-soon">
-      A complete cognitive operating system for experiment-driven minds.<br>
-      45 years of experiments, now open-sourced.
-    </p>
-  </div>
+  <!-- Placeholder section for scroll testing -->
+  <section id="framework" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--bg-secondary);">
+    <div style="text-align: center; padding: var(--space-8);">
+      <h2 style="font-family: var(--font-heading); font-size: 2.5rem; color: var(--color-orange); margin-bottom: var(--space-4);">
+        Framework Coming Soon
+      </h2>
+      <p style="font-family: var(--font-body); color: var(--text-secondary); font-size: 1.125rem;">
+        Session 3: Building the hero section
+      </p>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="scripts/lab-field.js"></script>
+  <script src="scripts/experiment-orbs.js"></script>
+  <script src="scripts/word-glow.js"></script>
 
   <script>
-    // Simple dark mode toggle
+    // Theme toggle (keep from Session 2)
     function toggleTheme() {
       const html = document.documentElement;
       const currentTheme = html.getAttribute('data-theme');
