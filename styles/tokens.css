@@ -262,7 +262,7 @@
    DARK MODE OVERRIDES
    ============================================ */
 
-body.dark-mode {
+[data-theme="dark"] {
   /* ==================== COLORS ==================== */
 
   /* Primary text colors */

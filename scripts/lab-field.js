@@ -35,8 +35,8 @@
 
       // Random size (smaller on mobile)
       const size = isMobile
-        ? 60 + Math.random() * 40  // 60-100px on mobile
-        : 80 + Math.random() * 100; // 80-180px on desktop
+        ? 100 + Math.random() * 80  // 100-180px on mobile
+        : 150 + Math.random() * 150; // 150-300px on desktop
 
       // Random starting position
       const x = 10 + Math.random() * 80; // 10-90% from left
