@@ -90,9 +90,9 @@
   box-shadow: 0 0 40px var(--color-magenta-faint);
 }
 
-/* Dark mode: brighter orbs */
+/* Dark mode: more subtle against dark background */
 [data-theme="dark"] .orb {
-  opacity: 0.6; /* Increased from 0.4 for visibility */
+  opacity: 0.45; /* Balanced - visible but not overwhelming */
 }
 
 /* ============================================
