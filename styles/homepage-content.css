@@ -157,33 +157,34 @@
   }
 }
 
-/* VISIBLE rising energy bubbles - like lab experiments with color spectrum */
+/* Rising energy bubbles - organic dual layer approach */
 .quote-section::after {
   content: '';
   position: absolute;
   inset: 0;
-  /* 6 layers for gapless coverage, color spectrum: orange → gold → amber → warm orange */
+  /* Layer 1: Large lazy bubbles (10-12px) - sparse, majestic drift */
   background-image:
-    radial-gradient(circle, rgba(230, 126, 34, 0.3) 3px, transparent 3px),
-    radial-gradient(circle, rgba(218, 165, 32, 0.28) 2px, transparent 2px),
-    radial-gradient(circle, rgba(255, 191, 0, 0.25) 4px, transparent 4px),
-    radial-gradient(circle, rgba(255, 159, 71, 0.3) 3px, transparent 3px),
-    radial-gradient(circle, rgba(184, 134, 11, 0.32) 2px, transparent 2px),
-    radial-gradient(circle, rgba(243, 156, 18, 0.28) 3px, transparent 3px);
-  background-size: 60px 100px, 85px 130px, 70px 110px, 95px 150px, 75px 120px, 110px 170px;
-  /* All Y positions within their repeat cycle (no gaps!) */
-  background-position: 0 0, 35px 45px, 15px 30px, 50px 70px, 25px 50px, 60px 85px;
-  animation: particlesRise 18s linear infinite, energyGlitch 7s ease-in-out infinite;
+    radial-gradient(circle, rgba(230, 126, 34, 0.25) 10px, transparent 10px),
+    radial-gradient(circle, rgba(255, 159, 71, 0.23) 12px, transparent 12px),
+    /* Layer 2: Medium active bubbles (5-7px) - gold/amber spectrum */
+    radial-gradient(circle, rgba(218, 165, 32, 0.28) 6px, transparent 6px),
+    radial-gradient(circle, rgba(255, 191, 0, 0.26) 5px, transparent 5px),
+    radial-gradient(circle, rgba(243, 156, 18, 0.27) 7px, transparent 7px);
+  /* Large tiles reduce repetition visibility, different aspects prevent moiré */
+  background-size: 280px 200px, 320px 180px, 190px 140px, 210px 150px, 170px 130px;
+  /* Sparse organic placement - gaps are natural */
+  background-position: 40px 60px, 180px 110px, 25px 45px, 110px 80px, 75px 35px;
+  animation: organicRise 20s linear infinite, energyGlitch 9s ease-in-out infinite;
   pointer-events: none;
 }
 
-@keyframes particlesRise {
+@keyframes organicRise {
   0% {
-    background-position: 0 0, 35px 45px, 15px 30px, 50px 70px, 25px 50px, 60px 85px;
+    background-position: 40px 60px, 180px 110px, 25px 45px, 110px 80px, 75px 35px;
   }
   100% {
-    /* Exact multiples: 6×100, 4×130, 5×110, 4×150, 5×120, 3×170 = gapless loop */
-    background-position: 0 -600px, 35px -520px, 15px -550px, 50px -600px, 25px -600px, 60px -510px;
+    /* Clean cycles: 3×200, 3×180, 4×140, 4×150, 5×130 */
+    background-position: 40px -540px, 180px -540px, 25px -560px, 110px -600px, 75px -650px;
   }
 }
 
