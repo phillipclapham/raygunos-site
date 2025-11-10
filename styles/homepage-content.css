@@ -59,49 +59,24 @@
 
 /* Panel Icons */
 .panel-icon {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   margin: 0 auto var(--space-6);
-  color: var(--color-orange);
   filter: drop-shadow(0 0 8px var(--glow-orange));
   transition: all var(--duration-normal) var(--ease-out);
+}
+
+.panel-icon .icon-pixel-art {
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 .panel:hover .panel-icon {
   transform: scale(1.1);
   filter: drop-shadow(0 0 16px var(--glow-orange));
-}
-
-/* Icon-specific animations */
-.icon-flask .bubble {
-  animation: bubbleRise 3s infinite ease-in-out;
-}
-
-.icon-flask .bubble-1 { animation-delay: 0s; }
-.icon-flask .bubble-2 { animation-delay: 1s; }
-.icon-flask .bubble-3 { animation-delay: 2s; }
-
-@keyframes bubbleRise {
-  0%, 100% { transform: translateY(0); opacity: 0.6; }
-  50% { transform: translateY(-15px); opacity: 0.3; }
-}
-
-.icon-brain {
-  animation: breathe 4s infinite ease-in-out;
-}
-
-@keyframes breathe {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-
-.icon-network circle:first-child {
-  animation: networkPulse 3s infinite ease-in-out;
-}
-
-@keyframes networkPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.1); }
 }
 
 /* Panel Typography */
