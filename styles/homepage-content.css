@@ -41,14 +41,14 @@
   transform: none;
 }
 
-/* JS adds .reveal class to hide initially */
-.panel.reveal {
+/* Only hide if JS is enabled AND element needs revealing */
+.js-enabled .panel.reveal {
   opacity: 0;
   transform: translateY(30px);
 }
 
-/* Then adds .visible to animate in */
-.panel.reveal.visible {
+/* Animate when visible (works with or without .reveal) */
+.js-enabled .panel.reveal.visible {
   animation: fadeSlideIn var(--duration-slow) var(--ease-out) forwards;
 }
 
@@ -148,12 +148,12 @@
   transform: none;
 }
 
-.pull-quote.reveal {
+.js-enabled .pull-quote.reveal {
   opacity: 0;
   transform: translateY(30px);
 }
 
-.pull-quote.reveal.visible {
+.js-enabled .pull-quote.reveal.visible {
   animation: fadeSlideIn var(--duration-slow) var(--ease-out) forwards;
 }
 
@@ -199,12 +199,12 @@
   transform: none;
 }
 
-.section-title.reveal {
+.js-enabled .section-title.reveal {
   opacity: 0;
   transform: translateY(30px);
 }
 
-.section-title.reveal.visible {
+.js-enabled .section-title.reveal.visible {
   animation: fadeSlideIn var(--duration-slow) var(--ease-out) forwards;
 }
 
@@ -234,12 +234,12 @@
   max-width: 380px;
 }
 
-.principle-card.reveal {
+.js-enabled .principle-card.reveal {
   opacity: 0;
   transform: translateY(30px);
 }
 
-.principle-card.reveal.visible {
+.js-enabled .principle-card.reveal.visible {
   animation: fadeSlideIn var(--duration-slow) var(--ease-out) forwards;
 }
 
@@ -283,12 +283,12 @@
   transform: none;
 }
 
-.framework-cta.reveal {
+.js-enabled .framework-cta.reveal {
   opacity: 0;
   transform: translateY(30px);
 }
 
-.framework-cta.reveal.visible {
+.js-enabled .framework-cta.reveal.visible {
   animation: fadeSlideIn var(--duration-slow) var(--ease-out) forwards;
   animation-delay: 0.6s;
 }
