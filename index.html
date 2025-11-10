@@ -319,14 +319,22 @@
   <script src="scripts/scroll-reveals.js"></script>
 
   <script>
-    // Update planet image based on theme
+    // Update planet image based on theme with smooth transition
     function updatePlanetImage(theme) {
       const planetImg = document.getElementById('planet-image');
-      if (planetImg) {
+      if (!planetImg) return;
+
+      // Fade out
+      planetImg.style.opacity = '0';
+
+      // Swap image after fade
+      setTimeout(() => {
         planetImg.src = theme === 'dark'
-          ? 'assets/images/alien-planet.png'
+          ? 'assets/images/alien-planet2.png'
           : 'assets/images/planet-earth.png';
-      }
+        // Fade back in
+        planetImg.style.opacity = '0.7';
+      }, 300); // Half of transition duration
     }
 
     // Theme toggle (keep from Session 2)

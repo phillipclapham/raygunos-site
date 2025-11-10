@@ -11,22 +11,24 @@
 .raygun-divider-section {
   position: relative;
   overflow: hidden;
-  /* Light mode: Subtle dimension, dark with slight variations */
+  /* Light mode: Visible dimension - lighter blue-gray center */
   background: radial-gradient(
     ellipse at 50% 40%,
-    #0f1420 0%,
-    #0a0e1a 40%,
-    #060810 100%
+    #3a4560 0%,
+    #1a2535 30%,
+    #0a0f1a 60%,
+    #000000 100%
   );
 }
 
 [data-theme="dark"] .raygun-divider-section {
-  /* Dark mode: Deep blue hues for depth */
+  /* Dark mode: Deep blue with visible depth */
   background: radial-gradient(
     ellipse at 50% 40%,
-    #0d1520 0%,
-    #070b15 40%,
-    #020408 100%
+    #2a4268 0%,
+    #1a2845 30%,
+    #0a1020 60%,
+    #000000 100%
   );
 }
 
@@ -159,6 +161,7 @@
   image-rendering: pixelated; /* Crisp pixel art */
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
+  transition: opacity 0.6s ease-in-out;
 }
 
 [data-theme="dark"] .space-planet {
