@@ -1,0 +1,206 @@
+/**
+ * Space Background for Raygun Divider
+ * Hybrid: Star field + perspective grid + distant planet
+ * Theme-reactive, animated
+ */
+
+/* ============================================
+   CONTAINER
+   ============================================ */
+
+.raygun-divider-section {
+  position: relative;
+  overflow: hidden;
+  background: var(--space-bg);
+}
+
+/* Theme-reactive space background colors */
+:root {
+  --space-bg: #0a0e1a; /* Dark blue-black */
+  --space-grid: rgba(255, 159, 71, 0.2); /* Orange grid */
+  --space-star: #ffffff;
+  --space-planet: rgba(255, 159, 71, 0.3); /* Orange glow */
+}
+
+[data-theme="dark"] {
+  --space-bg: #000000; /* Pure black */
+  --space-grid: rgba(243, 156, 18, 0.3); /* Brighter orange grid */
+  --space-star: #ffffff;
+  --space-planet: rgba(243, 156, 18, 0.4); /* Brighter orange glow */
+}
+
+/* ============================================
+   STAR FIELD
+   ============================================ */
+
+.space-stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Layer 1: Small stars (far away) */
+.space-stars::before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow:
+    147px 223px var(--space-star),
+    721px 389px var(--space-star),
+    321px 147px var(--space-star),
+    891px 512px var(--space-star),
+    467px 89px var(--space-star),
+    612px 334px var(--space-star),
+    234px 478px var(--space-star),
+    789px 123px var(--space-star),
+    456px 567px var(--space-star),
+    923px 234px var(--space-star),
+    178px 401px var(--space-star),
+    534px 678px var(--space-star),
+    890px 445px var(--space-star),
+    267px 612px var(--space-star),
+    745px 178px var(--space-star),
+    398px 289px var(--space-star),
+    623px 501px var(--space-star),
+    134px 334px var(--space-star),
+    867px 567px var(--space-star),
+    412px 123px var(--space-star),
+    678px 445px var(--space-star),
+    201px 289px var(--space-star),
+    534px 90px var(--space-star),
+    789px 612px var(--space-star),
+    345px 234px var(--space-star);
+  animation: twinkle 3s infinite ease-in-out;
+}
+
+/* Layer 2: Medium stars (mid-distance) */
+.space-stars::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: transparent;
+  box-shadow:
+    412px 156px var(--space-star),
+    623px 478px var(--space-star),
+    234px 89px var(--space-star),
+    845px 312px var(--space-star),
+    567px 234px var(--space-star),
+    123px 501px var(--space-star),
+    789px 178px var(--space-star),
+    456px 423px var(--space-star),
+    890px 556px var(--space-star),
+    201px 289px var(--space-star),
+    678px 90px var(--space-star),
+    345px 612px var(--space-star),
+    512px 367px var(--space-star),
+    734px 445px var(--space-star),
+    289px 534px var(--space-star);
+  animation: twinkle 4s infinite ease-in-out 0.5s;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.3; }
+}
+
+/* ============================================
+   PERSPECTIVE GRID
+   ============================================ */
+
+.space-grid {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.6;
+  mix-blend-mode: screen;
+}
+
+.space-grid svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Animate grid slowly moving */
+.space-grid {
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(50px); }
+}
+
+/* ============================================
+   DISTANT PLANET
+   ============================================ */
+
+.space-planet {
+  position: absolute;
+  bottom: 20%;
+  right: 10%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%,
+    rgba(255, 200, 100, 0.3),
+    rgba(255, 159, 71, 0.2),
+    transparent 70%);
+  filter: blur(2px);
+  z-index: 1;
+  pointer-events: none;
+  animation: planetGlow 6s ease-in-out infinite;
+}
+
+@keyframes planetGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+/* Mobile: smaller planet, simpler */
+@media (max-width: 768px) {
+  .space-planet {
+    width: 60px;
+    height: 60px;
+    bottom: 15%;
+    right: 5%;
+  }
+
+  /* Disable animations on mobile for performance */
+  .space-stars::before,
+  .space-stars::after {
+    animation: none;
+  }
+
+  .space-grid {
+    animation: none;
+  }
+
+  .space-planet {
+    animation: none;
+    opacity: 0.6;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .space-stars::before,
+  .space-stars::after,
+  .space-grid,
+  .space-planet {
+    animation: none !important;
+  }
+}
