@@ -91,12 +91,14 @@
     // Always run activation animation, even if already activated
     // Remove any existing classes first for clean re-trigger
     brainTarget.classList.remove('activated', 'active');
+    brainContainer.classList.remove('bursting');
 
     // Force reflow to restart animation
     void brainTarget.offsetWidth;
 
     // Trigger activation animation
     brainTarget.classList.add('activated');
+    brainContainer.classList.add('bursting');
     brainActivated = true;
 
     // After activation animation, switch to sustained breathing
@@ -104,6 +106,11 @@
       brainTarget.classList.remove('activated');
       brainTarget.classList.add('active');
     }, 800);
+
+    // Remove burst class after animation completes
+    setTimeout(() => {
+      brainContainer.classList.remove('bursting');
+    }, 1400);
   }
 
   /**
@@ -138,13 +145,31 @@
   }
 
   /**
-   * Fire laser on page load
+   * Fire laser when divider enters viewport (Intersection Observer)
    */
-  function fireOnPageLoad() {
-    // Wait for page to settle, then fire
-    setTimeout(() => {
-      fireLaser();
-    }, 500);
+  function setupViewportFiring() {
+    const dividerSection = document.querySelector('.raygun-divider-section');
+    if (!dividerSection) return;
+
+    let hasFired = false; // Only fire once
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !hasFired) {
+          hasFired = true;
+          // Small delay to let section settle
+          setTimeout(() => {
+            fireLaser();
+          }, 300);
+          // Stop observing after first fire
+          observer.unobserve(dividerSection);
+        }
+      });
+    }, {
+      threshold: 0.3 // Fire when 30% of section is visible
+    });
+
+    observer.observe(dividerSection);
   }
 
   /**
@@ -202,16 +227,25 @@
     });
   }
 
+  // Fade in brain once image loads
+  if (brainTarget.complete) {
+    brainTarget.classList.add('loaded');
+  } else {
+    brainTarget.addEventListener('load', () => {
+      brainTarget.classList.add('loaded');
+    });
+  }
+
   // Initialize on DOM load
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
-      fireOnPageLoad();
+      setupViewportFiring(); // Fire when visible, not on page load
       setupThemeToggle();
       setupBrainClick();
     });
   } else {
     // DOM already loaded
-    fireOnPageLoad();
+    setupViewportFiring(); // Fire when visible, not on page load
     setupThemeToggle();
     setupBrainClick();
   }
