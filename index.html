@@ -114,7 +114,7 @@
       </svg>
     </div>
     <div class="space-planet" aria-hidden="true">
-      <img src="assets/images/planet-earth.png" alt="" />
+      <img id="planet-image" src="assets/images/planet-earth.png" alt="" />
     </div>
 
     <!-- Raygun and Laser (foreground) -->
@@ -319,6 +319,16 @@
   <script src="scripts/scroll-reveals.js"></script>
 
   <script>
+    // Update planet image based on theme
+    function updatePlanetImage(theme) {
+      const planetImg = document.getElementById('planet-image');
+      if (planetImg) {
+        planetImg.src = theme === 'dark'
+          ? 'assets/images/alien-planet.png'
+          : 'assets/images/planet-earth.png';
+      }
+    }
+
     // Theme toggle (keep from Session 2)
     function toggleTheme() {
       const html = document.documentElement;
@@ -329,6 +339,9 @@
       html.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
       icon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+
+      // Swap planet image
+      updatePlanetImage(newTheme);
     }
 
     // Initialize theme from localStorage
@@ -337,6 +350,9 @@
       const icon = document.getElementById('theme-icon');
       document.documentElement.setAttribute('data-theme', savedTheme);
       icon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+      // Set initial planet image
+      updatePlanetImage(savedTheme);
     })();
   </script>
 </body>

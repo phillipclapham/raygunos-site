@@ -11,11 +11,23 @@
 .raygun-divider-section {
   position: relative;
   overflow: hidden;
-  background: #0a0e1a; /* Dark blue-black */
+  /* Light mode: Subtle dimension, dark with slight variations */
+  background: radial-gradient(
+    ellipse at 50% 40%,
+    #0f1420 0%,
+    #0a0e1a 40%,
+    #060810 100%
+  );
 }
 
 [data-theme="dark"] .raygun-divider-section {
-  background: #000000; /* Pure black */
+  /* Dark mode: Deep blue hues for depth */
+  background: radial-gradient(
+    ellipse at 50% 40%,
+    #0d1520 0%,
+    #070b15 40%,
+    #020408 100%
+  );
 }
 
 /* REMOVED: Using direct values instead of undefined variables */
