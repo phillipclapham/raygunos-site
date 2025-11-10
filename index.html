@@ -23,6 +23,16 @@
   <link rel="stylesheet" href="styles/effects.css?v=5">
   <link rel="stylesheet" href="styles/laser-divider.css?v=5">
   <link rel="stylesheet" href="styles/homepage-content.css?v=5">
+
+  <!-- Fallback: Make content visible if JS doesn't load -->
+  <noscript>
+    <style>
+      .panel, .pull-quote, .section-title, .principle-card, .framework-cta {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    </style>
+  </noscript>
 </head>
 <body>
   <!-- Lab Field Background Layers -->

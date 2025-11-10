@@ -36,19 +36,13 @@
   border-radius: var(--radius-md);
   background: var(--bg-secondary);
   transition: all var(--duration-normal) var(--ease-out);
-  /* Default: visible (progressive enhancement) */
-  opacity: 1;
-  transform: none;
-}
-
-/* Only hide if JS is enabled AND element needs revealing */
-.js-enabled .panel.reveal {
+  /* Start hidden for animation */
   opacity: 0;
   transform: translateY(30px);
 }
 
-/* Animate when visible (works with or without .reveal) */
-.js-enabled .panel.reveal.visible {
+/* Animate when visible */
+.panel.is-visible {
   animation: fadeSlideIn var(--duration-slow) var(--ease-out) forwards;
 }
 
@@ -143,17 +137,12 @@
   margin: 0 auto;
   max-width: 800px;
   text-align: center;
-  /* Default: visible (progressive enhancement) */
-  opacity: 1;
-  transform: none;
-}
-
-.js-enabled .pull-quote.reveal {
+  /* Start hidden for animation */
   opacity: 0;
   transform: translateY(30px);
 }
 
-.js-enabled .pull-quote.reveal.visible {
+.pull-quote.is-visible {
   animation: fadeSlideIn var(--duration-slow) var(--ease-out) forwards;
 }
 
@@ -194,17 +183,12 @@
   position: relative;
   display: inline-block;
   width: 100%;
-  /* Default: visible (progressive enhancement) */
-  opacity: 1;
-  transform: none;
-}
-
-.js-enabled .section-title.reveal {
+  /* Start hidden for animation */
   opacity: 0;
   transform: translateY(30px);
 }
 
-.js-enabled .section-title.reveal.visible {
+.section-title.is-visible {
   animation: fadeSlideIn var(--duration-slow) var(--ease-out) forwards;
 }
 
@@ -225,21 +209,16 @@
   border-radius: var(--radius-md);
   background: var(--bg-secondary);
   transition: all var(--duration-normal) var(--ease-out);
-  /* Default: visible (progressive enhancement) */
-  opacity: 1;
-  transform: none;
+  /* Start hidden for animation */
+  opacity: 0;
+  transform: translateY(30px);
   /* Flexbox sizing: 3 per row on desktop, 2 centered on second row */
   flex: 1 1 calc(33.333% - var(--space-6));
   min-width: 320px;
   max-width: 380px;
 }
 
-.js-enabled .principle-card.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.js-enabled .principle-card.reveal.visible {
+.principle-card.is-visible {
   animation: fadeSlideIn var(--duration-slow) var(--ease-out) forwards;
 }
 
@@ -278,17 +257,12 @@
 .framework-cta {
   text-align: center;
   margin-top: var(--space-16);
-  /* Default: visible (progressive enhancement) */
-  opacity: 1;
-  transform: none;
-}
-
-.js-enabled .framework-cta.reveal {
+  /* Start hidden for animation */
   opacity: 0;
   transform: translateY(30px);
 }
 
-.js-enabled .framework-cta.reveal.visible {
+.framework-cta.is-visible {
   animation: fadeSlideIn var(--duration-slow) var(--ease-out) forwards;
   animation-delay: 0.6s;
 }
