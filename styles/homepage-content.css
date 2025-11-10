@@ -123,7 +123,7 @@
    ============================================ */
 
 .quote-section {
-  padding: 128px 0;
+  padding: var(--space-20) 0;
   background: var(--bg-secondary);
   position: relative;
   overflow: hidden;
@@ -278,7 +278,7 @@
    ============================================ */
 
 .principles-section {
-  padding: 128px 0 128px 0;
+  padding: var(--space-20) 0;
   background: var(--bg-primary);
   position: relative;
 }
