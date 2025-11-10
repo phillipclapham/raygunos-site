@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="styles/hero.css?v=5">
   <link rel="stylesheet" href="styles/effects.css?v=5">
   <link rel="stylesheet" href="styles/laser-divider.css?v=5">
+  <link rel="stylesheet" href="styles/homepage-content.css?v=5">
 </head>
 <body>
   <!-- Lab Field Background Layers -->
@@ -115,15 +116,148 @@
     </div>
   </div>
 
-  <!-- Placeholder section for scroll testing -->
-  <section id="framework" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--bg-secondary);">
-    <div style="text-align: center; padding: var(--space-8);">
-      <h2 style="font-family: var(--font-heading); font-size: 2.5rem; color: var(--color-orange); margin-bottom: var(--space-4);">
-        Framework Coming Soon
-      </h2>
-      <p style="font-family: var(--font-body); color: var(--text-secondary); font-size: 1.125rem;">
-        Session 3: Building the hero section
-      </p>
+  <!-- What This Is - Three Panel Section -->
+  <section class="what-section">
+    <div class="container">
+      <div class="panels-grid">
+        <!-- Panel 1: Flask - 45 Years -->
+        <div class="panel">
+          <div class="panel-icon">
+            <svg viewBox="0 0 100 100" class="icon-flask">
+              <path d="M35,15 L35,35 L25,65 Q20,75 25,85 Q30,95 50,95 Q70,95 75,85 Q80,75 75,65 L65,35 L65,15 Z"
+                    stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <line x1="30" y1="15" x2="70" y2="15" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="45" cy="70" r="4" fill="currentColor" opacity="0.6" class="bubble bubble-1"/>
+              <circle cx="55" cy="75" r="3" fill="currentColor" opacity="0.5" class="bubble bubble-2"/>
+              <circle cx="50" cy="60" r="3.5" fill="currentColor" opacity="0.7" class="bubble bubble-3"/>
+            </svg>
+          </div>
+          <h3 class="panel-title">45 Years of Experiments</h3>
+          <p class="panel-description">
+            Not theory. Not borrowed frameworks. Pure experimentation with minds that run on <span class="glow-word">fascination</span>.
+            Tested through building PM in 3 months, FlowScript in 4 days, and every project in between.
+          </p>
+        </div>
+
+        <!-- Panel 2: Brain - Cognitive Architecture -->
+        <div class="panel">
+          <div class="panel-icon">
+            <svg viewBox="0 0 100 100" class="icon-brain">
+              <path d="M30,40 Q25,35 25,30 Q25,20 35,20 Q40,20 45,25 Q50,15 60,15 Q70,15 75,22 Q80,15 85,20 Q90,25 88,35 Q90,45 85,50 Q88,60 82,70 Q78,78 70,80 L65,85 Q60,88 55,85 L50,82 Q45,88 40,85 L35,80 Q28,78 24,70 Q18,60 20,50 Q15,45 18,38 Q20,35 25,35"
+                    stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M45,35 Q50,40 55,35 M40,50 Q45,55 50,52 M55,52 Q60,55 65,50"
+                    stroke="currentColor" stroke-width="2" fill="none" opacity="0.4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="panel-title">Complete Cognitive Architecture</h3>
+          <p class="panel-description">
+            How your brain actually <span class="glow-word">filters reality</span>, frames meaning, and operates in modes.
+            Grounded in neuroscience. Honest about what's proven vs. hypothesis. Built for people who think experimentally.
+          </p>
+        </div>
+
+        <!-- Panel 3: Network - Operating System -->
+        <div class="panel">
+          <div class="panel-icon">
+            <svg viewBox="0 0 100 100" class="icon-network">
+              <circle cx="50" cy="50" r="8" stroke="currentColor" stroke-width="2.5" fill="none"/>
+              <circle cx="25" cy="25" r="6" stroke="currentColor" stroke-width="2.5" fill="none"/>
+              <circle cx="75" cy="25" r="6" stroke="currentColor" stroke-width="2.5" fill="none"/>
+              <circle cx="25" cy="75" r="6" stroke="currentColor" stroke-width="2.5" fill="none"/>
+              <circle cx="75" cy="75" r="6" stroke="currentColor" stroke-width="2.5" fill="none"/>
+              <circle cx="50" cy="15" r="5" stroke="currentColor" stroke-width="2.5" fill="none"/>
+              <circle cx="85" cy="50" r="5" stroke="currentColor" stroke-width="2.5" fill="none"/>
+              <line x1="50" y1="42" x2="50" y2="20" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+              <line x1="46" y1="46" x2="29" y2="29" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+              <line x1="54" y1="46" x2="71" y2="29" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+              <line x1="46" y1="54" x2="29" y2="71" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+              <line x1="54" y1="54" x2="71" y2="71" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+              <line x1="58" y1="50" x2="80" y2="50" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+            </svg>
+          </div>
+          <h3 class="panel-title">Your Mind's Operating System</h3>
+          <p class="panel-description">
+            Not a productivity tool. Not about doing more. This is permission to work how your brain <span class="glow-word">actually functions</span>—shifting
+            from depleting grind mode to energizing experiment mode.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pull Quote Section -->
+  <section class="quote-section">
+    <div class="container">
+      <blockquote class="pull-quote">
+        <p class="quote-text">
+          Mad science isn't a productivity system.<br>
+          It's the <span class="glow-word">antidote</span> to one.<br>
+          You're not broken. You don't need optimized.<br>
+          This is about being <span class="glow-word glow-word-emphasis">ALIVE</span> again—fascinated, experimenting, engaged.
+        </p>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Framework Preview - Principle Cards -->
+  <section id="framework" class="principles-section">
+    <div class="container">
+      <h2 class="section-title">The Core Principles</h2>
+
+      <div class="principles-grid">
+        <!-- Card 1: Meta-Perception -->
+        <div class="principle-card">
+          <h3 class="card-title">Meta-Perception</h3>
+          <p class="card-description">
+            The foundation. Sustained awareness of your cognitive processes <span class="glow-word">while they're happening</span>.
+            Not thinking about thinking afterward—observing thoughts as they arise, in real-time. Your brain isn't you. It's equipment you're learning to operate.
+          </p>
+        </div>
+
+        <!-- Card 2: Frame-Selection Point -->
+        <div class="principle-card">
+          <h3 class="card-title">The Frame-Selection Point</h3>
+          <p class="card-description">
+            Between automatic reaction and conscious action lives a transition point where <span class="glow-word">choice happens</span>.
+            Through practice, you develop awareness at this space—where you can consciously intervene and select frames as experiments.
+          </p>
+        </div>
+
+        <!-- Card 3: Frames as Experiments -->
+        <div class="principle-card">
+          <h3 class="card-title">Frames as Experiments</h3>
+          <p class="card-description">
+            Not truth claims to defend. Not beliefs to commit to. <span class="glow-word">Experimental variables</span> to test.
+            What happens if I use this frame? You can hold contradictory perspectives without dissonance—they're experiments, not truths.
+          </p>
+        </div>
+
+        <!-- Card 4: The Dual State -->
+        <div class="principle-card">
+          <h3 class="card-title">The Dual State</h3>
+          <p class="card-description">
+            Engaged experimenter AND detached observer <span class="glow-word">simultaneously</span>.
+            Obsessed with the work, willing to destroy it if data says so. Fascinated by emergence, detached from outcomes. These aren't opposites—they're entangled.
+          </p>
+        </div>
+
+        <!-- Card 5: Fascination as Guide -->
+        <div class="principle-card">
+          <h3 class="card-title">Fascination as Guide</h3>
+          <p class="card-description">
+            Not productivity. Not optimization. Not grinding toward goals. Follow what's <span class="glow-word">fascinating</span> and fun emerges from engagement.
+            Being ALIVE is the point. Results are side effects.
+          </p>
+        </div>
+      </div>
+
+      <!-- CTA to Framework -->
+      <div class="framework-cta">
+        <a href="framework.html" class="cta-button">
+          <span class="cta-arrow">→</span> Explore the Full Framework
+        </a>
+        <p class="cta-subtext">18,000 words • Evidence-tagged • Complete architecture</p>
+      </div>
     </div>
   </section>
 
@@ -132,6 +266,8 @@
   <script src="scripts/experiment-orbs.js"></script>
   <script src="scripts/word-glow.js"></script>
   <script src="scripts/laser-divider.js"></script>
+  <script src="scripts/scribble-underlines.js"></script>
+  <script src="scripts/scroll-reveals.js"></script>
 
   <script>
     // Theme toggle (keep from Session 2)

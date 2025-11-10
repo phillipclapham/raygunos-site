@@ -1,0 +1,385 @@
+/**
+ * Homepage Content Sections - Session 5
+ * Three panels, pull quote, principle cards
+ */
+
+/* ============================================
+   CONTAINER & BASE LAYOUT
+   ============================================ */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* ============================================
+   SECTION: THREE PANELS (What This Is)
+   ============================================ */
+
+.what-section {
+  padding: var(--space-20) 0;
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.panels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-8);
+  margin: 0 auto;
+}
+
+.panel {
+  padding: var(--space-8);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  transition: all var(--duration-normal) var(--ease-out);
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.panel.visible {
+  animation: fadeSlideIn var(--duration-slow) var(--ease-out) forwards;
+}
+
+/* Staggered animation delays */
+.panel:nth-child(1) { animation-delay: 0.1s; }
+.panel:nth-child(2) { animation-delay: 0.3s; }
+.panel:nth-child(3) { animation-delay: 0.5s; }
+
+.panel:hover {
+  transform: translateY(-8px);
+  border-color: var(--color-orange);
+  box-shadow: 0 12px 40px rgba(230, 126, 34, 0.15);
+}
+
+/* Panel Icons */
+.panel-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--space-6);
+  color: var(--color-orange);
+  filter: drop-shadow(0 0 8px var(--glow-orange));
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.panel:hover .panel-icon {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 16px var(--glow-orange));
+}
+
+/* Icon-specific animations */
+.icon-flask .bubble {
+  animation: bubbleRise 3s infinite ease-in-out;
+}
+
+.icon-flask .bubble-1 { animation-delay: 0s; }
+.icon-flask .bubble-2 { animation-delay: 1s; }
+.icon-flask .bubble-3 { animation-delay: 2s; }
+
+@keyframes bubbleRise {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(-15px); opacity: 0.3; }
+}
+
+.icon-brain {
+  animation: breathe 4s infinite ease-in-out;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.icon-network circle:first-child {
+  animation: networkPulse 3s infinite ease-in-out;
+}
+
+@keyframes networkPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.1); }
+}
+
+/* Panel Typography */
+.panel-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 2vw, 1.75rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+  text-align: center;
+  position: relative;
+}
+
+.panel-description {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* ============================================
+   SECTION: PULL QUOTE
+   ============================================ */
+
+.quote-section {
+  padding: var(--space-24) 0;
+  background: var(--bg-secondary);
+  position: relative;
+}
+
+.pull-quote {
+  margin: 0 auto;
+  max-width: 800px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.pull-quote.visible {
+  animation: fadeSlideIn var(--duration-slow) var(--ease-out) forwards;
+}
+
+.quote-text {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text-primary);
+  margin: 0;
+  position: relative;
+  display: inline-block;
+}
+
+.quote-text br {
+  display: block;
+  content: "";
+  margin-top: var(--space-3);
+}
+
+/* ============================================
+   SECTION: PRINCIPLE CARDS
+   ============================================ */
+
+.principles-section {
+  padding: var(--space-24) 0 var(--space-32) 0;
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: var(--color-orange);
+  text-align: center;
+  margin-bottom: var(--space-16);
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.section-title.visible {
+  animation: fadeSlideIn var(--duration-slow) var(--ease-out) forwards;
+}
+
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-6);
+  margin-bottom: var(--space-12);
+}
+
+.principle-card {
+  padding: var(--space-8);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  transition: all var(--duration-normal) var(--ease-out);
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.principle-card.visible {
+  animation: fadeSlideIn var(--duration-slow) var(--ease-out) forwards;
+}
+
+/* Staggered animation for 5 cards */
+.principle-card:nth-child(1) { animation-delay: 0.1s; }
+.principle-card:nth-child(2) { animation-delay: 0.2s; }
+.principle-card:nth-child(3) { animation-delay: 0.3s; }
+.principle-card:nth-child(4) { animation-delay: 0.4s; }
+.principle-card:nth-child(5) { animation-delay: 0.5s; }
+
+.principle-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--color-orange);
+  box-shadow: 0 12px 40px rgba(230, 126, 34, 0.15);
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 700;
+  color: var(--color-orange);
+  margin-bottom: var(--space-4);
+}
+
+.card-description {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   FRAMEWORK CTA
+   ============================================ */
+
+.framework-cta {
+  text-align: center;
+  margin-top: var(--space-16);
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.framework-cta.visible {
+  animation: fadeSlideIn var(--duration-slow) var(--ease-out) forwards;
+  animation-delay: 0.6s;
+}
+
+.framework-cta .cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-8);
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-orange);
+  background: transparent;
+  border: 2px solid var(--color-orange);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.framework-cta .cta-button:hover {
+  background: var(--color-orange);
+  color: var(--bg-primary);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(230, 126, 34, 0.3);
+}
+
+.framework-cta .cta-arrow {
+  display: inline-block;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.framework-cta .cta-button:hover .cta-arrow {
+  transform: translateX(4px);
+}
+
+.cta-subtext {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+  margin-top: var(--space-3);
+}
+
+/* ============================================
+   SCRIBBLE UNDERLINES
+   ============================================ */
+
+.scribble-underline {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.scribble-underline path {
+  stroke: var(--color-orange);
+}
+
+/* ============================================
+   RESPONSIVE: MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--space-4);
+  }
+
+  .what-section {
+    padding: var(--space-12) 0;
+  }
+
+  .panels-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .panel-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .quote-section {
+    padding: var(--space-16) 0;
+  }
+
+  .principles-section {
+    padding: var(--space-16) 0 var(--space-20) 0;
+  }
+
+  .principles-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .section-title {
+    margin-bottom: var(--space-8);
+  }
+
+  /* Disable icon animations on mobile for performance */
+  .icon-flask .bubble,
+  .icon-brain,
+  .icon-network circle:first-child {
+    animation: none;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY: REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .panel,
+  .pull-quote,
+  .section-title,
+  .principle-card,
+  .framework-cta {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+
+  .icon-flask .bubble,
+  .icon-brain,
+  .icon-network circle:first-child {
+    animation: none;
+  }
+
+  .panel:hover,
+  .principle-card:hover {
+    transform: none;
+  }
+}
