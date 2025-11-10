@@ -17,7 +17,7 @@
   align-items: center;
   overflow: visible;
   margin: 0;
-  padding: 120px 0 0 0; /* Large top padding to cleanly separate from hero */
+  padding: 280px 0 0 0; /* MASSIVE top padding to cleanly separate from hero */
   /* Match hero background for seamless integration */
   background: var(--bg-secondary);
 }
@@ -502,6 +502,7 @@
 @media (max-width: 768px) {
   .raygun-divider-section {
     height: 60px;
+    padding: 80px 0 0 0; /* Less padding on mobile */
   }
 
   .raygun-container {
@@ -511,13 +512,9 @@
   }
 
   .brain-target-container {
-    width: 40px;
-    height: 40px;
+    width: 80px;
+    height: 77px;
     right: 20px;
-  }
-
-  .brain-target {
-    font-size: 30px;
   }
 
   .laser-beam-divider {
@@ -545,6 +542,7 @@
   /* No hover effects on mobile (touch doesn't have hover state) */
   .brain-target-container:hover .brain-target.active {
     animation: none;
+    filter: none !important;
   }
 
   /* Hide synaptic burst SVG on mobile (desktop only effect) */
