@@ -35,7 +35,7 @@
   border: 2px solid var(--border-color);
   border-radius: var(--radius-md);
   background: var(--bg-secondary);
-  transition: all var(--duration-normal) var(--ease-out);
+  transition: all 0.3s var(--ease-out);
   /* Start hidden for animation */
   opacity: 0;
   transform: translateY(30px);
@@ -168,7 +168,7 @@
    ============================================ */
 
 .principles-section {
-  padding: var(--space-32) 0 var(--space-32) 0;
+  padding: var(--space-40) 0 var(--space-32) 0;
   background: var(--bg-primary);
   position: relative;
 }
@@ -208,7 +208,7 @@
   border: 2px solid var(--border-color);
   border-radius: var(--radius-md);
   background: var(--bg-secondary);
-  transition: all var(--duration-normal) var(--ease-out);
+  transition: all 0.3s var(--ease-out);
   /* Start hidden for animation */
   opacity: 0;
   transform: translateY(30px);
@@ -257,6 +257,7 @@
 .framework-cta {
   text-align: center;
   margin-top: var(--space-16);
+  padding-bottom: var(--space-24);
   /* Start hidden for animation */
   opacity: 0;
   transform: translateY(30px);
@@ -281,20 +282,19 @@
   border-radius: var(--radius-sm);
   text-decoration: none;
   cursor: pointer;
-  transition: all var(--duration-normal) var(--ease-out);
-  will-change: transform, background-color;
+  transition: all 0.3s var(--ease-out);
 }
 
 .framework-cta .cta-button:hover {
-  background: var(--color-orange) !important;
-  color: var(--bg-primary) !important;
-  transform: translateY(-4px) !important;
+  background: var(--color-orange);
+  color: var(--bg-primary);
+  transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(230, 126, 34, 0.3);
 }
 
 .framework-cta .cta-arrow {
   display: inline-block;
-  transition: transform var(--duration-fast) var(--ease-out);
+  transition: transform 0.3s var(--ease-out);
 }
 
 .framework-cta .cta-button:hover .cta-arrow {
