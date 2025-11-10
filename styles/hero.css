@@ -46,19 +46,305 @@ body {
 }
 
 /* ============================================
-   RAYGUN ICON CONTAINER
+   BRAIN-IN-JAR ICON CONTAINER
    ============================================ */
 
-.raygun-container {
+.brain-jar-container {
   margin-bottom: var(--space-8);
   display: inline-block;
+  position: relative;
+  width: 150px;
+  height: 150px;
 }
 
-.raygun-icon {
-  width: 150px;
+.brain-jar-icon {
+  width: 100%;
   height: auto;
   display: block;
-  /* Glow treatment in effects.css */
+  position: relative;
+  z-index: 2;
+  animation: brainJarBreathe 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(230, 126, 34, 0.3));
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+/* Dark mode - radioactive orange glow */
+[data-theme="dark"] .brain-jar-icon {
+  filter: drop-shadow(0 0 25px rgba(255, 107, 53, 0.4))
+          drop-shadow(0 0 40px rgba(243, 156, 18, 0.2));
+}
+
+/* Hover - intensify glow and breathing */
+.brain-jar-container:hover .brain-jar-icon {
+  filter: drop-shadow(0 0 30px rgba(230, 126, 34, 0.6))
+          drop-shadow(0 0 50px rgba(218, 165, 32, 0.4));
+  animation: brainJarBreatheIntense 2.5s ease-in-out infinite;
+}
+
+[data-theme="dark"] .brain-jar-container:hover .brain-jar-icon {
+  filter: drop-shadow(0 0 35px rgba(255, 107, 53, 0.7))
+          drop-shadow(0 0 60px rgba(243, 156, 18, 0.4));
+}
+
+/* Breathing animation - subtle life */
+@keyframes brainJarBreathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Intensified breathing on hover */
+@keyframes brainJarBreatheIntense {
+  0%, 100% {
+    transform: scale(1.02);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+/* ============================================
+   BUBBLES - Rising through liquid
+   ============================================ */
+
+.bubble {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(0, 168, 171, 0.3));
+  border-radius: 50%;
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Dark mode bubbles - orange tint */
+[data-theme="dark"] .bubble {
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(255, 140, 0, 0.3));
+}
+
+/* Bubble 1 - left side, slow */
+.bubble-1 {
+  left: 35%;
+  bottom: 20%;
+  animation: bubbleRise1 4s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+/* Bubble 2 - center, medium */
+.bubble-2 {
+  left: 50%;
+  bottom: 15%;
+  animation: bubbleRise2 3.5s ease-in-out infinite;
+  animation-delay: 1.2s;
+  width: 6px;
+  height: 6px;
+}
+
+/* Bubble 3 - right side, fast */
+.bubble-3 {
+  left: 60%;
+  bottom: 18%;
+  animation: bubbleRise3 3s ease-in-out infinite;
+  animation-delay: 2.4s;
+  width: 5px;
+  height: 5px;
+}
+
+@keyframes bubbleRise1 {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-60px) translateX(8px);
+    opacity: 0;
+  }
+}
+
+@keyframes bubbleRise2 {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-65px) translateX(-5px);
+    opacity: 0;
+  }
+}
+
+@keyframes bubbleRise3 {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  80% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-55px) translateX(-10px);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   ELECTRICAL ARCS - Occasional mad scientist zaps
+   ============================================ */
+
+.electric-arc {
+  position: absolute;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(230, 126, 34, 0.8) 30%,
+    rgba(218, 165, 32, 1) 50%,
+    rgba(230, 126, 34, 0.8) 70%,
+    transparent
+  );
+  opacity: 0;
+  z-index: 3;
+  pointer-events: none;
+  filter: drop-shadow(0 0 4px rgba(230, 126, 34, 0.8));
+}
+
+/* Dark mode arcs - hot radioactive */
+[data-theme="dark"] .electric-arc {
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(255, 107, 53, 0.8) 30%,
+    rgba(243, 156, 18, 1) 50%,
+    rgba(255, 107, 53, 0.8) 70%,
+    transparent
+  );
+  filter: drop-shadow(0 0 6px rgba(255, 107, 53, 0.9));
+}
+
+/* Arc 1 - top left */
+.arc-1 {
+  top: 25%;
+  left: 10%;
+  transform: rotate(-45deg);
+  animation: electricZap1 8s ease-in-out infinite;
+}
+
+/* Arc 2 - top right */
+.arc-2 {
+  top: 30%;
+  right: 15%;
+  transform: rotate(35deg);
+  animation: electricZap2 8s ease-in-out infinite;
+  animation-delay: 4s;
+}
+
+@keyframes electricZap1 {
+  0%, 90%, 100% {
+    opacity: 0;
+  }
+  91%, 92% {
+    opacity: 1;
+  }
+  93% {
+    opacity: 0;
+  }
+  94%, 95% {
+    opacity: 0.8;
+  }
+  96%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes electricZap2 {
+  0%, 90%, 100% {
+    opacity: 0;
+  }
+  91% {
+    opacity: 0.9;
+  }
+  92% {
+    opacity: 0;
+  }
+  93%, 94% {
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   MOBILE OPTIMIZATIONS
+   ============================================ */
+
+@media (max-width: 768px) {
+  .brain-jar-container {
+    width: 100px;
+    height: 100px;
+  }
+
+  /* Simplify effects on mobile */
+  .brain-jar-icon {
+    filter: drop-shadow(0 0 15px rgba(230, 126, 34, 0.2));
+  }
+
+  [data-theme="dark"] .brain-jar-icon {
+    filter: drop-shadow(0 0 20px rgba(255, 107, 53, 0.3));
+  }
+
+  /* Smaller bubbles */
+  .bubble {
+    width: 5px;
+    height: 5px;
+  }
+
+  .bubble-2 {
+    width: 4px;
+    height: 4px;
+  }
+
+  .bubble-3 {
+    width: 3px;
+    height: 3px;
+  }
+
+  /* Hide electrical arcs on mobile (performance) */
+  .electric-arc {
+    display: none;
+  }
+}
+
+/* Disable all brain-jar animations if user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .brain-jar-icon {
+    animation: none !important;
+  }
+
+  .bubble {
+    display: none;
+  }
+
+  .electric-arc {
+    display: none;
+  }
 }
 
 /* ============================================

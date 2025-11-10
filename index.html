@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="styles/lab-field.css">
   <link rel="stylesheet" href="styles/hero.css">
   <link rel="stylesheet" href="styles/effects.css">
+  <link rel="stylesheet" href="styles/laser-divider.css">
 </head>
 <body>
   <!-- Lab Field Background Layers -->
@@ -35,9 +36,16 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <!-- Raygun Icon with Treatment -->
-      <div class="raygun-container">
-        <img src="assets/images/raygun_original_clear.png" alt="RAYGUN OS" class="raygun-icon">
+      <!-- Brain-in-Jar Icon with Mad Scientist Treatment -->
+      <div class="brain-jar-container">
+        <img src="assets/images/brain-in-a-jar.png" alt="RAYGUN OS" class="brain-jar-icon">
+        <!-- Bubbles rising through liquid -->
+        <div class="bubble bubble-1"></div>
+        <div class="bubble bubble-2"></div>
+        <div class="bubble bubble-3"></div>
+        <!-- Electrical arc effects -->
+        <div class="electric-arc arc-1"></div>
+        <div class="electric-arc arc-2"></div>
       </div>
 
       <!-- Hero Headline -->
@@ -58,6 +66,55 @@
     </div>
   </section>
 
+  <!-- Raygun Laser Divider -->
+  <div class="raygun-divider-section">
+    <div class="raygun-container">
+      <img src="assets/images/raygun_original_clear.png" alt="" class="raygun-image" aria-hidden="true">
+    </div>
+
+    <svg class="laser-beam-divider" viewBox="0 0 100 20" preserveAspectRatio="none" aria-hidden="true" style="overflow: visible;">
+      <!-- Gradient definitions - theme-reactive -->
+      <defs>
+        <!-- Light mode: Teal → Aqua → Tangerine → Gold -->
+        <linearGradient id="beamGradientLight" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color: #008080" />
+          <stop offset="33%" style="stop-color: #20B2AA" />
+          <stop offset="66%" style="stop-color: #FFB347" />
+          <stop offset="100%" style="stop-color: #DAA520" />
+        </linearGradient>
+
+        <!-- Dark mode: Red-Orange → Dark Orange → Hot Pink → Lime -->
+        <linearGradient id="beamGradientDark" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color: #FF4500" />
+          <stop offset="33%" style="stop-color: #FF8C00" />
+          <stop offset="66%" style="stop-color: #FF69B4" />
+          <stop offset="100%" style="stop-color: #ADFF2F" />
+        </linearGradient>
+      </defs>
+
+      <!-- Beam with subtle spread (proven from gradient test) -->
+      <polygon points="0,10 100,4 100,16"
+               class="laser-beam-fan"
+               fill="url(#beamGradientLight)" />
+    </svg>
+
+    <!-- Brain target - cognitive infrastructure activation -->
+    <div class="brain-target-container">
+      <div class="brain-target" aria-hidden="true">🧠</div>
+      <!-- Synaptic burst effect (desktop only) -->
+      <svg class="synaptic-burst" viewBox="0 0 200 200" aria-hidden="true">
+        <line x1="100" y1="100" x2="100" y2="10" class="synapse synapse-1" />
+        <line x1="100" y1="100" x2="170" y2="30" class="synapse synapse-2" />
+        <line x1="100" y1="100" x2="190" y2="100" class="synapse synapse-3" />
+        <line x1="100" y1="100" x2="170" y2="170" class="synapse synapse-4" />
+        <line x1="100" y1="100" x2="100" y2="190" class="synapse synapse-5" />
+        <line x1="100" y1="100" x2="30" y2="170" class="synapse synapse-6" />
+        <line x1="100" y1="100" x2="10" y2="100" class="synapse synapse-7" />
+        <line x1="100" y1="100" x2="30" y2="30" class="synapse synapse-8" />
+      </svg>
+    </div>
+  </div>
+
   <!-- Placeholder section for scroll testing -->
   <section id="framework" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--bg-secondary);">
     <div style="text-align: center; padding: var(--space-8);">
@@ -74,6 +131,7 @@
   <script src="scripts/lab-field.js"></script>
   <script src="scripts/experiment-orbs.js"></script>
   <script src="scripts/word-glow.js"></script>
+  <script src="scripts/laser-divider.js"></script>
 
   <script>
     // Theme toggle (keep from Session 2)
