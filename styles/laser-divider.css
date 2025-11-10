@@ -17,7 +17,7 @@
   align-items: center;
   overflow: visible;
   margin: 0;
-  padding: var(--space-16) 0 0 0; /* Top padding to separate from hero */
+  padding: 120px 0 0 0; /* Large top padding to cleanly separate from hero */
   /* Match hero background for seamless integration */
   background: var(--bg-secondary);
 }

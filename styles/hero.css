@@ -212,47 +212,51 @@ body {
 .electric-arc {
   position: absolute;
   width: 40px;
-  height: 2px;
+  height: 3px;
   background: linear-gradient(90deg,
     transparent,
-    rgba(230, 126, 34, 0.8) 30%,
-    rgba(218, 165, 32, 1) 50%,
-    rgba(230, 126, 34, 0.8) 70%,
+    rgba(255, 255, 100, 0.8) 20%,
+    rgba(100, 200, 255, 1) 50%,
+    rgba(255, 255, 100, 0.8) 80%,
     transparent
   );
   opacity: 0;
   z-index: 4; /* Above bubbles */
   pointer-events: none;
-  filter: drop-shadow(0 0 4px rgba(230, 126, 34, 0.8));
+  filter: drop-shadow(0 0 6px rgba(100, 200, 255, 1))
+          drop-shadow(0 0 3px rgba(255, 255, 100, 0.8));
 }
 
-/* Dark mode arcs - hot radioactive */
+/* Dark mode arcs - brighter electrical blue/yellow */
 [data-theme="dark"] .electric-arc {
   background: linear-gradient(90deg,
     transparent,
-    rgba(255, 107, 53, 0.8) 30%,
-    rgba(243, 156, 18, 1) 50%,
-    rgba(255, 107, 53, 0.8) 70%,
+    rgba(255, 255, 150, 0.9) 20%,
+    rgba(150, 220, 255, 1) 50%,
+    rgba(255, 255, 150, 0.9) 80%,
     transparent
   );
-  filter: drop-shadow(0 0 6px rgba(255, 107, 53, 0.9));
+  filter: drop-shadow(0 0 8px rgba(150, 220, 255, 1))
+          drop-shadow(0 0 4px rgba(255, 255, 150, 1));
 }
 
-/* Arc 1 - top left */
+/* Arc 1 - across brain horizontally */
 .arc-1 {
-  top: 25%;
-  left: 10%;
-  transform: rotate(-45deg);
+  top: 45%;
+  left: 50%;
+  transform: translateX(-50%) rotate(10deg);
   animation: electricZap1 8s ease-in-out infinite;
+  width: 50px;
 }
 
-/* Arc 2 - top right */
+/* Arc 2 - across brain diagonally */
 .arc-2 {
-  top: 30%;
-  right: 15%;
-  transform: rotate(35deg);
+  top: 52%;
+  left: 50%;
+  transform: translateX(-50%) rotate(-25deg);
   animation: electricZap2 8s ease-in-out infinite;
   animation-delay: 4s;
+  width: 45px;
 }
 
 @keyframes electricZap1 {
