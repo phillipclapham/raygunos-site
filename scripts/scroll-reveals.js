@@ -9,19 +9,32 @@
   // Check for reduced motion preference
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Skip animations if user prefers reduced motion
-  if (prefersReducedMotion) {
-    // Just add visible class to everything immediately
-    document.querySelectorAll('.panel, .pull-quote, .section-title, .principle-card, .framework-cta').forEach(el => {
-      el.classList.add('visible');
-    });
-    return;
-  }
-
   /**
    * Set up Intersection Observer for scroll reveals
    */
   function initScrollReveals() {
+    // Select all elements to animate
+    const revealElements = document.querySelectorAll(`
+      .panel,
+      .pull-quote,
+      .section-title,
+      .principle-card,
+      .framework-cta
+    `);
+
+    // Skip animations if user prefers reduced motion
+    if (prefersReducedMotion) {
+      // Elements stay visible (default state), no animation
+      console.log('%c👀 Scroll reveals disabled (reduced motion)', 'color: #E67E22; font-weight: bold;');
+      return;
+    }
+
+    // Add .reveal class to hide elements initially (for animation)
+    revealElements.forEach(el => {
+      el.classList.add('reveal');
+    });
+
+    // Set up Intersection Observer
     const observerOptions = {
       threshold: 0.15, // Trigger when 15% visible
       rootMargin: '0px 0px -50px 0px' // Start slightly before element enters viewport
@@ -39,15 +52,7 @@
       });
     }, observerOptions);
 
-    // Observe all elements with scroll reveal animations
-    const revealElements = document.querySelectorAll(`
-      .panel,
-      .pull-quote,
-      .section-title,
-      .principle-card,
-      .framework-cta
-    `);
-
+    // Observe all elements
     revealElements.forEach(el => {
       observer.observe(el);
     });

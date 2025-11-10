@@ -36,12 +36,19 @@
   border-radius: var(--radius-md);
   background: var(--bg-secondary);
   transition: all var(--duration-normal) var(--ease-out);
-  /* DEBUG: Make visible by default */
-  opacity: 1 !important;
-  transform: none !important;
+  /* Default: visible (progressive enhancement) */
+  opacity: 1;
+  transform: none;
 }
 
-.panel.visible {
+/* JS adds .reveal class to hide initially */
+.panel.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Then adds .visible to animate in */
+.panel.reveal.visible {
   animation: fadeSlideIn var(--duration-slow) var(--ease-out) forwards;
 }
 
@@ -136,12 +143,17 @@
   margin: 0 auto;
   max-width: 800px;
   text-align: center;
-  /* DEBUG: Make visible by default */
-  opacity: 1 !important;
-  transform: none !important;
+  /* Default: visible (progressive enhancement) */
+  opacity: 1;
+  transform: none;
 }
 
-.pull-quote.visible {
+.pull-quote.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.pull-quote.reveal.visible {
   animation: fadeSlideIn var(--duration-slow) var(--ease-out) forwards;
 }
 
@@ -167,7 +179,7 @@
    ============================================ */
 
 .principles-section {
-  padding: var(--space-24) 0 var(--space-32) 0;
+  padding: var(--space-32) 0 var(--space-32) 0;
   background: var(--bg-primary);
   position: relative;
 }
@@ -182,20 +194,29 @@
   position: relative;
   display: inline-block;
   width: 100%;
-  /* DEBUG: Make visible by default */
-  opacity: 1 !important;
-  transform: none !important;
+  /* Default: visible (progressive enhancement) */
+  opacity: 1;
+  transform: none;
 }
 
-.section-title.visible {
+.section-title.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.section-title.reveal.visible {
   animation: fadeSlideIn var(--duration-slow) var(--ease-out) forwards;
 }
 
 .principles-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--space-6);
   margin-bottom: var(--space-12);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .principle-card {
@@ -204,12 +225,21 @@
   border-radius: var(--radius-md);
   background: var(--bg-secondary);
   transition: all var(--duration-normal) var(--ease-out);
-  /* DEBUG: Make visible by default */
-  opacity: 1 !important;
-  transform: none !important;
+  /* Default: visible (progressive enhancement) */
+  opacity: 1;
+  transform: none;
+  /* Flexbox sizing: 3 per row on desktop, 2 centered on second row */
+  flex: 1 1 calc(33.333% - var(--space-6));
+  min-width: 320px;
+  max-width: 380px;
 }
 
-.principle-card.visible {
+.principle-card.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.principle-card.reveal.visible {
   animation: fadeSlideIn var(--duration-slow) var(--ease-out) forwards;
 }
 
@@ -248,12 +278,17 @@
 .framework-cta {
   text-align: center;
   margin-top: var(--space-16);
-  /* DEBUG: Make visible by default */
-  opacity: 1 !important;
-  transform: none !important;
+  /* Default: visible (progressive enhancement) */
+  opacity: 1;
+  transform: none;
 }
 
-.framework-cta.visible {
+.framework-cta.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.framework-cta.reveal.visible {
   animation: fadeSlideIn var(--duration-slow) var(--ease-out) forwards;
   animation-delay: 0.6s;
 }
@@ -271,13 +306,15 @@
   border: 2px solid var(--color-orange);
   border-radius: var(--radius-sm);
   text-decoration: none;
+  cursor: pointer;
   transition: all var(--duration-normal) var(--ease-out);
+  will-change: transform, background-color;
 }
 
 .framework-cta .cta-button:hover {
-  background: var(--color-orange);
-  color: var(--bg-primary);
-  transform: translateY(-4px);
+  background: var(--color-orange) !important;
+  color: var(--bg-primary) !important;
+  transform: translateY(-4px) !important;
   box-shadow: 0 8px 24px rgba(230, 126, 34, 0.3);
 }
 
