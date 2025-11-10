@@ -502,7 +502,7 @@
 @media (max-width: 768px) {
   .raygun-divider-section {
     height: 60px;
-    padding: 80px 0 0 0; /* Less padding on mobile */
+    padding: 120px 0 0 0; /* More clearance from hero on mobile */
   }
 
   .raygun-container {
