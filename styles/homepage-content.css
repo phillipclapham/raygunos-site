@@ -64,6 +64,26 @@
   margin: 0 auto var(--space-6);
   filter: drop-shadow(0 0 8px var(--glow-orange));
   transition: all var(--duration-normal) var(--ease-out);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dark mode contrast ring */
+.panel-icon.dark-mode-ring::before {
+  content: '';
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(230, 126, 34, 0.15) 0%,
+    rgba(230, 126, 34, 0.08) 50%,
+    transparent 70%
+  );
+  z-index: -1;
 }
 
 .panel-icon .icon-pixel-art {

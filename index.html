@@ -311,27 +311,16 @@
       }, 300); // Half of transition duration
     }
 
-    // Update panel icons based on theme with smooth transition
+    // Update panel icon containers based on theme (add contrast ring in dark mode)
     function updatePanelIcons(theme) {
-      const icons = {
-        beaker: document.querySelector('.panel-icon-beaker'),
-        brain: document.querySelector('.panel-icon-brain'),
-        network: document.querySelector('.panel-icon-network')
-      };
+      const iconContainers = document.querySelectorAll('.panel-icon');
 
-      Object.entries(icons).forEach(([name, icon]) => {
-        if (!icon) return;
-
-        // Fade out
-        icon.style.opacity = '0';
-
-        setTimeout(() => {
-          icon.src = theme === 'dark'
-            ? `assets/images/${name}-icon-dark.png`
-            : `assets/images/${name}-icon.png`;
-          // Fade back in
-          icon.style.opacity = '1';
-        }, 300);
+      iconContainers.forEach(container => {
+        if (theme === 'dark') {
+          container.classList.add('dark-mode-ring');
+        } else {
+          container.classList.remove('dark-mode-ring');
+        }
       });
     }
 
