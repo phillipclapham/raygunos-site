@@ -157,29 +157,33 @@
   }
 }
 
-/* VISIBLE rising energy bubbles - like lab experiments */
+/* VISIBLE rising energy bubbles - like lab experiments with color spectrum */
 .quote-section::after {
   content: '';
   position: absolute;
   inset: 0;
+  /* 6 layers for gapless coverage, color spectrum: orange → gold → amber → warm orange */
   background-image:
-    radial-gradient(circle, rgba(230, 126, 34, 0.5) 3px, transparent 3px),
-    radial-gradient(circle, rgba(243, 156, 18, 0.45) 4px, transparent 4px),
-    radial-gradient(circle, rgba(230, 126, 34, 0.35) 2px, transparent 2px),
-    radial-gradient(circle, rgba(255, 159, 71, 0.4) 5px, transparent 5px);
-  background-size: 60px 100px, 90px 140px, 70px 110px, 120px 180px;
-  background-position: 0 0, 40px 60px, 130px 270px, 200px 100px;
-  animation: particlesRise 15s linear infinite, energyGlitch 7s ease-in-out infinite;
+    radial-gradient(circle, rgba(230, 126, 34, 0.3) 3px, transparent 3px),
+    radial-gradient(circle, rgba(218, 165, 32, 0.28) 2px, transparent 2px),
+    radial-gradient(circle, rgba(255, 191, 0, 0.25) 4px, transparent 4px),
+    radial-gradient(circle, rgba(255, 159, 71, 0.3) 3px, transparent 3px),
+    radial-gradient(circle, rgba(184, 134, 11, 0.32) 2px, transparent 2px),
+    radial-gradient(circle, rgba(243, 156, 18, 0.28) 3px, transparent 3px);
+  background-size: 60px 100px, 85px 130px, 70px 110px, 95px 150px, 75px 120px, 110px 170px;
+  /* All Y positions within their repeat cycle (no gaps!) */
+  background-position: 0 0, 35px 45px, 15px 30px, 50px 70px, 25px 50px, 60px 85px;
+  animation: particlesRise 18s linear infinite, energyGlitch 7s ease-in-out infinite;
   pointer-events: none;
 }
 
 @keyframes particlesRise {
   0% {
-    background-position: 0 0, 40px 60px, 130px 270px, 200px 100px;
+    background-position: 0 0, 35px 45px, 15px 30px, 50px 70px, 25px 50px, 60px 85px;
   }
   100% {
-    /* Fixed: exact multiples to prevent jumping (600px=6×100, 560px=4×140, 330px=3×110, 540px=3×180) */
-    background-position: 0 -600px, 40px -560px, 130px -330px, 200px -540px;
+    /* Exact multiples: 6×100, 4×130, 5×110, 4×150, 5×120, 3×170 = gapless loop */
+    background-position: 0 -600px, 35px -520px, 15px -550px, 50px -600px, 25px -600px, 60px -510px;
   }
 }
 
