@@ -17,13 +17,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Design System & Styles -->
-  <link rel="stylesheet" href="styles/tokens.css?v=6">
-  <link rel="stylesheet" href="styles/lab-field.css?v=6">
-  <link rel="stylesheet" href="styles/hero.css?v=6">
-  <link rel="stylesheet" href="styles/effects.css?v=6">
-  <link rel="stylesheet" href="styles/laser-divider.css?v=6">
-  <link rel="stylesheet" href="styles/space-background.css?v=6">
-  <link rel="stylesheet" href="styles/homepage-content.css?v=6">
+  <link rel="stylesheet" href="styles/tokens.css?v=7-20251110">
+  <link rel="stylesheet" href="styles/lab-field.css?v=7-20251110">
+  <link rel="stylesheet" href="styles/hero.css?v=7-20251110">
+  <link rel="stylesheet" href="styles/effects.css?v=7-20251110">
+  <link rel="stylesheet" href="styles/laser-divider.css?v=7-20251110">
+  <link rel="stylesheet" href="styles/space-background.css?v=7-20251110">
+  <link rel="stylesheet" href="styles/homepage-content.css?v=7-20251110">
 
   <!-- Fallback: Make content visible if JS doesn't load -->
   <noscript>
@@ -172,7 +172,7 @@
         <!-- Panel 1: Flask - 45 Years -->
         <div class="panel">
           <div class="panel-icon">
-            <img src="assets/images/beaker-icon.png" alt="" class="icon-pixel-art" />
+            <img src="assets/images/beaker-icon.png" alt="" class="icon-pixel-art panel-icon-beaker" />
           </div>
           <h3 class="panel-title">45 Years of Experiments</h3>
           <p class="panel-description">
@@ -184,7 +184,7 @@
         <!-- Panel 2: Brain - Cognitive Architecture -->
         <div class="panel">
           <div class="panel-icon">
-            <img src="assets/images/brain-icon.png" alt="" class="icon-pixel-art" />
+            <img src="assets/images/brain-icon.png" alt="" class="icon-pixel-art panel-icon-brain" />
           </div>
           <h3 class="panel-title">Complete Cognitive Architecture</h3>
           <p class="panel-description">
@@ -196,7 +196,7 @@
         <!-- Panel 3: Network - Operating System -->
         <div class="panel">
           <div class="panel-icon">
-            <img src="assets/images/network-icon.png" alt="" class="icon-pixel-art" />
+            <img src="assets/images/network-icon.png" alt="" class="icon-pixel-art panel-icon-network" />
           </div>
           <h3 class="panel-title">Your Mind's Operating System</h3>
           <p class="panel-description">
@@ -311,6 +311,30 @@
       }, 300); // Half of transition duration
     }
 
+    // Update panel icons based on theme with smooth transition
+    function updatePanelIcons(theme) {
+      const icons = {
+        beaker: document.querySelector('.panel-icon-beaker'),
+        brain: document.querySelector('.panel-icon-brain'),
+        network: document.querySelector('.panel-icon-network')
+      };
+
+      Object.entries(icons).forEach(([name, icon]) => {
+        if (!icon) return;
+
+        // Fade out
+        icon.style.opacity = '0';
+
+        setTimeout(() => {
+          icon.src = theme === 'dark'
+            ? `assets/images/${name}-icon-dark.png`
+            : `assets/images/${name}-icon.png`;
+          // Fade back in
+          icon.style.opacity = '1';
+        }, 300);
+      });
+    }
+
     // Theme toggle (keep from Session 2)
     function toggleTheme() {
       const html = document.documentElement;
@@ -322,8 +346,9 @@
       localStorage.setItem('theme', newTheme);
       icon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
 
-      // Swap planet image
+      // Swap planet and panel icons
       updatePlanetImage(newTheme);
+      updatePanelIcons(newTheme);
     }
 
     // Initialize theme from localStorage
@@ -333,8 +358,9 @@
       document.documentElement.setAttribute('data-theme', savedTheme);
       icon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
 
-      // Set initial planet image
+      // Set initial planet and panel icons
       updatePlanetImage(savedTheme);
+      updatePanelIcons(savedTheme);
     })();
   </script>
 </body>
