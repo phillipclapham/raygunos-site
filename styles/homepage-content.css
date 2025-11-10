@@ -509,3 +509,108 @@
     transform: none;
   }
 }
+
+/* ============================================
+   SECTION: PROVENANCE
+   ============================================ */
+
+.provenance-section {
+  padding: var(--space-20) 0 var(--space-16) 0;
+  background: var(--bg-primary);
+  text-align: center;
+}
+
+.provenance-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-6);
+}
+
+.provenance-description {
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto var(--space-4);
+}
+
+.provenance-ecosystem {
+  font-size: 1rem;
+  color: var(--text-tertiary);
+  margin-top: var(--space-4);
+}
+
+.ecosystem-link {
+  color: var(--color-teal);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all var(--duration-fast) var(--ease-out);
+  border-bottom: 2px solid transparent;
+}
+
+.ecosystem-link:hover {
+  color: var(--color-teal-bright);
+  border-bottom-color: var(--color-teal-bright);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.site-footer {
+  padding: var(--space-10) 0 var(--space-8) 0;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.site-footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.footer-copyright {
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-link {
+  font-size: 0.875rem;
+  color: var(--color-teal);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all var(--duration-fast) var(--ease-out);
+  border-bottom: 1px solid transparent;
+}
+
+.footer-link:hover {
+  color: var(--color-teal-bright);
+  border-bottom-color: var(--color-teal-bright);
+}
+
+.footer-separator {
+  color: var(--text-tertiary);
+  font-size: 0.875rem;
+  user-select: none;
+}
+
+/* Desktop: Horizontal layout */
+@media (min-width: 768px) {
+  .site-footer .container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
