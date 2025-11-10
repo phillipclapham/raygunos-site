@@ -36,8 +36,9 @@
   border-radius: var(--radius-md);
   background: var(--bg-secondary);
   transition: all var(--duration-normal) var(--ease-out);
-  opacity: 0;
-  transform: translateY(30px);
+  /* DEBUG: Make visible by default */
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 .panel.visible {
@@ -135,8 +136,9 @@
   margin: 0 auto;
   max-width: 800px;
   text-align: center;
-  opacity: 0;
-  transform: translateY(30px);
+  /* DEBUG: Make visible by default */
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 .pull-quote.visible {
@@ -180,8 +182,9 @@
   position: relative;
   display: inline-block;
   width: 100%;
-  opacity: 0;
-  transform: translateY(30px);
+  /* DEBUG: Make visible by default */
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 .section-title.visible {
@@ -201,8 +204,9 @@
   border-radius: var(--radius-md);
   background: var(--bg-secondary);
   transition: all var(--duration-normal) var(--ease-out);
-  opacity: 0;
-  transform: translateY(30px);
+  /* DEBUG: Make visible by default */
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 .principle-card.visible {
@@ -244,8 +248,9 @@
 .framework-cta {
   text-align: center;
   margin-top: var(--space-16);
-  opacity: 0;
-  transform: translateY(30px);
+  /* DEBUG: Make visible by default */
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 .framework-cta.visible {
