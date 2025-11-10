@@ -113,8 +113,7 @@
   left: 0;
   z-index: 1;
   pointer-events: none;
-  opacity: 0.6;
-  mix-blend-mode: screen;
+  opacity: 1; /* Removed opacity - using stroke opacity instead */
 }
 
 .space-grid svg {
@@ -140,17 +139,28 @@
   position: absolute;
   bottom: 20%;
   right: 10%;
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   background: radial-gradient(circle at 30% 30%,
-    rgba(255, 200, 100, 0.3),
-    rgba(255, 159, 71, 0.2),
-    transparent 70%);
-  filter: blur(2px);
+    rgba(255, 200, 100, 0.7),
+    rgba(255, 159, 71, 0.5),
+    rgba(230, 126, 34, 0.3) 60%,
+    transparent 80%);
+  filter: blur(1px);
   z-index: 1;
   pointer-events: none;
   animation: planetGlow 6s ease-in-out infinite;
+  box-shadow: 0 0 40px rgba(255, 159, 71, 0.4);
+}
+
+[data-theme="dark"] .space-planet {
+  background: radial-gradient(circle at 30% 30%,
+    rgba(255, 220, 120, 0.8),
+    rgba(255, 179, 91, 0.6),
+    rgba(243, 156, 18, 0.4) 60%,
+    transparent 80%);
+  box-shadow: 0 0 50px rgba(243, 156, 18, 0.5);
 }
 
 @keyframes planetGlow {

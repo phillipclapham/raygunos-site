@@ -87,14 +87,14 @@
         <!-- Perspective grid lines -->
         <defs>
           <linearGradient id="gridGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" style="stop-color: rgba(255, 159, 71, 0.2); stop-opacity: 0" />
-            <stop offset="50%" style="stop-color: rgba(255, 159, 71, 0.2); stop-opacity: 0.6" />
-            <stop offset="100%" style="stop-color: rgba(255, 159, 71, 0.2); stop-opacity: 0" />
+            <stop offset="0%" style="stop-color: rgba(255, 159, 71, 0.6); stop-opacity: 0" />
+            <stop offset="50%" style="stop-color: rgba(255, 159, 71, 0.6); stop-opacity: 0.8" />
+            <stop offset="100%" style="stop-color: rgba(255, 159, 71, 0.6); stop-opacity: 0" />
           </linearGradient>
           <linearGradient id="gridGradientDark" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" style="stop-color: rgba(243, 156, 18, 0.3); stop-opacity: 0" />
-            <stop offset="50%" style="stop-color: rgba(243, 156, 18, 0.3); stop-opacity: 0.6" />
-            <stop offset="100%" style="stop-color: rgba(243, 156, 18, 0.3); stop-opacity: 0" />
+            <stop offset="0%" style="stop-color: rgba(243, 156, 18, 0.7); stop-opacity: 0" />
+            <stop offset="50%" style="stop-color: rgba(243, 156, 18, 0.7); stop-opacity: 0.8" />
+            <stop offset="100%" style="stop-color: rgba(243, 156, 18, 0.7); stop-opacity: 0" />
           </linearGradient>
         </defs>
 
@@ -108,13 +108,13 @@
         <line x1="0" y1="350" x2="1000" y2="350" stroke="url(#gridGradient)" stroke-width="1" opacity="0.3" />
 
         <!-- Vertical lines (perspective) -->
-        <line x1="100" y1="0" x2="300" y2="400" stroke="rgba(255, 159, 71, 0.2)" stroke-width="1" opacity="0.3" />
-        <line x1="250" y1="0" x2="400" y2="400" stroke="rgba(255, 159, 71, 0.2)" stroke-width="1" opacity="0.4" />
-        <line x1="400" y1="0" x2="480" y2="400" stroke="rgba(255, 159, 71, 0.2)" stroke-width="1.5" opacity="0.5" />
-        <line x1="500" y1="0" x2="520" y2="400" stroke="rgba(255, 159, 71, 0.2)" stroke-width="2" opacity="0.6" />
-        <line x1="600" y1="0" x2="540" y2="400" stroke="rgba(255, 159, 71, 0.2)" stroke-width="1.5" opacity="0.5" />
-        <line x1="750" y1="0" x2="600" y2="400" stroke="rgba(255, 159, 71, 0.2)" stroke-width="1" opacity="0.4" />
-        <line x1="900" y1="0" x2="700" y2="400" stroke="rgba(255, 159, 71, 0.2)" stroke-width="1" opacity="0.3" />
+        <line x1="100" y1="0" x2="300" y2="400" stroke="rgba(255, 159, 71, 0.6)" stroke-width="1" opacity="0.5" />
+        <line x1="250" y1="0" x2="400" y2="400" stroke="rgba(255, 159, 71, 0.6)" stroke-width="1" opacity="0.6" />
+        <line x1="400" y1="0" x2="480" y2="400" stroke="rgba(255, 159, 71, 0.6)" stroke-width="1.5" opacity="0.7" />
+        <line x1="500" y1="0" x2="520" y2="400" stroke="rgba(255, 159, 71, 0.6)" stroke-width="2" opacity="0.8" />
+        <line x1="600" y1="0" x2="540" y2="400" stroke="rgba(255, 159, 71, 0.6)" stroke-width="1.5" opacity="0.7" />
+        <line x1="750" y1="0" x2="600" y2="400" stroke="rgba(255, 159, 71, 0.6)" stroke-width="1" opacity="0.6" />
+        <line x1="900" y1="0" x2="700" y2="400" stroke="rgba(255, 159, 71, 0.6)" stroke-width="1" opacity="0.5" />
       </svg>
     </div>
     <div class="space-planet" aria-hidden="true"></div>
@@ -321,6 +321,15 @@
   <script src="scripts/scroll-reveals.js"></script>
 
   <script>
+    // Update space grid gradient based on theme
+    function updateSpaceGridTheme(theme) {
+      const gridLines = document.querySelectorAll('.space-grid line[stroke^="url"]');
+      const gradientId = theme === 'dark' ? '#gridGradientDark' : '#gridGradient';
+      gridLines.forEach(line => {
+        line.setAttribute('stroke', `url(${gradientId})`);
+      });
+    }
+
     // Theme toggle (keep from Session 2)
     function toggleTheme() {
       const html = document.documentElement;
@@ -331,6 +340,9 @@
       html.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
       icon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+
+      // Update space grid theme
+      updateSpaceGridTheme(newTheme);
     }
 
     // Initialize theme from localStorage
@@ -339,6 +351,9 @@
       const icon = document.getElementById('theme-icon');
       document.documentElement.setAttribute('data-theme', savedTheme);
       icon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+      // Set initial space grid theme
+      updateSpaceGridTheme(savedTheme);
     })();
   </script>
 </body>

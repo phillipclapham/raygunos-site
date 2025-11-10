@@ -168,7 +168,7 @@
    ============================================ */
 
 .principles-section {
-  padding: 160px 0 128px 0;
+  padding: 128px 0 128px 0;
   background: var(--bg-primary);
   position: relative;
 }
@@ -265,7 +265,7 @@
 
 .framework-cta.is-visible {
   animation: fadeSlideIn 0.8s var(--ease-out) forwards;
-  animation-delay: 0.6s;
+  animation-delay: 0.4s;
 }
 
 .framework-cta .cta-button {
