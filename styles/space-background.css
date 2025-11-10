@@ -121,14 +121,7 @@
   height: 100%;
 }
 
-/* Animate grid slowly moving */
-.space-grid {
-  animation: gridMove 20s linear infinite;
-}
-
-@keyframes gridMove {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(50px); }
+/* Grid animation removed - was causing visible jump on loop */
 }
 
 /* ============================================
@@ -137,12 +130,12 @@
 
 .space-planet {
   position: absolute;
-  left: 50%;
-  top: 48%;
+  left: 40%;
+  top: 60%;
   transform: translate(-50%, -50%);
   width: 180px;
   height: 180px;
-  z-index: -1; /* Behind laser and brain */
+  z-index: 0; /* Above grid, behind laser/brain (z-index 10/20) */
   pointer-events: none;
   opacity: 0.7;
   filter: drop-shadow(0 0 30px rgba(100, 150, 255, 0.3));
