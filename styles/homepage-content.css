@@ -185,8 +185,14 @@
     background-position: 40px 60px, 155px 95px, 230px 125px, 25px 45px, 125px 70px, 80px 30px;
   }
   100% {
-    /* Clean cycles: 3×200, 3×190, 3×180, 4×140, 4×145, 5×135 */
-    background-position: 40px -540px, 155px -570px, 230px -540px, 25px -560px, 125px -580px, 80px -675px;
+    /* CORRECTED: Each layer travels exact multiples of its height
+       Layer 1: 60 - (3×200) = -540 ✓
+       Layer 2: 95 - (3×190) = -475
+       Layer 3: 125 - (3×180) = -415
+       Layer 4: 45 - (4×140) = -515
+       Layer 5: 70 - (4×145) = -510
+       Layer 6: 30 - (5×135) = -645 */
+    background-position: 40px -540px, 155px -475px, 230px -415px, 25px -515px, 125px -510px, 80px -645px;
   }
 }
 
