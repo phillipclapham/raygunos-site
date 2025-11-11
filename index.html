@@ -18,6 +18,7 @@
 
   <!-- Design System & Styles -->
   <link rel="stylesheet" href="styles/tokens.css?v=13-20251110">
+  <link rel="stylesheet" href="styles/navigation.css?v=14-20251110">
   <link rel="stylesheet" href="styles/lab-field.css?v=13-20251110">
   <link rel="stylesheet" href="styles/hero.css?v=13-20251110">
   <link rel="stylesheet" href="styles/effects.css?v=13-20251110">
@@ -36,14 +37,22 @@
   </noscript>
 </head>
 <body>
+  <!-- Site Header with Navigation -->
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="index.html" class="site-logo">RAYGUN OS</a>
+      <div class="nav-right">
+        <a href="framework.html" class="nav-link">Framework</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+          <span id="theme-icon">🌙</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
   <!-- Lab Field Background Layers -->
   <div class="lab-field-substrate" aria-hidden="true"></div>
   <div class="lab-field-orbs" aria-hidden="true"></div>
-
-  <!-- Theme Toggle -->
-  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
-    <span id="theme-icon">🌙</span>
-  </button>
 
   <!-- Hero Section -->
   <section class="hero">

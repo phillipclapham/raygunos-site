@@ -428,28 +428,8 @@ body {
 
 /* ============================================
    THEME TOGGLE
+   Now handled by navigation.css (in header)
    ============================================ */
-
-.theme-toggle {
-  position: fixed;
-  top: var(--space-4);
-  right: var(--space-4);
-  z-index: 100;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-full);
-  padding: var(--space-2) var(--space-3);
-  cursor: pointer;
-  font-size: 1.25rem;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.theme-toggle:hover {
-  background: var(--bg-hover);
-  border-color: var(--color-orange);
-  transform: scale(1.1);
-}
 
 /* ============================================
    MOBILE RESPONSIVE
@@ -479,13 +459,6 @@ body {
   .cta-button {
     padding: var(--space-3) var(--space-5);
     font-size: 1rem;
-  }
-
-  .theme-toggle {
-    top: var(--space-3);
-    right: var(--space-3);
-    font-size: 1rem;
-    padding: var(--space-2);
   }
 }
 

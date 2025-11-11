@@ -49,6 +49,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles/tokens.css" />
+    <link rel="stylesheet" href="styles/navigation.css?v=14-20251110" />
     <link rel="stylesheet" href="styles/base.css" />
     <link rel="stylesheet" href="styles/components.css" />
     <link rel="stylesheet" href="styles/main.css" />
@@ -204,55 +205,17 @@
     </style>
   </head>
   <body>
-    <!-- Header with Theme Toggle -->
+    <!-- Site Header with Navigation -->
     <header class="site-header">
-      <div class="container">
-        <nav class="nav-main">
-          <a href="index.html" class="logo">RAYGUN OS</a>
-          <div class="nav-actions">
-            <a href="index.html" class="nav-link">← Home</a>
-            <button
-              id="theme-toggle"
-              class="theme-toggle"
-              aria-label="Toggle dark mode"
-            >
-              <svg
-                class="theme-icon theme-icon-light"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-              </svg>
-              <svg
-                class="theme-icon theme-icon-dark"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="#F4E5B0"
-                stroke="none"
-              >
-                <path
-                  d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
-                ></path>
-              </svg>
-            </button>
-          </div>
-        </nav>
-      </div>
+      <nav class="site-nav">
+        <a href="index.html" class="site-logo">RAYGUN OS</a>
+        <div class="nav-right">
+          <a href="index.html" class="nav-link">Home</a>
+          <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+            <span id="theme-icon">🌙</span>
+          </button>
+        </div>
+      </nav>
     </header>
 
     <main>
@@ -6160,7 +6123,14 @@ Influences Next Perception → LOOP CONTINUES
     <!-- Footer -->
     <footer class="site-footer">
       <div class="container">
-        <p>&copy; 2025 Adaptive Human. Building rayguns to test reality.</p>
+        <p class="footer-copyright">RAYGUN OS © 2025 Phillip Clapham</p>
+        <nav class="footer-links">
+          <a href="https://adapthuman.com" class="footer-link">Adaptive Human</a>
+          <span class="footer-separator">•</span>
+          <a href="https://phillipclapham.com" class="footer-link">phillipclapham.com</a>
+          <span class="footer-separator">•</span>
+          <a href="https://github.com/phillipclapham/raygun-os" class="footer-link">GitHub</a>
+        </nav>
       </div>
     </footer>
 
@@ -6179,7 +6149,27 @@ Influences Next Perception → LOOP CONTINUES
     </button>
 
     <!-- Theme Toggle Script -->
-    <script src="scripts/theme.js"></script>
+    <script>
+      // Theme toggle function
+      function toggleTheme() {
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        const icon = document.getElementById('theme-icon');
+
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        icon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+      }
+
+      // Initialize theme from localStorage
+      (function() {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        const icon = document.getElementById('theme-icon');
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        icon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+      })();
+    </script>
 
     <!-- Experiment Orbs Interactive Effect -->
     <script src="scripts/experiment-orbs.js"></script>
