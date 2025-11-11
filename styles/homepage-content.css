@@ -39,6 +39,29 @@
   /* Start hidden for animation */
   opacity: 0;
   transform: translateY(30px);
+  /* Required for energy sweep pseudo-element */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Energy sweep effect - mad scientist laboratory energy */
+.panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(230, 126, 34, 0.15),
+    rgba(243, 156, 18, 0.2),
+    rgba(230, 126, 34, 0.15),
+    transparent
+  );
+  transition: left 800ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* Animate when visible */
@@ -52,9 +75,39 @@
 .panel:nth-child(3) { animation-delay: 0.5s; }
 
 .panel:hover {
-  transform: translateY(-8px);
+  transform: translateY(-12px);
   border-color: var(--color-orange);
-  box-shadow: 0 12px 40px rgba(230, 126, 34, 0.15);
+  /* Dramatic multi-layered orange glow - mad scientist energy */
+  box-shadow:
+    0 0 30px rgba(230, 126, 34, 0.4),
+    0 0 60px rgba(230, 126, 34, 0.25),
+    0 12px 50px rgba(230, 126, 34, 0.2),
+    0 4px 20px rgba(0, 0, 0, 0.15);
+  /* Background energy glow */
+  background: linear-gradient(135deg,
+    var(--bg-secondary) 0%,
+    rgba(230, 126, 34, 0.03) 100%
+  );
+  /* Energy pulse animation */
+  animation: cardEnergyPulse 800ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Fire the energy sweep on hover */
+.panel:hover::before {
+  left: 100%;
+}
+
+/* Energy pulse animation - card breathes with energy */
+@keyframes cardEnergyPulse {
+  0% {
+    transform: translateY(-12px) scale(1);
+  }
+  50% {
+    transform: translateY(-12px) scale(1.02);
+  }
+  100% {
+    transform: translateY(-12px) scale(1);
+  }
 }
 
 /* Panel Icons */
@@ -68,6 +121,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Keep icon above energy sweep */
+  z-index: 2;
 }
 
 /* Dark mode contrast background - SOLID bright circle */
@@ -95,8 +150,25 @@
 }
 
 .panel:hover .panel-icon {
-  transform: scale(1.1);
-  filter: drop-shadow(0 0 16px var(--glow-orange));
+  /* More dramatic icon transform - scale + slight rotation for energy */
+  transform: scale(1.2) rotate(3deg);
+  filter:
+    drop-shadow(0 0 20px var(--glow-orange))
+    drop-shadow(0 0 40px rgba(230, 126, 34, 0.6));
+  animation: iconEnergyBounce 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Icon bounces with energy on hover */
+@keyframes iconEnergyBounce {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  40% {
+    transform: scale(1.25) rotate(5deg);
+  }
+  100% {
+    transform: scale(1.2) rotate(3deg);
+  }
 }
 
 /* Panel Typography */
@@ -108,6 +180,8 @@
   margin-bottom: var(--space-4);
   text-align: center;
   position: relative;
+  /* Keep text above energy sweep */
+  z-index: 2;
 }
 
 .panel-description {
@@ -116,6 +190,9 @@
   line-height: 1.6;
   color: var(--text-secondary);
   text-align: center;
+  position: relative;
+  /* Keep text above energy sweep */
+  z-index: 2;
 }
 
 /* ============================================
@@ -326,6 +403,29 @@
   flex: 1 1 calc(33.333% - var(--space-6));
   min-width: 320px;
   max-width: 380px;
+  /* Required for energy sweep pseudo-element */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Energy sweep effect - principle cards get the same mad scientist treatment */
+.principle-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(230, 126, 34, 0.15),
+    rgba(243, 156, 18, 0.2),
+    rgba(230, 126, 34, 0.15),
+    transparent
+  );
+  transition: left 800ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .principle-card.is-visible {
@@ -340,9 +440,26 @@
 .principle-card:nth-child(5) { animation-delay: 0.5s; }
 
 .principle-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-12px);
   border-color: var(--color-orange);
-  box-shadow: 0 12px 40px rgba(230, 126, 34, 0.15);
+  /* Dramatic multi-layered orange glow - mad scientist energy */
+  box-shadow:
+    0 0 30px rgba(230, 126, 34, 0.4),
+    0 0 60px rgba(230, 126, 34, 0.25),
+    0 12px 50px rgba(230, 126, 34, 0.2),
+    0 4px 20px rgba(0, 0, 0, 0.15);
+  /* Background energy glow */
+  background: linear-gradient(135deg,
+    var(--bg-secondary) 0%,
+    rgba(230, 126, 34, 0.03) 100%
+  );
+  /* Energy pulse animation */
+  animation: cardEnergyPulse 800ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Fire the energy sweep on hover */
+.principle-card:hover::before {
+  left: 100%;
 }
 
 .card-title {
@@ -351,6 +468,9 @@
   font-weight: 700;
   color: var(--color-orange);
   margin-bottom: var(--space-4);
+  position: relative;
+  /* Keep text above energy sweep */
+  z-index: 2;
 }
 
 .card-description {
@@ -358,6 +478,9 @@
   font-size: 1rem;
   line-height: 1.6;
   color: var(--text-secondary);
+  position: relative;
+  /* Keep text above energy sweep */
+  z-index: 2;
 }
 
 /* ============================================
