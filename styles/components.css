@@ -622,7 +622,7 @@ body.dark-mode .word-glow:hover {
 .content-section {
   margin-bottom: var(--space-16);
   padding-bottom: var(--space-16);
-  border-bottom: var(--border-width) solid var(--border-light);
+  /* border-bottom removed - using laser beam dividers instead */
 }
 
 .content-section:last-child {

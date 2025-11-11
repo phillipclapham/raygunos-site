@@ -55,7 +55,7 @@
 
 [data-theme="dark"] .evidence-extension {
   background: rgba(230, 126, 34, 0.3);
-  color: var(--color-orange-bright);
+  color: var(--color-orange);
 }
 
 /* ============================================
@@ -137,9 +137,9 @@
 [data-theme="dark"] .mini-laser-beam {
   background: linear-gradient(90deg,
     transparent 0%,
-    var(--color-orange-bright) 20%,
-    var(--color-gold-bright) 50%,
-    var(--color-orange-bright) 80%,
+    var(--color-orange) 20%,
+    var(--color-gold) 50%,
+    var(--color-orange) 80%,
     transparent 100%
   );
   box-shadow: 0 0 12px rgba(255, 107, 53, 0.4);
@@ -158,7 +158,7 @@
 }
 
 [data-theme="dark"] .glow-word {
-  color: var(--color-orange-bright);
+  color: var(--color-orange);
 }
 
 .glow-word:hover {
@@ -210,7 +210,7 @@ h2::after {
 }
 
 [data-theme="dark"] h2::after {
-  background: linear-gradient(90deg, var(--color-orange-bright), var(--color-gold-bright));
+  background: linear-gradient(90deg, var(--color-orange), var(--color-gold));
 }
 
 /* ============================================
