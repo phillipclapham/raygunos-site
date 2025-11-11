@@ -35,17 +35,24 @@
   border: 2px solid var(--border-color);
   border-radius: var(--radius-md);
   background: var(--bg-secondary);
-  /* Smooth transitions for hover effects */
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-              border-color 0.3s ease,
-              box-shadow 0.4s ease,
-              background 0.3s ease;
+  /* No transitions initially - don't interfere with entrance animation */
   /* Start hidden for animation */
   opacity: 0;
   transform: translateY(30px);
   /* Required for energy sweep pseudo-element */
   position: relative;
   overflow: hidden;
+}
+
+/* Entrance animation + transitions for hover */
+.panel.is-visible {
+  /* Entrance animation */
+  animation: fadeSlideIn 0.8s var(--ease-out) forwards;
+  /* Smooth transitions for hover effects - applied after animation completes */
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              border-color 0.3s ease,
+              box-shadow 0.4s ease,
+              background 0.3s ease;
 }
 
 /* Energy sweep effect - mad scientist laboratory energy */
@@ -373,11 +380,7 @@
   border: 2px solid var(--border-color);
   border-radius: var(--radius-md);
   background: var(--bg-secondary);
-  /* Smooth transitions for hover effects */
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-              border-color 0.3s ease,
-              box-shadow 0.4s ease,
-              background 0.3s ease;
+  /* No transitions initially - don't interfere with entrance animation */
   /* Start hidden for animation */
   opacity: 0;
   transform: translateY(30px);
@@ -388,6 +391,17 @@
   /* Required for energy sweep pseudo-element */
   position: relative;
   overflow: hidden;
+}
+
+/* Entrance animation + transitions for hover */
+.principle-card.is-visible {
+  /* Entrance animation */
+  animation: fadeSlideIn 0.8s var(--ease-out) forwards;
+  /* Smooth transitions for hover effects - applied after animation completes */
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              border-color 0.3s ease,
+              box-shadow 0.4s ease,
+              background 0.3s ease;
 }
 
 /* Energy sweep effect - principle cards get the same mad scientist treatment */
