@@ -54,64 +54,16 @@
     <link rel="stylesheet" href="styles/components.css" />
     <link rel="stylesheet" href="styles/main.css" />
     <link rel="stylesheet" href="styles/interactions.css" />
+    <link rel="stylesheet" href="styles/framework-polish.css?v=15-20251110" />
 
-    <!-- Custom styles for evidence badges and smooth scrolling -->
+    <!-- Remaining inline styles (evidence badges moved to framework-polish.css) -->
     <style>
       html {
         scroll-behavior: smooth;
       }
 
-      .evidence-badge {
-        display: inline-block;
-        padding: 0.125rem 0.5rem;
-        margin-right: 0.5rem;
-        border-radius: 4px;
-        font-size: 0.75rem;
-        font-weight: 700;
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-        font-family: "Source Code Pro", monospace;
-      }
-
-      .evidence-proven {
-        background: rgba(0, 168, 171, 0.15);
-        color: var(--color-primary-teal);
-        border: 1px solid var(--color-primary-teal);
-      }
-
-      .evidence-supported {
-        background: rgba(52, 152, 219, 0.15);
-        color: #3498db;
-        border: 1px solid #3498db;
-      }
-
-      .evidence-extension {
-        background: rgba(230, 126, 34, 0.15);
-        color: var(--color-burnt-orange);
-        border: 1px solid var(--color-burnt-orange);
-      }
-
-      .confidence-section {
-        background: var(--color-gray-50);
-        border-left: 4px solid var(--color-primary-teal);
-        padding: 1.5rem;
-        margin: 2rem 0;
-        border-radius: 8px;
-      }
-
-      .confidence-section h4 {
-        margin-top: 1.5rem;
-        margin-bottom: 0.5rem;
-        color: var(--color-primary-teal);
-        font-size: 1rem;
-      }
-
-      .confidence-section h4:first-of-type {
-        margin-top: 0;
-      }
-
       .version-history {
-        background: var(--color-gray-50);
+        background: var(--bg-secondary);
         padding: 1.5rem;
         border-radius: 8px;
         margin: 2rem 0;
@@ -126,7 +78,7 @@
         margin-bottom: 0.5rem;
       }
 
-      /* Dark mode table header fix */
+      /* Dark mode table fixes */
       body.dark-mode table th {
         background-color: #25293a !important;
         color: #f9fafb !important;
@@ -135,20 +87,6 @@
 
       body.dark-mode table td {
         border-color: #2d3142 !important;
-      }
-
-      /* Theme icon color fixes for visibility */
-      /* Light mode: moon needs dark border/color to stand out on light bg */
-      body:not(.dark-mode) .theme-icon-dark {
-        fill: #6b7280;
-        stroke: #374151;
-        stroke-width: 1.5;
-      }
-
-      /* Dark mode: sun needs yellow/gold color to stand out on dark bg */
-      body.dark-mode .theme-icon-light {
-        fill: #fbbf24;
-        stroke: #fbbf24;
       }
 
       /* Scroll to top button */
@@ -188,13 +126,11 @@
         transform: translateY(-2px);
       }
 
-      /* Arrow icon inside button */
       .scroll-to-top svg {
         width: 24px;
         height: 24px;
       }
 
-      /* Dark mode adjustments */
       body.dark-mode .scroll-to-top {
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
       }
@@ -718,6 +654,10 @@
           </section>
 
           <!-- PART 1: The Model -->
+          <div class="section-divider">
+            <div class="mini-laser-beam"></div>
+          </div>
+
           <section id="part-1" class="content-section">
             <h2>Part 1: The Model (How Cognition Actually Works)</h2>
 
@@ -925,6 +865,10 @@ Influences Next Perception → LOOP CONTINUES
           </section>
 
           <!-- PART 2: The Shift -->
+          <div class="section-divider">
+            <div class="mini-laser-beam"></div>
+          </div>
+
           <section id="part-2" class="content-section">
             <h2>Part 2: The Shift (Frames as Experiments, Not Truth)</h2>
 
@@ -1035,6 +979,10 @@ Influences Next Perception → LOOP CONTINUES
           </section>
 
           <!-- PART 3: The Mechanism -->
+          <div class="section-divider">
+            <div class="mini-laser-beam"></div>
+          </div>
+
           <section id="part-3" class="content-section">
             <h2>Part 3: The Mechanism (Where Intervention Happens)</h2>
 
@@ -1273,6 +1221,10 @@ Influences Next Perception → LOOP CONTINUES
           </section>
 
           <!-- PART 4: The Practice -->
+          <div class="section-divider">
+            <div class="mini-laser-beam"></div>
+          </div>
+
           <section id="part-4" class="content-section">
             <h2>Part 4: The Practice (How to Do It)</h2>
 
@@ -2989,6 +2941,10 @@ Influences Next Perception → LOOP CONTINUES
           </section>
 
           <!-- PART 5: The Guide -->
+          <div class="section-divider">
+            <div class="mini-laser-beam"></div>
+          </div>
+
           <section id="part-5" class="content-section">
             <h2>Part 5: The Guide (What Drives Selection)</h2>
 
@@ -3843,6 +3799,10 @@ Influences Next Perception → LOOP CONTINUES
           </section>
 
           <!-- PART 6: Advanced Techniques -->
+          <div class="section-divider">
+            <div class="mini-laser-beam"></div>
+          </div>
+
           <section id="part-6" class="content-section" style="margin-top: 4rem">
             <h2 style="font-size: 2.5rem; margin-bottom: 2rem">
               Part 6: Advanced Techniques

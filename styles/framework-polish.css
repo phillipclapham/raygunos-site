@@ -1,0 +1,234 @@
+/* ============================================
+   FRAMEWORK PAGE VISUAL POLISH
+   Session 8 enhancements
+   ============================================ */
+
+/* ============================================
+   EVIDENCE BADGES - Enhanced
+   ============================================ */
+
+.evidence-badge {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  margin-right: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-family: "Source Code Pro", monospace;
+  transition: all 0.2s ease;
+}
+
+.evidence-badge:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 2px 8px currentColor);
+}
+
+.evidence-proven {
+  background: rgba(0, 168, 171, 0.25);
+  color: var(--color-primary-teal);
+  border: 1px solid var(--color-primary-teal);
+}
+
+[data-theme="dark"] .evidence-proven {
+  background: rgba(0, 168, 171, 0.3);
+  color: #20d4d7;
+}
+
+.evidence-supported {
+  background: rgba(52, 152, 219, 0.25);
+  color: #3498db;
+  border: 1px solid #3498db;
+}
+
+[data-theme="dark"] .evidence-supported {
+  background: rgba(52, 152, 219, 0.3);
+  color: #5dade2;
+}
+
+.evidence-extension {
+  background: rgba(230, 126, 34, 0.25);
+  color: var(--color-burnt-orange);
+  border: 1px solid var(--color-burnt-orange);
+}
+
+[data-theme="dark"] .evidence-extension {
+  background: rgba(230, 126, 34, 0.3);
+  color: var(--color-orange-bright);
+}
+
+/* ============================================
+   CONFIDENCE SECTIONS - Color-coded
+   ============================================ */
+
+.confidence-section {
+  background: var(--bg-secondary);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-radius: 8px;
+  border-left: 4px solid var(--color-primary-teal);
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .confidence-section {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Different border colors by confidence level */
+.confidence-section.proven {
+  border-left-color: var(--color-primary-teal);
+}
+
+.confidence-section.supported {
+  border-left-color: #3498db;
+}
+
+.confidence-section.extension {
+  border-left-color: var(--color-burnt-orange);
+}
+
+.confidence-section h4 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.confidence-section.proven h4 {
+  color: var(--color-primary-teal);
+}
+
+.confidence-section.supported h4 {
+  color: #3498db;
+}
+
+.confidence-section.extension h4 {
+  color: var(--color-burnt-orange);
+}
+
+/* ============================================
+   SECTION DIVIDERS - Mini Orange Laser Beams
+   ============================================ */
+
+.section-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: var(--space-8) 0;
+  padding: var(--space-4) 0;
+}
+
+.mini-laser-beam {
+  width: 300px;
+  height: 3px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--color-orange) 20%,
+    var(--color-gold) 50%,
+    var(--color-orange) 80%,
+    transparent 100%
+  );
+  border-radius: 2px;
+  box-shadow: 0 0 10px var(--color-orange-faint);
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+[data-theme="dark"] .mini-laser-beam {
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--color-orange-bright) 20%,
+    var(--color-gold-bright) 50%,
+    var(--color-orange-bright) 80%,
+    transparent 100%
+  );
+  box-shadow: 0 0 12px rgba(255, 107, 53, 0.4);
+  opacity: 0.7;
+}
+
+/* ============================================
+   GLOW WORD - Key Phrase Highlights
+   ============================================ */
+
+.glow-word {
+  position: relative;
+  color: var(--color-orange);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .glow-word {
+  color: var(--color-orange-bright);
+}
+
+.glow-word:hover {
+  text-shadow: 0 0 12px var(--color-orange-faint);
+  transform: translateY(-1px);
+}
+
+[data-theme="dark"] .glow-word:hover {
+  text-shadow: 0 0 15px rgba(255, 107, 53, 0.5);
+}
+
+/* Emphasis variant for special terms */
+.glow-word-emphasis {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.glow-word-emphasis:hover {
+  text-shadow: 0 0 20px var(--color-orange-faint),
+               0 0 30px var(--color-gold-faint);
+  transform: translateY(-2px);
+}
+
+[data-theme="dark"] .glow-word-emphasis:hover {
+  text-shadow: 0 0 25px rgba(255, 107, 53, 0.6),
+               0 0 40px rgba(212, 175, 55, 0.4);
+}
+
+/* ============================================
+   PART HEADINGS - Enhanced
+   ============================================ */
+
+h2 {
+  position: relative;
+  color: var(--text-primary);
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-4);
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-orange), var(--color-gold));
+  margin-top: var(--space-2);
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
+[data-theme="dark"] h2::after {
+  background: linear-gradient(90deg, var(--color-orange-bright), var(--color-gold-bright));
+}
+
+/* ============================================
+   MOBILE RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .mini-laser-beam {
+    width: 200px;
+    height: 2px;
+  }
+
+  .section-divider {
+    margin: var(--space-6) 0;
+  }
+
+  h2::after {
+    width: 40px;
+    height: 2px;
+  }
+}
