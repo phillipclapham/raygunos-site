@@ -20,6 +20,8 @@
   padding: 280px 0 0 0; /* MASSIVE top padding to cleanly separate from hero */
   /* Match hero background for seamless integration */
   background: var(--bg-secondary);
+  /* Scroll offset to account for sticky header - shows full divider when scrolling to anchor */
+  scroll-margin-top: 80px;
 }
 
 /* Raygun positioned on left side, facing right */
