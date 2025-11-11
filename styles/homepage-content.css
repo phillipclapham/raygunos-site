@@ -35,7 +35,11 @@
   border: 2px solid var(--border-color);
   border-radius: var(--radius-md);
   background: var(--bg-secondary);
-  transition: all 0.3s var(--ease-out);
+  /* Smooth transitions for hover effects */
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              border-color 0.3s ease,
+              box-shadow 0.4s ease,
+              background 0.3s ease;
   /* Start hidden for animation */
   opacity: 0;
   transform: translateY(30px);
@@ -75,7 +79,8 @@
 .panel:nth-child(3) { animation-delay: 0.5s; }
 
 .panel:hover {
-  transform: translateY(-12px);
+  /* Lift card with smooth bounce */
+  transform: translateY(-12px) scale(1.02);
   border-color: var(--color-orange);
   /* Dramatic multi-layered orange glow - mad scientist energy */
   box-shadow:
@@ -88,26 +93,11 @@
     var(--bg-secondary) 0%,
     rgba(230, 126, 34, 0.03) 100%
   );
-  /* Energy pulse animation */
-  animation: cardEnergyPulse 800ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* Fire the energy sweep on hover */
 .panel:hover::before {
   left: 100%;
-}
-
-/* Energy pulse animation - card breathes with energy */
-@keyframes cardEnergyPulse {
-  0% {
-    transform: translateY(-12px) scale(1);
-  }
-  50% {
-    transform: translateY(-12px) scale(1.02);
-  }
-  100% {
-    transform: translateY(-12px) scale(1);
-  }
 }
 
 /* Panel Icons */
@@ -116,7 +106,9 @@
   height: 100px;
   margin: 0 auto var(--space-6);
   filter: drop-shadow(0 0 8px var(--glow-orange));
-  transition: all var(--duration-normal) var(--ease-out);
+  /* Smooth transitions for icon hover effects */
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              filter 0.3s ease;
   position: relative;
   display: flex;
   align-items: center;
@@ -155,20 +147,6 @@
   filter:
     drop-shadow(0 0 20px var(--glow-orange))
     drop-shadow(0 0 40px rgba(230, 126, 34, 0.6));
-  animation: iconEnergyBounce 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-/* Icon bounces with energy on hover */
-@keyframes iconEnergyBounce {
-  0% {
-    transform: scale(1) rotate(0deg);
-  }
-  40% {
-    transform: scale(1.25) rotate(5deg);
-  }
-  100% {
-    transform: scale(1.2) rotate(3deg);
-  }
 }
 
 /* Panel Typography */
@@ -395,7 +373,11 @@
   border: 2px solid var(--border-color);
   border-radius: var(--radius-md);
   background: var(--bg-secondary);
-  transition: all 0.3s var(--ease-out);
+  /* Smooth transitions for hover effects */
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              border-color 0.3s ease,
+              box-shadow 0.4s ease,
+              background 0.3s ease;
   /* Start hidden for animation */
   opacity: 0;
   transform: translateY(30px);
@@ -440,7 +422,8 @@
 .principle-card:nth-child(5) { animation-delay: 0.5s; }
 
 .principle-card:hover {
-  transform: translateY(-12px);
+  /* Lift card with smooth bounce */
+  transform: translateY(-12px) scale(1.02);
   border-color: var(--color-orange);
   /* Dramatic multi-layered orange glow - mad scientist energy */
   box-shadow:
@@ -453,8 +436,6 @@
     var(--bg-secondary) 0%,
     rgba(230, 126, 34, 0.03) 100%
   );
-  /* Energy pulse animation */
-  animation: cardEnergyPulse 800ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* Fire the energy sweep on hover */
