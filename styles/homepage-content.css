@@ -496,38 +496,7 @@
   animation-delay: 0.4s;
 }
 
-.framework-cta .cta-button {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-4) var(--space-8);
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--color-orange);
-  background: transparent;
-  border: 2px solid var(--color-orange);
-  border-radius: var(--radius-sm);
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s var(--ease-out);
-}
-
-.framework-cta .cta-button:hover {
-  background: var(--color-orange);
-  color: var(--bg-primary);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(230, 126, 34, 0.3);
-}
-
-.framework-cta .cta-arrow {
-  display: inline-block;
-  transition: transform 0.3s var(--ease-out);
-}
-
-.framework-cta .cta-button:hover .cta-arrow {
-  transform: translateX(4px);
-}
+/* Bottom button now uses base .cta-button styles from hero.css (same as top button) */
 
 .cta-subtext {
   font-family: var(--font-body);
