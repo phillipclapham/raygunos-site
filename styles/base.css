@@ -422,11 +422,24 @@ img {
     max-width: 100% !important;
   }
 
-  /* Make tables scrollable horizontally within their container */
+  /* Make tables responsive on mobile - constrain cell width and wrap text */
   table {
-    display: block;
-    overflow-x: auto;
+    display: table; /* Keep table display for proper rendering */
+    width: 100% !important; /* Use full available width */
+    max-width: 100%;
+    table-layout: fixed; /* Force equal column widths */
+    overflow-x: auto; /* Fallback if content still overflows */
     -webkit-overflow-scrolling: touch;
+  }
+
+  /* Force table cells to wrap text and respect max-width */
+  table td,
+  table th {
+    white-space: normal !important; /* Allow wrapping */
+    word-wrap: break-word; /* Break long words */
+    overflow-wrap: break-word; /* Modern property */
+    padding: 0.5rem !important; /* Reduce padding on mobile */
+    font-size: 0.875rem; /* Smaller text on mobile */
   }
 
   /* Ensure pre blocks scroll internally, not the page */
