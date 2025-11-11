@@ -17,8 +17,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Design System & Styles -->
-  <link rel="stylesheet" href="styles/tokens.css?v=1-20251110">
-  <link rel="stylesheet" href="styles/framework.css?v=1-20251110">
+  <link rel="stylesheet" href="styles/tokens.css?v=2-20251110">
+  <link rel="stylesheet" href="styles/framework.css?v=2-20251110">
 
   <!-- Smooth scrolling -->
   <style>
@@ -28,17 +28,20 @@
   </style>
 </head>
 <body>
-  <!-- Theme Toggle -->
-  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
-    <span id="theme-icon">🌙</span>
-  </button>
-
-  <!-- Navigation -->
-  <nav class="site-nav">
+  <!-- Header with Navigation -->
+  <header class="site-header">
     <div class="container">
-      <a href="index.html" class="nav-link">← Back to Home</a>
+      <nav class="nav-main">
+        <a href="index.html" class="nav-link">← Home</a>
+        <div class="nav-actions">
+          <a href="framework.html" class="nav-link active">Framework</a>
+          <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+            <span id="theme-icon">🌙</span>
+          </button>
+        </div>
+      </nav>
     </div>
-  </nav>
+  </header>
 
   <!-- Hero Section -->
   <section class="framework-hero">
@@ -2485,7 +2488,12 @@
     </div>
   </footer>
 
-  <!-- Theme Toggle Script -->
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+    ↑
+  </button>
+
+  <!-- Scripts -->
   <script>
     // Theme toggle
     function toggleTheme() {
@@ -2506,6 +2514,21 @@
       document.documentElement.setAttribute('data-theme', savedTheme);
       icon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
     })();
+
+    // Scroll to top button
+    const scrollBtn = document.getElementById('scrollToTop');
+
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        scrollBtn.classList.add('visible');
+      } else {
+        scrollBtn.classList.remove('visible');
+      }
+    });
+
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   </script>
 </body>
 </html>

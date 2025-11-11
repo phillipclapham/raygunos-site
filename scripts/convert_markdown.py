@@ -11,7 +11,11 @@ def convert_markdown_to_html(md_text):
     """Convert markdown to HTML using regex patterns"""
     html = md_text
 
+    # Convert horizontal rules (before headers to avoid conflicts)
+    html = re.sub(r'^---$', r'<hr>', html, flags=re.MULTILINE)
+
     # Convert headers
+    html = re.sub(r'^#### (.+)$', r'<h4>\1</h4>', html, flags=re.MULTILINE)
     html = re.sub(r'^### (.+)$', r'<h3>\1</h3>', html, flags=re.MULTILINE)
     html = re.sub(r'^## (.+)$', r'<h2>\1</h2>', html, flags=re.MULTILINE)
     html = re.sub(r'^# (.+)$', r'<h1>\1</h1>', html, flags=re.MULTILINE)
@@ -98,19 +102,21 @@ def convert_markdown_to_html(md_text):
 
         else:
             # Not a list item
-            if in_list:
-                result.append(f'</{in_list}>')
-                in_list = None
+            # Don't close list on blank lines - only close on non-blank, non-list content
+            if line.strip():
+                if in_list:
+                    result.append(f'</{in_list}>')
+                    in_list = None
 
-            # Convert paragraphs
-            if line.strip() and not line.startswith('<'):
-                # Check if it's a heading
-                if not re.match(r'<h[1-6]>', line):
-                    result.append(f'<p>{line}</p>')
+                # Convert paragraphs
+                if not line.startswith('<'):
+                    # Check if it's a heading or hr
+                    if not re.match(r'<h[1-6]>|<hr>', line):
+                        result.append(f'<p>{line}</p>')
+                    else:
+                        result.append(line)
                 else:
                     result.append(line)
-            elif line.strip():
-                result.append(line)
 
         i += 1
 
