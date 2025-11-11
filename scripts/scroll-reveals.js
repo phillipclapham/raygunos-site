@@ -52,16 +52,6 @@
     // Observe all elements
     elements.forEach(el => observer.observe(el));
 
-    // Safety timeout: force visible after 1 second
-    setTimeout(() => {
-      elements.forEach(el => {
-        if (!el.classList.contains('is-visible')) {
-          console.log('%c🔥 Safety timeout - forcing visible:', 'color: #E67E22;', el.className);
-          el.classList.add('is-visible');
-        }
-      });
-    }, 1000);
-
     console.log('%c🔥 Observer set up complete', 'color: #E67E22; font-weight: bold;');
   }
 
