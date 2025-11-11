@@ -70,11 +70,27 @@
   transition: all 0.2s ease;
   padding: var(--space-2) var(--space-3);
   border-radius: var(--radius-md);
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-orange), var(--color-gold));
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
 }
 
 .nav-link:hover {
   color: var(--color-orange);
-  background: var(--bg-hover);
+}
+
+.nav-link:hover::after {
+  width: calc(100% - var(--space-6));
 }
 
 [data-theme="dark"] .nav-link:hover {

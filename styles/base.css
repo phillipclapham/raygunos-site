@@ -59,9 +59,6 @@ body {
   transition: background-color var(--transition-medium),
               color var(--transition-medium);
 
-  /* Prevent horizontal overflow */
-  overflow-x: hidden;
-
   /* Better font rendering */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

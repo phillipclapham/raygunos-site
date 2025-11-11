@@ -154,6 +154,7 @@
   position: relative;
   color: var(--color-orange);
   font-weight: 600;
+  cursor: default;
   transition: all 0.3s ease;
 }
 
@@ -162,12 +163,20 @@
 }
 
 .glow-word:hover {
-  text-shadow: 0 0 12px var(--color-orange-faint);
-  transform: translateY(-1px);
+  color: var(--color-orange-bright);
+  text-shadow:
+    0 0 20px rgba(230, 126, 34, 0.8),
+    0 0 40px rgba(230, 126, 34, 0.5),
+    0 0 60px rgba(230, 126, 34, 0.3);
+  transform: translateY(-2px) scale(1.02);
 }
 
 [data-theme="dark"] .glow-word:hover {
-  text-shadow: 0 0 15px rgba(255, 107, 53, 0.5);
+  color: var(--color-orange-bright);
+  text-shadow:
+    0 0 25px rgba(255, 107, 53, 0.9),
+    0 0 50px rgba(255, 107, 53, 0.6),
+    0 0 75px rgba(255, 107, 53, 0.4);
 }
 
 /* Emphasis variant for special terms */

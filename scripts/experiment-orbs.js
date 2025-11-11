@@ -80,11 +80,15 @@
   }
 
   /**
-   * Handle hero click events
+   * Handle click events
    */
-  function handleHeroClick(e) {
-    // Only spawn orbs on hero section clicks
-    if (e.target.closest('.hero')) {
+  function handleClick(e) {
+    // On homepage: only spawn in hero section
+    // On framework page: spawn anywhere in main content
+    const heroSection = e.target.closest('.hero');
+    const mainContent = e.target.closest('main');
+
+    if (heroSection || mainContent) {
       createOrb(e.clientX, e.clientY);
     }
   }
@@ -100,7 +104,7 @@
     }
 
     // Add click listener to document (event delegation)
-    document.addEventListener('click', handleHeroClick);
+    document.addEventListener('click', handleClick);
   }
 
   init();
