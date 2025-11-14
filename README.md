@@ -166,7 +166,7 @@ Code: Open for reference and learning. Please don't clone the site directly, but
 
 **Built by:** [Phillip Clapham](https://phillipclapham.com)
 **Part of:** [Adaptive Human](https://adapthuman.com) ecosystem
-**Content:** RAYGUN OS framework v4.6
+**Content:** RAYGUN OS framework v4.7.1
 **Development:** Partnership with Claude (Anthropic)
 
 ## Links
