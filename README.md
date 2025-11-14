@@ -100,7 +100,7 @@ raygunos-site/
 
 ## Content Source
 
-Framework content lives in `/Documents/raygun-os/RAYGUN.md` (v4.6) — this is the source of truth. The website renders that content with visual polish and interactive elements.
+Framework content lives in `/Documents/raygun-os/RAYGUN.md` (v4.7) — this is the source of truth. The website renders that content with visual polish and interactive elements.
 
 Updates flow: `RAYGUN.md` → `framework.html` (manual sync as needed).
 
