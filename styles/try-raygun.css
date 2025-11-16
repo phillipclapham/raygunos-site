@@ -1,0 +1,759 @@
+/**
+ * Try RAYGUN - Interactive Experiment Styles
+ * Visual states mirror cognitive states
+ */
+
+/* ============================================
+   BASE LAYOUT
+   ============================================ */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: var(--line-normal);
+  transition: background-color var(--transition-slow);
+}
+
+.experiment-container {
+  min-height: 100vh;
+  padding: var(--space-24) var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: background-color var(--transition-slow);
+}
+
+/* ============================================
+   EXPERIMENT STATES
+   ============================================ */
+
+.experiment-state {
+  display: none; /* Hidden by default */
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.experiment-state.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.state-content {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-12) var(--space-8);
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-slow);
+}
+
+@media (max-width: 768px) {
+  .experiment-container {
+    padding: var(--space-12) var(--space-3);
+  }
+
+  .state-content {
+    padding: var(--space-8) var(--space-6);
+  }
+}
+
+/* ============================================
+   STATE-SPECIFIC BACKGROUNDS
+   ============================================ */
+
+/* Landing - Neutral, inviting */
+[data-state="landing"] {
+  /* Default background */
+}
+
+/* Grind - Heavy, burdened (darker) */
+#state-grind.active ~ body,
+.experiment-container:has(#state-grind.active) {
+  background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+}
+
+[data-theme="dark"] .experiment-container:has(#state-grind.active) {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+}
+
+/* Frame - Still heavy */
+.experiment-container:has(#state-frame.active) {
+  background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+}
+
+[data-theme="dark"] .experiment-container:has(#state-frame.active) {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+}
+
+/* Interrupt - Fade to neutral (breathing focus) */
+.experiment-container:has(#state-interrupt.active) {
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+}
+
+[data-theme="dark"] .experiment-container:has(#state-interrupt.active) {
+  background: linear-gradient(135deg, #0f1117 0%, #1a1d29 100%);
+}
+
+/* Gap - Minimal, spacious, frameless */
+.experiment-container:has(#state-gap.active) {
+  background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+}
+
+[data-theme="dark"] .experiment-container:has(#state-gap.active) {
+  background: linear-gradient(135deg, #0f1117 0%, #1a1d29 100%);
+}
+
+/* Experiment - Warm orange glow, energized */
+.experiment-container:has(#state-experiment.active) {
+  background: linear-gradient(135deg, #fef3e7 0%, #f4d4b0 100%);
+}
+
+[data-theme="dark"] .experiment-container:has(#state-experiment.active) {
+  background: linear-gradient(135deg, #1a1410 0%, #2d1f14 100%);
+}
+
+/* Depleted - Calm, supportive */
+.experiment-container:has(#state-depleted.active) {
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+}
+
+[data-theme="dark"] .experiment-container:has(#state-depleted.active) {
+  background: linear-gradient(135deg, #1a1d29 0%, #25293a 100%);
+}
+
+/* Endings - Appropriate to outcome */
+.experiment-container:has(#state-celebration.active) {
+  background: linear-gradient(135deg, #fef3e7 0%, #f4d4b0 100%);
+}
+
+[data-theme="dark"] .experiment-container:has(#state-celebration.active) {
+  background: linear-gradient(135deg, #1a1410 0%, #2d1f14 100%);
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+.experiment-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-6xl);
+  font-weight: var(--font-bold);
+  margin: 0 0 var(--space-4);
+  color: var(--text-primary);
+  letter-spacing: var(--tracking-tight);
+}
+
+.experiment-subtitle {
+  font-size: var(--text-xl);
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-6);
+  font-weight: var(--font-medium);
+}
+
+.experiment-description {
+  font-size: var(--text-md);
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-8);
+  line-height: var(--line-relaxed);
+}
+
+.state-heading {
+  font-family: var(--font-heading);
+  font-size: var(--text-4xl);
+  font-weight: var(--font-bold);
+  margin: 0 0 var(--space-6);
+  color: var(--text-primary);
+}
+
+.state-prompt {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-6);
+  line-height: var(--line-relaxed);
+}
+
+.state-prompt-emphasis {
+  font-size: var(--text-xl);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-6);
+  font-weight: var(--font-semibold);
+  line-height: var(--line-relaxed);
+}
+
+.state-insight {
+  font-size: var(--text-lg);
+  color: var(--color-orange);
+  margin: var(--space-6) 0 0;
+  font-weight: var(--font-medium);
+  font-style: italic;
+}
+
+.state-explanation {
+  font-size: var(--text-md);
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-4);
+  line-height: var(--line-relaxed);
+}
+
+@media (max-width: 768px) {
+  .experiment-title {
+    font-size: var(--text-5xl);
+  }
+
+  .state-heading {
+    font-size: var(--text-3xl);
+  }
+
+  .state-prompt,
+  .state-prompt-emphasis {
+    font-size: var(--text-md);
+  }
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: var(--space-4) var(--space-8);
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  font-weight: var(--font-semibold);
+  text-decoration: none;
+  border: none;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-align: center;
+  min-height: 48px; /* Mobile touch target */
+}
+
+.btn-primary {
+  background: var(--color-orange);
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  background: var(--color-orange-hover);
+  box-shadow: var(--glow-orange);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: var(--border-width) solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-hover);
+  border-color: var(--color-orange);
+}
+
+.btn-lg {
+  padding: var(--space-5) var(--space-12);
+  font-size: var(--text-lg);
+  min-height: 56px; /* Larger touch target */
+}
+
+@media (max-width: 768px) {
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    display: block;
+    margin-bottom: var(--space-3);
+  }
+}
+
+/* ============================================
+   INPUTS & FORMS
+   ============================================ */
+
+.input-container {
+  margin: var(--space-6) 0;
+}
+
+.input-label {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-2);
+}
+
+.state-input {
+  width: 100%;
+  padding: var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--radius-md);
+  resize: vertical;
+  transition: all var(--transition-normal);
+  min-height: 48px; /* Mobile touch target */
+}
+
+.state-input:focus {
+  outline: none;
+  border-color: var(--color-orange);
+  box-shadow: var(--shadow-focus);
+}
+
+.state-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+/* Experiment input gets orange glow when typing */
+.experiment-glow:focus {
+  box-shadow: var(--glow-orange);
+  border-color: var(--color-orange);
+}
+
+@media (max-width: 768px) {
+  .state-input {
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+}
+
+/* ============================================
+   FRAME SELECTION CARDS
+   ============================================ */
+
+.frame-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  margin: var(--space-6) 0;
+}
+
+.frame-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6) var(--space-4);
+  background: var(--bg-tertiary);
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  min-height: 120px;
+  text-align: center;
+}
+
+.frame-card:hover {
+  border-color: var(--color-orange);
+  background: var(--bg-hover);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.frame-card:active {
+  transform: translateY(-2px);
+}
+
+.frame-emoji {
+  font-size: var(--text-5xl);
+  margin-bottom: var(--space-3);
+}
+
+.frame-text {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-primary);
+}
+
+.frame-feedback {
+  margin-top: var(--space-6);
+  padding: var(--space-4);
+  background: var(--color-orange-faint);
+  border-left: 4px solid var(--color-orange);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-weight: var(--font-medium);
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .frame-options {
+    grid-template-columns: 1fr;
+  }
+
+  .frame-card {
+    min-height: 100px;
+  }
+}
+
+/* ============================================
+   BREATHING GUIDE
+   ============================================ */
+
+.breathing-guide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-16) 0;
+  min-height: 400px;
+}
+
+.breathing-circle {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: var(--color-orange-faint);
+  border: 3px solid var(--color-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-8);
+  transition: all 0.4s ease-in-out;
+}
+
+.breathing-inner {
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  background: var(--color-orange);
+  opacity: 0.3;
+  transition: all 0.4s ease-in-out;
+}
+
+/* Breathing animations */
+.breathing-circle.breathing-inhale {
+  animation: breatheIn 4s ease-in-out;
+}
+
+.breathing-circle.breathing-hold {
+  animation: breatheHold 2s ease-in-out;
+  transform: scale(1.5);
+}
+
+.breathing-circle.breathing-exhale {
+  animation: breatheOut 4s ease-in-out;
+}
+
+@keyframes breatheIn {
+  from {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
+
+@keyframes breatheHold {
+  0%, 100% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.48);
+    opacity: 0.95;
+  }
+}
+
+@keyframes breatheOut {
+  from {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+}
+
+.breathing-instruction {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-medium);
+  color: var(--text-primary);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .breathing-circle {
+    width: 150px;
+    height: 150px;
+  }
+
+  .breathing-instruction {
+    font-size: var(--text-xl);
+  }
+}
+
+/* ============================================
+   BRANCH BUTTONS
+   ============================================ */
+
+.branch-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin: var(--space-8) 0;
+}
+
+/* ============================================
+   REFLECTION OPTIONS
+   ============================================ */
+
+.reflection-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin: var(--space-6) 0;
+}
+
+.reflection-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6) var(--space-4);
+  background: var(--bg-tertiary);
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  min-height: 140px;
+  text-align: center;
+}
+
+.reflection-card:hover {
+  border-color: var(--color-orange);
+  background: var(--bg-hover);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.reflection-emoji {
+  font-size: var(--text-6xl);
+  margin-bottom: var(--space-3);
+}
+
+.reflection-text {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .reflection-options {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   ENDINGS
+   ============================================ */
+
+.ending-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-6xl);
+  font-weight: var(--font-bold);
+  margin: 0 0 var(--space-4);
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.ending-subtitle {
+  font-size: var(--text-xl);
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-8);
+  text-align: center;
+  font-weight: var(--font-medium);
+}
+
+.ending-insight {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  margin: var(--space-8) 0;
+  padding: var(--space-6);
+  background: var(--color-orange-faint);
+  border-left: 4px solid var(--color-orange);
+  border-radius: var(--radius-md);
+  line-height: var(--line-relaxed);
+}
+
+@media (max-width: 768px) {
+  .ending-title {
+    font-size: var(--text-5xl);
+  }
+}
+
+/* ============================================
+   EXPERIMENT SUMMARY (Celebration)
+   ============================================ */
+
+.experiment-summary {
+  margin: var(--space-8) 0;
+  padding: var(--space-6);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-orange);
+}
+
+.experiment-summary h3 {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  margin: 0 0 var(--space-6);
+  color: var(--text-primary);
+}
+
+.summary-item {
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.summary-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.summary-item strong {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-2);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+.summary-item p {
+  margin: 0;
+  font-size: var(--text-md);
+  color: var(--text-primary);
+  font-weight: var(--font-medium);
+}
+
+/* ============================================
+   GUIDANCE SECTIONS (Troubleshooting, etc)
+   ============================================ */
+
+.subtle-guidance,
+.troubleshoot-guidance {
+  margin: var(--space-6) 0;
+}
+
+.subtle-guidance h3,
+.troubleshoot-guidance h3 {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  margin: 0 0 var(--space-4);
+  color: var(--text-primary);
+}
+
+.shift-signs,
+.failure-modes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.shift-signs li,
+.failure-modes li {
+  padding: var(--space-4) var(--space-4) var(--space-4) var(--space-10);
+  margin-bottom: var(--space-3);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  position: relative;
+  font-size: var(--text-md);
+  color: var(--text-primary);
+  line-height: var(--line-relaxed);
+}
+
+.shift-signs li::before,
+.failure-modes li::before {
+  content: '→';
+  position: absolute;
+  left: var(--space-4);
+  color: var(--color-orange);
+  font-weight: var(--font-bold);
+  font-size: var(--text-lg);
+}
+
+/* ============================================
+   CTA BUTTONS SECTION
+   ============================================ */
+
+.cta-buttons {
+  display: flex;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+@media (max-width: 768px) {
+  .cta-buttons {
+    flex-direction: column;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY: REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .experiment-state,
+  .breathing-circle,
+  .breathing-inner,
+  .frame-card,
+  .reflection-card,
+  .btn-primary,
+  .btn-secondary {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .experiment-state.active {
+    animation: none;
+  }
+
+  .breathing-circle.breathing-inhale,
+  .breathing-circle.breathing-hold,
+  .breathing-circle.breathing-exhale {
+    animation: none;
+    transform: scale(1);
+  }
+}

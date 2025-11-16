@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>Try RAYGUN Right Now - 5 Minute Experiment</title>
+  <meta name="title" content="Try RAYGUN Right Now - 5 Minute Experiment">
+  <meta name="description" content="Experience RAYGUN in 5 minutes. Move from grind to experiment mode through a guided interactive experience.">
+  <meta name="keywords" content="RAYGUN experiment, cognitive shift, grind to experiment, interactive experience">
+  <link rel="canonical" href="https://raygunos.com/try-raygun.html">
+
+  <!-- Open Graph / Facebook / LinkedIn / Slack -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://raygunos.com/try-raygun.html">
+  <meta property="og:title" content="Try RAYGUN Right Now - 5 Minute Experiment">
+  <meta property="og:description" content="Experience RAYGUN in 5 minutes. Move from grind to experiment mode through a guided interactive experience.">
+  <meta property="og:image" content="https://raygunos.com/assets/images/raygun_original_clear.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://raygunos.com/try-raygun.html">
+  <meta property="twitter:title" content="Try RAYGUN Right Now - 5 Minute Experiment">
+  <meta property="twitter:description" content="Experience RAYGUN in 5 minutes. Move from grind to experiment mode through a guided interactive experience.">
+  <meta property="twitter:image" content="https://raygunos.com/assets/images/raygun_original_clear.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/raygun_original_clear 16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/raygun_original_clear 32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/images/raygun_original_clear 48x48.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Design System & Styles -->
+  <link rel="stylesheet" href="styles/tokens.css?v=16-20251116">
+  <link rel="stylesheet" href="styles/navigation.css?v=16-20251116">
+  <link rel="stylesheet" href="styles/try-raygun.css?v=16-20251116">
+</head>
+<body>
+  <!-- Site Header with Navigation -->
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="index.html" class="site-logo">RAYGUN OS</a>
+      <div class="nav-right">
+        <a href="framework.html" class="nav-link">Framework</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+          <span id="theme-icon">🌙</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Experiment Container -->
+  <div class="experiment-container">
+
+    <!-- STATE 0: Landing -->
+    <div class="experiment-state" id="state-landing" data-state="landing">
+      <div class="state-content">
+        <h1 class="experiment-title">Try RAYGUN Right Now</h1>
+        <p class="experiment-subtitle">5 minutes. Run an experiment on your own mind.</p>
+        <p class="experiment-description">
+          You're about to experience the shift from grind mode to experiment mode.
+          This isn't reading about RAYGUN—it's <em>doing</em> it.
+        </p>
+        <button class="btn-primary btn-lg" onclick="experimentEngine.nextState()">
+          Begin Experiment
+        </button>
+      </div>
+    </div>
+
+    <!-- STATE 1: Identify the Grind -->
+    <div class="experiment-state" id="state-grind" data-state="grind">
+      <div class="state-content">
+        <h2 class="state-heading">Step 1: Identify the Grind</h2>
+        <p class="state-prompt">
+          Think of something you're avoiding right now. Something that feels heavy, burdensome, like an obstacle.
+        </p>
+        <div class="input-container">
+          <label for="grind-input" class="input-label">What is it? (optional - you can just think it)</label>
+          <textarea
+            id="grind-input"
+            class="state-input"
+            rows="3"
+            placeholder="E.g., 'Debugging that production issue', 'Filing taxes', 'That difficult conversation'..."
+          ></textarea>
+        </div>
+        <button class="btn-primary" onclick="experimentEngine.nextState()">
+          Continue
+        </button>
+      </div>
+    </div>
+
+    <!-- STATE 2: Notice the Frame -->
+    <div class="experiment-state" id="state-frame" data-state="frame">
+      <div class="state-content">
+        <h2 class="state-heading">Step 2: Notice the Frame</h2>
+        <p class="state-prompt">
+          Notice how you're thinking about this. Does it feel like:
+        </p>
+        <div class="frame-options">
+          <button class="frame-card" onclick="experimentEngine.selectFrame('burden')">
+            <span class="frame-emoji">😓</span>
+            <span class="frame-text">A burden I have to push through</span>
+          </button>
+          <button class="frame-card" onclick="experimentEngine.selectFrame('obstacle')">
+            <span class="frame-emoji">🧱</span>
+            <span class="frame-text">An obstacle in my way</span>
+          </button>
+          <button class="frame-card" onclick="experimentEngine.selectFrame('should')">
+            <span class="frame-emoji">⏰</span>
+            <span class="frame-text">Something I should have done already</span>
+          </button>
+          <button class="frame-card" onclick="experimentEngine.selectFrame('failing')">
+            <span class="frame-emoji">❌</span>
+            <span class="frame-text">A problem I'm failing at</span>
+          </button>
+        </div>
+        <p class="frame-feedback" id="frame-feedback" style="display: none;">
+          That's grind-frame. You're experiencing it right now.
+        </p>
+      </div>
+    </div>
+
+    <!-- STATE 3: The Interrupt (Breathing Guide) -->
+    <div class="experiment-state" id="state-interrupt" data-state="interrupt">
+      <div class="state-content">
+        <h2 class="state-heading">Step 3: The Interrupt</h2>
+        <p class="state-prompt">
+          We're going to interrupt that pattern. For 15 seconds, just breathe.
+        </p>
+        <div id="breathing-guide" class="breathing-guide">
+          <div class="breathing-circle">
+            <div class="breathing-inner"></div>
+          </div>
+          <p class="breathing-instruction" id="breathing-instruction">Breathe in...</p>
+        </div>
+        <!-- This state auto-advances after breathing complete -->
+      </div>
+    </div>
+
+    <!-- STATE 4: Touch the Gap -->
+    <div class="experiment-state" id="state-gap" data-state="gap">
+      <div class="state-content">
+        <h2 class="state-heading">Step 4: Touch the Gap</h2>
+        <p class="state-prompt">
+          Right now, drop the story about the task. Don't think about why it's hard or what it means.
+        </p>
+        <p class="state-prompt-emphasis">
+          Just notice: What is the ACTUAL constraint? The real problem you're facing?
+        </p>
+        <div class="input-container">
+          <label for="constraint-input" class="input-label">In one sentence, what's the constraint? (optional)</label>
+          <textarea
+            id="constraint-input"
+            class="state-input"
+            rows="2"
+            placeholder="E.g., 'I don't know where the bug is', 'I'm missing information', 'I need to have a hard conversation'..."
+          ></textarea>
+        </div>
+        <button class="btn-primary" onclick="experimentEngine.nextState()">
+          Continue
+        </button>
+      </div>
+    </div>
+
+    <!-- STATE 5: Reframe as Puzzle (BRANCHING POINT) -->
+    <div class="experiment-state" id="state-reframe" data-state="reframe">
+      <div class="state-content">
+        <h2 class="state-heading">Step 5: Reframe as Puzzle</h2>
+        <p class="state-prompt">
+          Can you treat this constraint as a puzzle? Just for 10 minutes?
+        </p>
+        <div class="branch-buttons">
+          <button class="btn-primary btn-lg" onclick="experimentEngine.selectBranch('curious')">
+            Yes, I'm curious
+          </button>
+          <button class="btn-secondary btn-lg" onclick="experimentEngine.selectBranch('depleted')">
+            No, this feels impossible
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PATH A: Curiosity Available -->
+    <div class="experiment-state" id="state-experiment" data-state="experiment">
+      <div class="state-content">
+        <h2 class="state-heading">Design the Experiment</h2>
+        <p class="state-prompt">
+          What's the smallest experiment that would touch this constraint? What could you test in 10 minutes?
+        </p>
+        <div class="input-container">
+          <label for="experiment-input" class="input-label">What's the experiment?</label>
+          <textarea
+            id="experiment-input"
+            class="state-input experiment-glow"
+            rows="3"
+            placeholder="E.g., 'Test if the bug happens when I disable caching', 'Ask one clarifying question', 'Write one terrible first sentence'..."
+          ></textarea>
+        </div>
+        <p class="state-insight">
+          That's experimenter mode. Feel the difference?
+        </p>
+        <button class="btn-primary" onclick="experimentEngine.nextState()">
+          Continue to Reflection
+        </button>
+      </div>
+    </div>
+
+    <!-- PATH B: Too Depleted -->
+    <div class="experiment-state" id="state-depleted" data-state="depleted">
+      <div class="state-content">
+        <h2 class="state-heading">You're Too Depleted</h2>
+        <p class="state-prompt">
+          That's okay. You might be too depleted to experiment right now.
+        </p>
+        <p class="state-explanation">
+          Try this: Either <strong>rest</strong> (if you need energy), or <strong>grind on a timer</strong> (if it's truly boring but necessary).
+        </p>
+        <p class="state-explanation">
+          Not everything is experimentable when you're at 0% energy.
+        </p>
+        <div class="cta-buttons">
+          <a href="troubleshooting.html#depletion" class="btn-secondary">
+            Learn about Cold Start Protocol
+          </a>
+          <button class="btn-primary" onclick="experimentEngine.nextState()">
+            Continue to Reflection
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATE 6: Reflection (Converging Point) -->
+    <div class="experiment-state" id="state-reflection" data-state="reflection">
+      <div class="state-content">
+        <h2 class="state-heading">Reflection</h2>
+        <p class="state-prompt">
+          Did you notice a shift? Even small?
+        </p>
+        <div class="reflection-options">
+          <button class="reflection-card" onclick="experimentEngine.selectReflection('yes')">
+            <span class="reflection-emoji">✨</span>
+            <span class="reflection-text">Yes, felt lighter</span>
+          </button>
+          <button class="reflection-card" onclick="experimentEngine.selectReflection('maybe')">
+            <span class="reflection-emoji">🤔</span>
+            <span class="reflection-text">Not sure</span>
+          </button>
+          <button class="reflection-card" onclick="experimentEngine.selectReflection('no')">
+            <span class="reflection-emoji">😕</span>
+            <span class="reflection-text">No, didn't work</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENDING: Celebration -->
+    <div class="experiment-state" id="state-celebration" data-state="celebration">
+      <div class="state-content">
+        <h1 class="ending-title">That's RAYGUN 🎉</h1>
+        <p class="ending-subtitle">That shift from grind to experiment. You just did it.</p>
+
+        <div class="experiment-summary">
+          <h3>Your Experiment:</h3>
+          <div class="summary-item">
+            <strong>Task you were avoiding:</strong>
+            <p id="summary-grind"></p>
+          </div>
+          <div class="summary-item">
+            <strong>How you were thinking (grind frame):</strong>
+            <p id="summary-frame"></p>
+          </div>
+          <div class="summary-item">
+            <strong>Actual constraint:</strong>
+            <p id="summary-constraint"></p>
+          </div>
+          <div class="summary-item">
+            <strong>Your experiment:</strong>
+            <p id="summary-experiment"></p>
+          </div>
+        </div>
+
+        <p class="ending-insight">
+          You moved from heaviness to curiosity. That's the whole operating system.
+        </p>
+
+        <div class="cta-buttons">
+          <a href="framework.html" class="btn-primary">
+            Understand Why This Works
+          </a>
+          <button class="btn-secondary" onclick="experimentEngine.reset()">
+            Try Another Experiment
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENDING: Reflection Help -->
+    <div class="experiment-state" id="state-subtle" data-state="subtle">
+      <div class="state-content">
+        <h1 class="ending-title">The Shift Can Be Subtle</h1>
+        <p class="ending-subtitle">Sometimes the shift is so small you almost miss it.</p>
+
+        <div class="subtle-guidance">
+          <h3>Look for these signs:</h3>
+          <ul class="shift-signs">
+            <li>Felt slightly less heavy, even for a moment</li>
+            <li>Got curious about the problem (even briefly)</li>
+            <li>Noticed you were grinding (that's meta-awareness!)</li>
+            <li>Saw the constraint differently after breathing</li>
+            <li>Designed an experiment (that's RAYGUN in action)</li>
+          </ul>
+        </div>
+
+        <p class="ending-insight">
+          The skill strengthens with practice. You're learning to catch the shift earlier.
+        </p>
+
+        <div class="cta-buttons">
+          <a href="framework.html#minimum-raygun" class="btn-primary">
+            Read About the Minimum Loop
+          </a>
+          <a href="troubleshooting.html" class="btn-secondary">
+            Get Troubleshooting Help
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENDING: Troubleshooting -->
+    <div class="experiment-state" id="state-troubleshoot" data-state="troubleshoot">
+      <div class="state-content">
+        <h1 class="ending-title">Let's Debug This</h1>
+        <p class="ending-subtitle">RAYGUN didn't work this time. That's data, not failure.</p>
+
+        <div class="troubleshoot-guidance">
+          <h3>Common failure modes:</h3>
+          <ul class="failure-modes">
+            <li><strong>Too depleted:</strong> Can't access curiosity at 0% energy</li>
+            <li><strong>Wrong constraint:</strong> Solving surface problem, not root issue</li>
+            <li><strong>Trying too hard:</strong> "Doing RAYGUN right" is itself grinding</li>
+            <li><strong>Need practice:</strong> Meta-awareness is a skill that develops</li>
+          </ul>
+        </div>
+
+        <p class="ending-insight">
+          You troubleshooting this problem? That's experimenting. You're already using RAYGUN.
+        </p>
+
+        <div class="cta-buttons">
+          <a href="troubleshooting.html" class="btn-primary">
+            Diagnostic Tool & Recovery Paths
+          </a>
+          <button class="btn-secondary" onclick="experimentEngine.reset()">
+            Try the Experiment Again
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="scripts/raygun-experiment.js?v=16-20251116"></script>
+  <script src="scripts/breathing-guide.js?v=16-20251116"></script>
+
+  <!-- Theme Toggle (reuse from homepage) -->
+  <script>
+    // Initialize theme from localStorage or system preference
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+
+      document.documentElement.setAttribute('data-theme', theme);
+      updateThemeIcon(theme);
+    }
+
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    }
+
+    function updateThemeIcon(theme) {
+      const icon = document.getElementById('theme-icon');
+      if (icon) {
+        icon.textContent = theme === 'dark' ? '☀️' : '🌙';
+      }
+    }
+
+    // Initialize on load
+    initTheme();
+  </script>
+</body>
+</html>
