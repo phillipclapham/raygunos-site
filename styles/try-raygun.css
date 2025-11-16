@@ -7,6 +7,10 @@
    BASE LAYOUT
    ============================================ */
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -19,6 +23,7 @@ body {
 
 .experiment-container {
   min-height: 100vh;
+  width: 100%;
   padding: var(--space-24) var(--space-4);
   display: flex;
   align-items: center;
@@ -26,6 +31,9 @@ body {
   position: relative;
   background: var(--bg-primary);
   transition: background var(--transition-slow);
+
+  /* Ensure proper scrolling when content overflows */
+  overflow-y: auto;
 }
 
 /* ============================================
@@ -64,8 +72,12 @@ body {
   background: var(--bg-secondary);
   border-radius: var(--radius-xl);
   padding: var(--space-12) var(--space-8);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-xl); /* Deeper shadow for more presence */
   transition: all var(--transition-slow);
+  width: 100%;
+  max-width: 800px;
+  margin: auto; /* Center within flex container */
+  border: 1px solid var(--border-light); /* Subtle border for definition */
 }
 
 @media (max-width: 768px) {
@@ -204,7 +216,7 @@ body {
 .state-insight {
   font-size: var(--text-lg);
   color: var(--color-orange);
-  margin: var(--space-6) 0 0;
+  margin: var(--space-6) 0 var(--space-8) 0; /* Add bottom margin before button */
   font-weight: var(--font-medium);
   font-style: italic;
 }
@@ -212,8 +224,12 @@ body {
 .state-explanation {
   font-size: var(--text-md);
   color: var(--text-secondary);
-  margin: 0 0 var(--space-4);
+  margin: 0 0 var(--space-6);
   line-height: var(--line-relaxed);
+}
+
+.state-explanation:last-of-type {
+  margin-bottom: var(--space-8); /* More space before buttons */
 }
 
 @media (max-width: 768px) {
@@ -237,7 +253,9 @@ body {
 
 .btn-primary,
 .btn-secondary {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: var(--space-4) var(--space-8);
   font-family: var(--font-body);
   font-size: var(--text-md);
@@ -249,6 +267,7 @@ body {
   transition: all var(--transition-normal);
   text-align: center;
   min-height: 48px; /* Mobile touch target */
+  line-height: 1.2; /* Tighter line height for better centering */
 }
 
 .btn-primary {
@@ -299,6 +318,7 @@ body {
 
 .input-container {
   margin: var(--space-6) 0;
+  width: 100%;
 }
 
 .input-label {
@@ -311,6 +331,7 @@ body {
 
 .state-input {
   width: 100%;
+  max-width: 100%;
   padding: var(--space-4);
   font-family: var(--font-body);
   font-size: var(--text-md);
@@ -321,6 +342,7 @@ body {
   resize: vertical;
   transition: all var(--transition-normal);
   min-height: 48px; /* Mobile touch target */
+  box-sizing: border-box; /* Ensure padding doesn't cause overflow */
 }
 
 .state-input:focus {
@@ -362,24 +384,37 @@ body {
   align-items: center;
   justify-content: center;
   padding: var(--space-6) var(--space-4);
-  background: var(--bg-tertiary);
-  border: 2px solid var(--border-light);
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
   border-radius: var(--radius-lg);
   cursor: pointer;
-  transition: all var(--transition-normal);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              border-color 0.3s ease,
+              box-shadow 0.4s ease,
+              background 0.3s ease;
   min-height: 120px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .frame-card:hover {
+  transform: translateY(-8px) scale(1.02);
   border-color: var(--color-orange);
-  background: var(--bg-hover);
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  background: linear-gradient(135deg,
+    var(--bg-secondary) 0%,
+    rgba(230, 126, 34, 0.05) 100%
+  );
+  /* Multi-layered orange glow */
+  box-shadow:
+    0 0 20px rgba(230, 126, 34, 0.3),
+    0 0 40px rgba(230, 126, 34, 0.2),
+    0 8px 30px rgba(230, 126, 34, 0.15),
+    0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .frame-card:active {
-  transform: translateY(-2px);
+  transform: translateY(-4px) scale(1.01);
 }
 
 .frame-emoji {
@@ -548,20 +583,33 @@ body {
   align-items: center;
   justify-content: center;
   padding: var(--space-6) var(--space-4);
-  background: var(--bg-tertiary);
-  border: 2px solid var(--border-light);
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
   border-radius: var(--radius-lg);
   cursor: pointer;
-  transition: all var(--transition-normal);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              border-color 0.3s ease,
+              box-shadow 0.4s ease,
+              background 0.3s ease;
   min-height: 140px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .reflection-card:hover {
+  transform: translateY(-8px) scale(1.02);
   border-color: var(--color-orange);
-  background: var(--bg-hover);
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  background: linear-gradient(135deg,
+    var(--bg-secondary) 0%,
+    rgba(230, 126, 34, 0.05) 100%
+  );
+  /* Multi-layered orange glow */
+  box-shadow:
+    0 0 20px rgba(230, 126, 34, 0.3),
+    0 0 40px rgba(230, 126, 34, 0.2),
+    0 8px 30px rgba(230, 126, 34, 0.15),
+    0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .reflection-emoji {

@@ -64,7 +64,34 @@
         this.initBreathingGuide();
       }
 
+      // Add Enter key handlers to all text inputs
+      this.initKeyboardHandlers();
+
       console.log('%c🧪 Experiment initialized:', 'color: #E67E22;', experimentData);
+    },
+
+    /**
+     * Initialize keyboard handlers (Enter key to advance)
+     */
+    initKeyboardHandlers: function() {
+      console.log('%c🧪 Initializing keyboard handlers...', 'color: #E67E22;');
+
+      const inputs = document.querySelectorAll('.state-input');
+
+      inputs.forEach(input => {
+        input.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' && !e.shiftKey) {
+            // Shift+Enter allows newlines in textarea
+            // Plain Enter advances to next state
+            e.preventDefault();
+
+            console.log('%c🧪 Enter pressed, advancing...', 'color: #E67E22;');
+            this.nextState();
+          }
+        });
+      });
+
+      console.log('%c🧪 Keyboard handlers initialized for', 'color: #E67E22;', inputs.length, 'inputs');
     },
 
     /**
