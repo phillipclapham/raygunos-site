@@ -24,7 +24,8 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
-  transition: background-color var(--transition-slow);
+  background: var(--bg-primary);
+  transition: background var(--transition-slow);
 }
 
 /* ============================================
