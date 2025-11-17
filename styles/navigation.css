@@ -170,9 +170,8 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 100%;
+  top: calc(100% + 4px);
   right: 0;
-  margin-top: var(--space-2);
   background: var(--bg-primary);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-lg);
@@ -180,6 +179,12 @@
   min-width: 200px;
   padding: var(--space-2);
   z-index: 1001;
+
+  /* Smooth fade-in transition */
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 [data-theme="dark"] .dropdown-content {
@@ -188,9 +193,27 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
+/* Create invisible bridge between button and dropdown for smooth hover */
+.nav-dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 8px;
+  display: none;
+}
+
+.nav-dropdown:hover::after {
+  display: block;
+}
+
 .nav-dropdown:hover .dropdown-content,
 .nav-dropdown:focus-within .dropdown-content {
   display: block;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .dropdown-link {
@@ -206,6 +229,28 @@
 .dropdown-link:hover {
   background: var(--bg-hover);
   color: var(--color-orange);
+}
+
+/* Add slight delay before closing dropdown (better UX) */
+.dropdown-content {
+  transition-delay: 0s, 0s, 0s;
+}
+
+.nav-dropdown:not(:hover) .dropdown-content {
+  transition-delay: 0.15s;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .dropdown-content {
+    transition: none;
+    transform: none;
+  }
+
+  .nav-dropdown:hover .dropdown-content,
+  .nav-dropdown:focus-within .dropdown-content {
+    opacity: 1;
+  }
 }
 
 /* ============================================
