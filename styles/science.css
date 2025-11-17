@@ -841,13 +841,11 @@
   color: var(--color-teal);
   text-decoration: none;
   font-weight: 500;
-  transition: all var(--transition-fast) ease;
-  border-bottom: 1px solid transparent;
+  transition: color var(--transition-fast) ease;
 }
 
 .footer-link:hover {
-  color: var(--color-teal-hover);
-  border-bottom-color: var(--color-teal-hover);
+  color: var(--color-teal-bright);
 }
 
 .footer-separator {

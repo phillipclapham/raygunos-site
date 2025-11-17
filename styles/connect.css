@@ -89,12 +89,21 @@
 .glow-word {
     color: var(--color-orange);
     font-weight: var(--font-semibold);
-    transition: all var(--transition-normal) ease;
-    cursor: default;
+    display: inline-block;
+    animation: wordPulse 7s ease-in-out infinite;
 }
 
-.glow-word:hover {
-    text-shadow: var(--glow-orange);
+@keyframes wordPulse {
+    0%, 100% {
+        text-shadow:
+            0 0 10px rgba(230, 126, 34, 0.4),
+            0 0 18px rgba(230, 126, 34, 0.22);
+    }
+    50% {
+        text-shadow:
+            0 0 7px rgba(230, 126, 34, 0.25),
+            0 0 14px rgba(230, 126, 34, 0.15);
+    }
 }
 
 /* ============================================
@@ -661,13 +670,11 @@ textarea.form-input {
     color: var(--color-teal);
     text-decoration: none;
     font-weight: 500;
-    transition: all var(--transition-fast) ease;
-    border-bottom: 1px solid transparent;
+    transition: color var(--transition-fast) ease;
 }
 
 .footer-link:hover {
-    color: var(--color-teal-hover);
-    border-bottom-color: var(--color-teal-hover);
+    color: var(--color-teal-bright);
 }
 
 .footer-separator {
@@ -751,6 +758,12 @@ textarea.form-input {
     .toast {
         transition: none;
         animation: none;
+    }
+
+    .glow-word {
+        text-shadow:
+            0 0 10px rgba(230, 126, 34, 0.4),
+            0 0 18px rgba(230, 126, 34, 0.22);
     }
 
     .btn-copy-email::before,

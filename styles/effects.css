@@ -52,14 +52,23 @@
 
 .glow-word {
   position: relative;
+  display: inline-block;
   color: var(--color-orange);
-  text-shadow: 0 0 8px var(--color-orange-faint);
-  transition: all 0.3s ease;
+  font-weight: 600;
+  animation: wordPulse 7s ease-in-out infinite;
 }
 
-.glow-word:hover {
-  text-shadow: 0 0 16px var(--color-orange-faint),
-               0 0 24px var(--color-orange-faint);
+@keyframes wordPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 10px rgba(230, 126, 34, 0.4),
+      0 0 18px rgba(230, 126, 34, 0.22);
+  }
+  50% {
+    text-shadow:
+      0 0 7px rgba(230, 126, 34, 0.25),
+      0 0 14px rgba(230, 126, 34, 0.15);
+  }
 }
 
 /* Emphasis variant (for "ALIVE") */
@@ -153,6 +162,7 @@
 @media (prefers-reduced-motion: reduce) {
   /* Disable all animations */
   .raygun-icon,
+  .glow-word,
   .glow-word-emphasis,
   .hero-content > * {
     animation: none !important;
@@ -162,6 +172,12 @@
   .raygun-icon {
     filter: drop-shadow(0 0 12px rgba(230, 126, 34, 0.4));
     transform: scale(1);
+  }
+
+  .glow-word {
+    text-shadow:
+      0 0 10px rgba(230, 126, 34, 0.4),
+      0 0 18px rgba(230, 126, 34, 0.22);
   }
 
   .glow-word-emphasis {

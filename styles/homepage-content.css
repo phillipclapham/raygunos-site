@@ -290,48 +290,40 @@
   margin-top: var(--space-3);
 }
 
-/* Make key words PULSE with VISIBLE energy */
+/* Make key words glow with subtle energy */
 .quote-text .glow-word {
   display: inline-block;
-  animation: wordPulse 2.5s ease-in-out infinite;
+  animation: wordPulse 7s ease-in-out infinite;
 }
 
 .quote-text .glow-word-emphasis {
   display: inline-block;
-  animation: alivenessPulse 2s ease-in-out infinite;
+  animation: alivenessPulse 7s ease-in-out infinite;
 }
 
 @keyframes wordPulse {
   0%, 100% {
     text-shadow:
-      0 0 15px var(--glow-orange),
-      0 0 30px var(--glow-orange),
-      0 0 45px rgba(230, 126, 34, 0.5);
-    transform: scale(1);
+      0 0 10px rgba(230, 126, 34, 0.4),
+      0 0 18px rgba(230, 126, 34, 0.22);
   }
   50% {
     text-shadow:
-      0 0 25px var(--glow-orange),
-      0 0 50px var(--glow-orange),
-      0 0 75px rgba(230, 126, 34, 0.8);
-    transform: scale(1.05);
+      0 0 7px rgba(230, 126, 34, 0.25),
+      0 0 14px rgba(230, 126, 34, 0.15);
   }
 }
 
 @keyframes alivenessPulse {
   0%, 100% {
     text-shadow:
-      0 0 20px var(--glow-orange),
-      0 0 40px var(--glow-orange),
-      0 0 60px rgba(230, 126, 34, 0.6);
-    transform: scale(1);
+      0 0 10px rgba(230, 126, 34, 0.4),
+      0 0 18px rgba(230, 126, 34, 0.22);
   }
   50% {
     text-shadow:
-      0 0 35px var(--glow-orange),
-      0 0 70px var(--glow-orange),
-      0 0 100px rgba(230, 126, 34, 1);
-    transform: scale(1.08);
+      0 0 7px rgba(230, 126, 34, 0.25),
+      0 0 14px rgba(230, 126, 34, 0.15);
   }
 }
 
@@ -679,13 +671,11 @@
   color: var(--color-teal);
   text-decoration: none;
   font-weight: 500;
-  transition: all var(--duration-fast) var(--ease-out);
-  border-bottom: 1px solid transparent;
+  transition: color var(--duration-fast) var(--ease-out);
 }
 
 .footer-link:hover {
   color: var(--color-teal-bright);
-  border-bottom-color: var(--color-teal-bright);
 }
 
 .footer-separator {

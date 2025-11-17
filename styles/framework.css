@@ -377,13 +377,11 @@ body {
   color: var(--color-teal);
   text-decoration: none;
   font-weight: 500;
-  transition: all var(--duration-fast) var(--ease-out);
-  border-bottom: 1px solid transparent;
+  transition: color var(--duration-fast) var(--ease-out);
 }
 
 .footer-link:hover {
   color: var(--color-teal-bright);
-  border-bottom-color: var(--color-teal-bright);
 }
 
 .footer-separator {

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAYGUN in the Wild - Examples Across Domains - RAYGUN OS</title>
+    <meta name="description" content="See what RAYGUN looks like in practice across software, teaching, parenting, creative work, business, trades, and healthcare. Real process, including failures.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/navigation.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/examples.css">
+</head>
+<body>
+    <!-- Site Header with Navigation -->
+    <header class="site-header">
+        <nav class="site-nav">
+            <a href="index.html" class="site-logo">RAYGUN OS</a>
+            <div class="nav-right">
+                <a href="framework.html" class="nav-link">Framework</a>
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+                    <span id="theme-icon">🌙</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="examples-page">
+
+        <!-- Hero -->
+        <section class="examples-hero">
+            <div class="hero-content">
+                <h1 class="hero-title">RAYGUN in the Wild</h1>
+                <p class="hero-subtitle">What it looks like in practice across different domains</p>
+            </div>
+        </section>
+
+        <!-- Introduction -->
+        <section class="examples-intro">
+            <div class="container">
+                <div class="intro-content">
+                    <p>These examples show <strong class="glow-word">RAYGUN in practice</strong> across 7 different domains. Each follows a realistic timeline—Day 1 (first attempt, might fail), Week 1 (pattern recognition), Month 1 (integration).</p>
+
+                    <p><strong class="glow-word">Process over outcomes.</strong> You'll see struggles, failures, and gradual shifts. This is what <strong class="glow-word">experiment mode actually looks like</strong> in real work.</p>
+
+                    <div class="honesty-note">
+                        <p><strong>A note on these examples:</strong> These are hypothetical scenarios to show what RAYGUN looks like in different contexts. They're based on patterns I've observed in my own work and conversations with people practicing RAYGUN, but they're not specific real stories. As people share their experiences, real case studies will be added here.</p>
+                    </div>
+
+                    <p>Click any domain to see the full timeline.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Domain Examples (Collapsible Accordions) -->
+        <section class="domain-sections">
+            <div class="container">
+
+                <!-- Domain 1: Software Engineering -->
+                <div class="domain-section" data-domain="software">
+                    <button class="domain-header" onclick="toggleDomain('software')">
+                        <div class="header-content">
+                            <span class="domain-icon">💻</span>
+                            <div class="header-text">
+                                <h2>Software Engineering</h2>
+                                <p class="domain-preview">Debugging production issues, treating bugs as puzzles</p>
+                            </div>
+                        </div>
+                        <span class="expand-icon">+</span>
+                    </button>
+                    <div class="domain-content">
+
+                        <div class="constraint-box">
+                            <h4>The Constraint</h4>
+                            <p>"I'm debugging a production issue. It's been 3 hours and I'm stuck."</p>
+                        </div>
+
+                        <div class="grind-mode">
+                            <h4>Grind Mode</h4>
+                            <ul>
+                                <li>Staring at code, forcing solutions</li>
+                                <li>"I should see the bug, why can't I see it?"</li>
+                                <li>Frustration building, focus narrowing</li>
+                                <li>Trying the same approaches repeatedly</li>
+                            </ul>
+                        </div>
+
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-marker day1">Day 1</div>
+                                <div class="timeline-content">
+                                    <h4>First Attempt</h4>
+                                    <p>"I'm grinding through this bug. Let me try the interrupt: 3 breaths, drop the story.</p>
+                                    <p>What's the actual constraint? NOT 'I can't find the bug' (that's the story). But: 'I've checked API responses, database state, and logs—none show the issue.'</p>
+                                    <p>Can I treat this as puzzle? What's the smallest experiment?</p>
+                                    <p><strong>Experiment:</strong> What if the bug isn't in the code I'm looking at? Test: Comment out entire suspect function, see if issue persists.</p>
+                                    <p>[Runs test] Issue persists. So bug is NOT in that function.</p>
+                                    <p>Holy shit, that narrowed it down. I feel lighter. This is experimenting vs grinding."</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-marker week1">Week 1</div>
+                                <div class="timeline-content">
+                                    <h4>Pattern Emerging</h4>
+                                    <p>"Now I catch myself grinding faster. When I'm re-running the same test for the 5th time, I notice: 'I'm grinding.'</p>
+                                    <p>Interrupt. What haven't I tested yet?</p>
+                                    <p><strong>Experiment:</strong> Check the caching layer (hadn't considered that yet).</p>
+                                    <p>[Finds bug in cache invalidation]</p>
+                                    <p>The shift: From 'force myself to find it' to 'what small test reveals new information?' Each failed test is data, not failure."</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-marker month1">Month 1</div>
+                                <div class="timeline-content">
+                                    <h4>Integration</h4>
+                                    <p>"Debugging is now my favorite part of the job. Every bug is a puzzle.</p>
+                                    <p>When I get stuck, I ask: 'What's the smallest test that would surprise me?'</p>
+                                    <p>The bugs I can't solve immediately are the INTERESTING ones. I get fascinated instead of frustrated.</p>
+                                    <p>Teammates notice: 'You seem calmer during production issues.' Yeah, because I'm experimenting, not grinding."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="key-insight">
+                            <h4>Key Insight</h4>
+                            <p>In software, grind mode = forcing solutions. Experiment mode = designing tests. The code doesn't care about your frustration—it responds to systematic experimentation. RAYGUN aligns your cognitive state with what actually works in debugging.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Domain 2: Teaching -->
+                <div class="domain-section" data-domain="teaching">
+                    <button class="domain-header" onclick="toggleDomain('teaching')">
+                        <div class="header-content">
+                            <span class="domain-icon">📚</span>
+                            <div class="header-text">
+                                <h2>Teaching</h2>
+                                <p class="domain-preview">Making curriculum fascinating, student engagement</p>
+                            </div>
+                        </div>
+                        <span class="expand-icon">+</span>
+                    </button>
+                    <div class="domain-content">
+
+                        <div class="constraint-box">
+                            <h4>The Constraint</h4>
+                            <p>"I need to teach quadratic equations to 30 teenagers who hate math."</p>
+                        </div>
+
+                        <div class="grind-mode">
+                            <h4>Grind Mode</h4>
+                            <ul>
+                                <li>Forcing through lesson plan</li>
+                                <li>"They should care about this, why don't they?"</li>
+                                <li>Frustration when students check out</li>
+                                <li>Blaming students for not engaging</li>
+                            </ul>
+                        </div>
+
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-marker day1">Day 1</div>
+                                <div class="timeline-content">
+                                    <h4>First Attempt</h4>
+                                    <p>"I'm grinding through this lesson plan. They're bored, I'm frustrated.</p>
+                                    <p>Interrupt. What's the actual constraint? NOT 'students don't care about math' (story). But: 'Students don't see why quadratic equations matter to THEM.'</p>
+                                    <p>Can I treat this as puzzle? What's the smallest experiment?</p>
+                                    <p><strong>Experiment:</strong> Open class with question: 'What's something you're curious about that involves curves?' (Skateboard ramps, basketball trajectories, etc.)</p>
+                                    <p>[Students actually engage]</p>
+                                    <p>Then: 'Let's figure out the math behind that.' Connect quadratic equations to THEIR curiosity.</p>
+                                    <p>This feels different. I'm curious about what they're curious about."</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-marker week1">Week 1</div>
+                                <div class="timeline-content">
+                                    <h4>Pattern Emerging</h4>
+                                    <p>"Now I start every lesson with: 'What are you curious about?'</p>
+                                    <p>When lesson plan falls flat, I notice grinding ('they should care'), interrupt, and ask: 'What would make THIS material fascinating to THEM?'</p>
+                                    <p>Small experiments:</p>
+                                    <ul>
+                                        <li>Competitive problem-solving (gamify)</li>
+                                        <li>Real-world applications (student choice)</li>
+                                        <li>Let them teach each other (peer learning)</li>
+                                    </ul>
+                                    <p>Not all experiments work, but I'm learning what resonates."</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-marker month1">Month 1</div>
+                                <div class="timeline-content">
+                                    <h4>Integration</h4>
+                                    <p>"Lesson planning is now tinkering, not forcing.</p>
+                                    <p>I ask: 'What constraint are my students facing?' (Boredom? Confusion? Relevance?)</p>
+                                    <p>Then design smallest experiment to test: 'Would THIS approach address it?'</p>
+                                    <p>Students notice: 'You seem to actually care if we get this.' Yeah, because I'm treating teaching as experiment, not performance. I'm curious what works."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="key-insight">
+                            <h4>Key Insight</h4>
+                            <p>In teaching, grind mode = forcing curriculum. Experiment mode = treating every lesson as test of 'what creates fascination?' Students respond to genuine curiosity. RAYGUN makes you curious about THEIR learning, not just your teaching.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Domain 3: Parenting -->
+                <div class="domain-section" data-domain="parenting">
+                    <button class="domain-header" onclick="toggleDomain('parenting')">
+                        <div class="header-content">
+                            <span class="domain-icon">👶</span>
+                            <div class="header-text">
+                                <h2>Parenting</h2>
+                                <p class="domain-preview">Understanding child constraints, reducing meltdowns</p>
+                            </div>
+                        </div>
+                        <span class="expand-icon">+</span>
+                    </button>
+                    <div class="domain-content">
+
+                        <div class="constraint-box">
+                            <h4>The Constraint</h4>
+                            <p>"Toddler meltdown in grocery store, 30 people watching, late for next appointment."</p>
+                        </div>
+
+                        <div class="grind-mode">
+                            <h4>Grind Mode</h4>
+                            <ul>
+                                <li>"They should behave, why won't they listen?"</li>
+                                <li>Frustration building, trying to control behavior</li>
+                                <li>"I'm a bad parent, everyone's judging me"</li>
+                                <li>Forcing compliance, escalating conflict</li>
+                            </ul>
+                        </div>
+
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-marker day1">Day 1</div>
+                                <div class="timeline-content">
+                                    <h4>First Attempt</h4>
+                                    <p>"I'm in the cereal aisle, my 3-year-old is screaming because I won't buy Sugar Bombs. I'm grinding: 'They need to learn, I can't give in.' 30 people watching.</p>
+                                    <p>Interrupt. 3 breaths. What's the actual constraint? NOT 'they won't behave' (that's the story). But: 'They're overstimulated, tired from errands, and can't regulate yet.'</p>
+                                    <p>Can I treat this as puzzle? What's the smallest experiment?</p>
+                                    <p><strong>Experiment:</strong> Crouch to their eye level. 'I see you really want those. You're frustrated. We're going to leave soon, but first—can you help me find the oatmeal?'</p>
+                                    <p>[Kid pauses, sniffles, points at shelf]</p>
+                                    <p>Holy shit. The shift wasn't in THEM—it was in ME. I moved from 'control this behavior' to 'what do they need right now?'"</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-marker week1">Week 1</div>
+                                <div class="timeline-content">
+                                    <h4>Pattern Emerging</h4>
+                                    <p>"Now I catch myself grinding before the tantrum fully escalates. When I feel that 'they should...' thought, I interrupt.</p>
+                                    <p>What constraint are THEY facing? Usually: Tired, hungry, overstimulated, or can't communicate what they need.</p>
+                                    <p>Small experiments:</p>
+                                    <ul>
+                                        <li>Bring snacks (prevents hunger meltdowns)</li>
+                                        <li>Plan errands when they're rested</li>
+                                        <li>Give choices: 'Red cart or blue cart?'</li>
+                                        <li>Name their feelings: 'You're frustrated'</li>
+                                    </ul>
+                                    <p>Not all experiments work, but I'm learning their patterns."</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-marker month1">Month 1</div>
+                                <div class="timeline-content">
+                                    <h4>Integration</h4>
+                                    <p>"Parenting is now tinkering with constraints, not enforcing compliance.</p>
+                                    <p>When meltdown starts, I ask: 'What constraint are they experiencing right now?' (Too much stimulation? Need autonomy? Hungry?)</p>
+                                    <p>Then design smallest experiment: 'Would THIS address it?'</p>
+                                    <p>Other parents notice: 'You seem so calm during tantrums.' Yeah, because I'm experimenting with THEIR needs, not grinding against their behavior."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="key-insight">
+                            <h4>Key Insight</h4>
+                            <p>In parenting, grind mode = trying to control behavior. Experiment mode = understanding the child's constraint. Kids aren't 'misbehaving'—they're experiencing constraints they can't articulate yet. RAYGUN makes you curious about what they need, not frustrated about what they're doing.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Domain 4: Creative Work -->
+                <div class="domain-section" data-domain="creative">
+                    <button class="domain-header" onclick="toggleDomain('creative')">
+                        <div class="header-content">
+                            <span class="domain-icon">✍️</span>
+                            <div class="header-text">
+                                <h2>Creative Work (Writing)</h2>
+                                <p class="domain-preview">Overcoming blank page, permission to write badly first</p>
+                            </div>
+                        </div>
+                        <span class="expand-icon">+</span>
+                    </button>
+                    <div class="domain-content">
+
+                        <div class="constraint-box">
+                            <h4>The Constraint</h4>
+                            <p>"Blank page, manuscript due in 3 days, zero words written, creative block."</p>
+                        </div>
+
+                        <div class="grind-mode">
+                            <h4>Grind Mode</h4>
+                            <ul>
+                                <li>"I should have ideas, why can't I write?"</li>
+                                <li>Forcing output, deleting everything</li>
+                                <li>"Every sentence has to be perfect"</li>
+                                <li>Comparing to past work, feeling inadequate</li>
+                            </ul>
+                        </div>
+
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-marker day1">Day 1</div>
+                                <div class="timeline-content">
+                                    <h4>First Attempt</h4>
+                                    <p>"Staring at blank page for 2 hours. Cursor blinking. Nothing. I'm grinding: 'Just write SOMETHING, force it out.'</p>
+                                    <p>Interrupt. What's the actual constraint? NOT 'no ideas' (I have 20 ideas). But: 'Trying to write perfect first sentence.'</p>
+                                    <p>Can I treat this as puzzle? What's the smallest experiment?</p>
+                                    <p><strong>Experiment:</strong> Write the WORST possible first sentence. Make it deliberately terrible.</p>
+                                    <p>[Types: 'This story sucks and you'll hate it because it's about a boring person doing boring things.']</p>
+                                    <p>[Laughs. Keeps typing. Bad sentences become okay sentences. Okay sentences reveal the actual story.]</p>
+                                    <p>Wait. I'm writing. The constraint wasn't 'no ideas'—it was permission to write badly first."</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-marker week1">Week 1</div>
+                                <div class="timeline-content">
+                                    <h4>Pattern Emerging</h4>
+                                    <p>"Now when I hit blank page resistance, I notice: 'I'm grinding for perfection.'</p>
+                                    <p>Interrupt. What's the smallest experiment?</p>
+                                    <p>Experiments I've tried:</p>
+                                    <ul>
+                                        <li>Write for 5 minutes without backspace key</li>
+                                        <li>Start with dialogue only (no description)</li>
+                                        <li>Write the scene I'm AVOIDING (usually that's the one that matters)</li>
+                                        <li>Dictate into voice memo while walking</li>
+                                    </ul>
+                                    <p>Some work better than others. Voice memo unlocked 2,000 words yesterday."</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-marker month1">Month 1</div>
+                                <div class="timeline-content">
+                                    <h4>Integration</h4>
+                                    <p>"Writing is now experimenting with emergence, not forcing output.</p>
+                                    <p>Every draft is an experiment: 'What if I tried THIS approach?'</p>
+                                    <p>When blocked, I ask: 'What constraint am I creating?' (Usually: perfectionism, comparison, or trying to write for imagined critics)</p>
+                                    <p>Then design experiment: 'Can I write this badly first and see what emerges?'</p>
+                                    <p>Editor said: 'This draft has more life than anything you've written.' Yeah, because I stopped grinding against the blank page."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="key-insight">
+                            <h4>Key Insight</h4>
+                            <p>In creative work, grind mode = forcing perfection. Experiment mode = permission to make terrible first drafts and see what emerges. Writing doesn't respond to willpower—it responds to playful exploration. RAYGUN gives you permission to suck first.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Domain 5: Business -->
+                <div class="domain-section" data-domain="business">
+                    <button class="domain-header" onclick="toggleDomain('business')">
+                        <div class="header-content">
+                            <span class="domain-icon">💼</span>
+                            <div class="header-text">
+                                <h2>Business / Entrepreneurship</h2>
+                                <p class="domain-preview">Product-market fit, systematic hypothesis testing</p>
+                            </div>
+                        </div>
+                        <span class="expand-icon">+</span>
+                    </button>
+                    <div class="domain-content">
+
+                        <div class="constraint-box">
+                            <h4>The Constraint</h4>
+                            <p>"Product not selling, burn rate high, 3 months runway left, need to pivot or die."</p>
+                        </div>
+
+                        <div class="grind-mode">
+                            <h4>Grind Mode</h4>
+                            <ul>
+                                <li>"Try everything, throw spaghetti at wall"</li>
+                                <li>Panic-driven tactics, no strategy</li>
+                                <li>"Work harder, more marketing, more features"</li>
+                                <li>Avoiding the real problem (wrong product-market fit)</li>
+                            </ul>
+                        </div>
+
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-marker day1">Day 1</div>
+                                <div class="timeline-content">
+                                    <h4>First Attempt</h4>
+                                    <p>"Revenue flat for 6 months. I'm grinding: 'Try more channels—Facebook ads, LinkedIn, cold email, SEO, partnerships—SOMETHING will work.'</p>
+                                    <p>Burning money on tactics. Panic mode.</p>
+                                    <p>Interrupt. What's the actual constraint? NOT 'not enough marketing' (I'm doing tons). But: 'I don't know WHY it's not selling.'</p>
+                                    <p>Can I treat this as puzzle? What's the smallest experiment to find out?</p>
+                                    <p><strong>Experiment:</strong> Email 10 people who TRIED the product but didn't buy. Ask ONE question: 'What almost convinced you, and what made you stop?'</p>
+                                    <p>[8 respond. 7 say the same thing: 'Too complex, couldn't figure out onboarding in 5 minutes.']</p>
+                                    <p>Holy shit. The constraint isn't marketing—it's the product. They WANTED it, couldn't USE it."</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-marker week1">Week 1</div>
+                                <div class="timeline-content">
+                                    <h4>Pattern Emerging</h4>
+                                    <p>"Now I design experiments before throwing money at problems.</p>
+                                    <p>Current question: 'Would simpler onboarding increase conversions?'</p>
+                                    <p><strong>Experiment:</strong> Rebuild first 5 minutes of product with ZERO features. Just one core workflow.</p>
+                                    <p>Ship to 10 new users. 8 complete onboarding (vs 2/10 before).</p>
+                                    <p>Next experiment: 'Can I strip 80% of features and increase value?'</p>
+                                    <p>I'm learning what actually matters vs. what I THOUGHT mattered."</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-marker month1">Month 1</div>
+                                <div class="timeline-content">
+                                    <h4>Integration</h4>
+                                    <p>"Business is now systematic hypothesis testing, not panic tactics.</p>
+                                    <p>When something fails, I ask: 'What constraint am I missing?' (Wrong market? Wrong message? Wrong product?)</p>
+                                    <p>Then design smallest test: 'What's the cheapest way to validate this?'</p>
+                                    <p>Runway extended to 12 months (stopped burning cash on guesses). Conversions up 4x (fixed actual constraint).</p>
+                                    <p>Co-founder said: 'You seem way less stressed.' Yeah, because I'm experimenting with data, not grinding on hope."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="key-insight">
+                            <h4>Key Insight</h4>
+                            <p>In business, grind mode = random tactics driven by panic. Experiment mode = systematic hypothesis testing with user feedback. Markets don't respond to effort—they respond to product-market fit. RAYGUN makes you curious about what's actually broken, not just 'trying harder.'</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Domain 6: Trades -->
+                <div class="domain-section" data-domain="trades">
+                    <button class="domain-header" onclick="toggleDomain('trades')">
+                        <div class="header-content">
+                            <span class="domain-icon">🔨</span>
+                            <div class="header-text">
+                                <h2>Trades / Manual Labor</h2>
+                                <p class="domain-preview">Testing assumptions, diagnosing root problems</p>
+                            </div>
+                        </div>
+                        <span class="expand-icon">+</span>
+                    </button>
+                    <div class="domain-content">
+
+                        <div class="constraint-box">
+                            <h4>The Constraint</h4>
+                            <p>"Cabinet won't fit in kitchen remodel, client expects it done today, measurement seems off."</p>
+                        </div>
+
+                        <div class="grind-mode">
+                            <h4>Grind Mode</h4>
+                            <ul>
+                                <li>"Force it, muscle through, make it fit"</li>
+                                <li>Cutting/sanding without re-measuring</li>
+                                <li>Frustration building, risking damage</li>
+                                <li>"I measured twice, it SHOULD fit"</li>
+                            </ul>
+                        </div>
+
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-marker day1">Day 1</div>
+                                <div class="timeline-content">
+                                    <h4>First Attempt</h4>
+                                    <p>"Kitchen cabinet 2 inches too wide for the space. Client watching. I'm grinding: 'Sand it down, force it in, make it work.'</p>
+                                    <p>20 minutes of sanding. Still doesn't fit. Getting hot, frustrated.</p>
+                                    <p>Interrupt. What's the actual constraint? NOT 'cabinet too big' (obvious). But: 'WHY is it too big when I measured twice?'</p>
+                                    <p>Can I treat this as puzzle? What's the smallest experiment?</p>
+                                    <p><strong>Experiment:</strong> Re-measure the SPACE, not the cabinet.</p>
+                                    <p>[Grabs tape measure. Wall isn't plumb—it bows inward 2 inches halfway up.]</p>
+                                    <p>Oh. The constraint isn't the cabinet—it's the wall. I was solving the wrong problem."</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-marker week1">Week 1</div>
+                                <div class="timeline-content">
+                                    <h4>Pattern Emerging</h4>
+                                    <p>"Now when something 'should work' but doesn't, I interrupt grinding.</p>
+                                    <p>What haven't I tested yet?</p>
+                                    <p>Recent examples:</p>
+                                    <ul>
+                                        <li>Electrical outlet not working → Tested breaker (obvious), then tested GFCI upstream (wasn't obvious, that was it)</li>
+                                        <li>Paint finish looking wrong → Tested application (my technique), then tested humidity (70%, that was it)</li>
+                                        <li>Tile cutting crooked → Tested my cuts, then tested the saw fence alignment (bent, that was it)</li>
+                                    </ul>
+                                    <p>I'm learning: My first assumption is wrong 60% of the time."</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-marker month1">Month 1</div>
+                                <div class="timeline-content">
+                                    <h4>Integration</h4>
+                                    <p>"Job sites are now puzzles, not battles.</p>
+                                    <p>When something won't work, I ask: 'What assumption am I making that might be wrong?'</p>
+                                    <p>Then test it: 'Is the material the problem? The tool? The space? My technique?'</p>
+                                    <p>Client said: 'You never seem flustered.' Yeah, because when something breaks, I'm curious what I'm missing, not frustrated it's not working."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="key-insight">
+                            <h4>Key Insight</h4>
+                            <p>In trades, grind mode = forcing solutions with muscle. Experiment mode = testing assumptions about the actual constraint. Materials and physics don't care about your effort—they respond to accurate diagnosis. RAYGUN makes you curious about what you're missing, not frustrated about what's not working.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Domain 7: Healthcare -->
+                <div class="domain-section" data-domain="healthcare">
+                    <button class="domain-header" onclick="toggleDomain('healthcare')">
+                        <div class="header-content">
+                            <span class="domain-icon">⚕️</span>
+                            <div class="header-text">
+                                <h2>Healthcare / Helping Professions</h2>
+                                <p class="domain-preview">Patient-centered care, co-designing treatment</p>
+                            </div>
+                        </div>
+                        <span class="expand-icon">+</span>
+                    </button>
+                    <div class="domain-content">
+
+                        <div class="constraint-box">
+                            <h4>The Constraint</h4>
+                            <p>"Patient refusing medication, you know they need it, they're at risk if they don't take it."</p>
+                        </div>
+
+                        <div class="grind-mode">
+                            <h4>Grind Mode</h4>
+                            <ul>
+                                <li>"They should follow medical advice, why won't they?"</li>
+                                <li>Explaining the same thing louder/slower</li>
+                                <li>Frustration building, feeling ineffective</li>
+                                <li>Focusing on compliance, missing the real barrier</li>
+                            </ul>
+                        </div>
+
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-marker day1">Day 1</div>
+                                <div class="timeline-content">
+                                    <h4>First Attempt</h4>
+                                    <p>"Diabetic patient refusing insulin. I'm explaining: 'Your blood sugar is 350, you NEED this.' They keep saying no.</p>
+                                    <p>I'm grinding: 'They don't understand the risk. Explain it again, differently.'</p>
+                                    <p>5th explanation. Still refusing.</p>
+                                    <p>Interrupt. What's the actual constraint? NOT 'they don't understand' (they do). But: 'Something about this plan doesn't work for THEIR life.'</p>
+                                    <p>Can I treat this as puzzle? What's the smallest experiment?</p>
+                                    <p><strong>Experiment:</strong> Stop explaining. Ask instead: 'What about taking insulin doesn't work for you?'</p>
+                                    <p>[Patient: 'I can't afford it. I'm rationing what I have.']</p>
+                                    <p>Oh. The constraint wasn't understanding—it was cost. I was solving the wrong problem."</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-marker week1">Week 1</div>
+                                <div class="timeline-content">
+                                    <h4>Pattern Emerging</h4>
+                                    <p>"Now when patients resist treatment, I interrupt my 'they should...' thoughts.</p>
+                                    <p>What constraint are THEY experiencing? (Cost, side effects, cultural beliefs, past trauma, practical barriers)</p>
+                                    <p>Small experiments:</p>
+                                    <ul>
+                                        <li>Ask: 'What about this plan won't work in your actual life?'</li>
+                                        <li>Co-design modifications: 'What if we tried X instead?'</li>
+                                        <li>Test: 'Can you try this for 3 days and tell me what breaks?'</li>
+                                    </ul>
+                                    <p>Compliance isn't about understanding—it's about fit with their real life."</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-marker month1">Month 1</div>
+                                <div class="timeline-content">
+                                    <h4>Integration</h4>
+                                    <p>"Patient care is now co-designing experiments, not prescribing compliance.</p>
+                                    <p>When treatment isn't working, I ask: 'What constraint is this patient experiencing that I'm not seeing?'</p>
+                                    <p>Then design experiment WITH them: 'What would you be willing to try?'</p>
+                                    <p>Patient outcomes better (they actually follow plans they help design). My frustration lower (not fighting resistance).</p>
+                                    <p>Colleague said: 'How do you get patients to listen?' I don't. I listen to THEM first, then we experiment together."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="key-insight">
+                            <h4>Key Insight</h4>
+                            <p>In healthcare, grind mode = prescribing compliance. Experiment mode = understanding the patient's real constraints and co-designing solutions. Patients don't respond to 'should'—they respond to treatments that fit their actual lives. RAYGUN makes you curious about their barriers, not frustrated about their non-compliance.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Ending CTAs -->
+        <section class="examples-ctas">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to try RAYGUN yourself?</h2>
+                    <p>These examples show the process. Now practice it in your own work.</p>
+                    <div class="cta-buttons">
+                        <a href="try-raygun.html" class="btn-primary">Try the 5-Minute Experiment</a>
+                        <a href="framework.html" class="btn-secondary">Read the Full Framework</a>
+                    </div>
+                    <div class="cta-footer">
+                        <p>Have your own RAYGUN story? <a href="connect.html" class="link-orange">Share it with us</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="container">
+                <p class="footer-copyright">RAYGUN OS © 2025 Phillip Clapham</p>
+                <nav class="footer-links">
+                    <a href="https://adapthuman.com" class="footer-link">Adaptive Human</a>
+                    <span class="footer-separator">•</span>
+                    <a href="https://phillipclapham.com" class="footer-link">phillipclapham.com</a>
+                    <span class="footer-separator">•</span>
+                    <a href="https://github.com/phillipclapham/raygun-os" class="footer-link">GitHub</a>
+                </nav>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Scripts -->
+    <script>
+        // Theme Toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            const icon = document.getElementById('theme-icon');
+
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            icon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        }
+
+        // Initialize theme from localStorage
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            const icon = document.getElementById('theme-icon');
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            icon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+        })();
+
+        // Domain accordion functionality
+        function toggleDomain(domainId) {
+            const section = document.querySelector(`[data-domain="${domainId}"]`);
+            const content = section.querySelector('.domain-content');
+            const icon = section.querySelector('.expand-icon');
+            const isOpen = section.classList.contains('open');
+
+            if (isOpen) {
+                section.classList.remove('open');
+                content.style.maxHeight = null;
+                icon.textContent = '+';
+            } else {
+                section.classList.add('open');
+                content.style.maxHeight = content.scrollHeight + 'px';
+                icon.textContent = '−';
+            }
+        }
+
+        // Optional: Deep link support for opening specific domains
+        (function() {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                const section = document.querySelector(`[data-domain="${hash}"]`);
+                if (section) {
+                    toggleDomain(hash);
+                    setTimeout(() => {
+                        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                }
+            }
+        })();
+    </script>
+</body>
+</html>

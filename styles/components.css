@@ -1039,9 +1039,57 @@ body.dark-mode .connect-item:hover {
    ============================================ */
 
 .site-footer {
-  padding: var(--space-8) 0;
-  border-top: var(--border-width) solid var(--border-light);
+  padding: var(--space-10) 0 var(--space-8) 0;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
   text-align: center;
+}
+
+.site-footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.footer-copyright {
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-link {
+  font-size: 0.875rem;
+  color: var(--color-teal);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.footer-link:hover {
+  color: var(--color-teal-bright);
+}
+
+.footer-separator {
+  color: var(--text-tertiary);
+  font-size: 0.875rem;
+  user-select: none;
+}
+
+/* Desktop: Horizontal layout */
+@media (min-width: 768px) {
+  .site-footer .container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 .site-footer p {
