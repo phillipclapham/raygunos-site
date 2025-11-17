@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect - RAYGUN OS</title>
+    <meta name="description" content="Get in touch. Share your experiments. Join the Lab Notes community (maybe).">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/navigation.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/connect.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/raygun_original_clear 16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/raygun_original_clear 32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/images/raygun_original_clear 48x48.png">
+</head>
+<body>
+    <!-- Site Header with Navigation -->
+    <header class="site-header">
+        <nav class="site-nav">
+            <a href="index.html" class="site-logo">RAYGUN OS</a>
+            <div class="nav-right">
+                <a href="framework.html" class="nav-link">Framework</a>
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+                    <span id="theme-icon">🌙</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="connect-page">
+        <!-- Hero -->
+        <section class="connect-hero">
+            <h1 class="hero-title">Connect</h1>
+            <p class="hero-subtitle">
+                RAYGUN is an <span class="glow-word">experiment</span>. I'm <span class="glow-word">curious</span> what happens when people <span class="glow-word">practice</span> it.
+            </p>
+            <p class="hero-description">
+                Whether you're just starting, stuck on something, or having <span class="glow-word">breakthroughs</span>—I want to hear about it.
+            </p>
+        </section>
+
+        <!-- Connect Content -->
+        <div class="connect-content">
+            <!-- Lab Section (FEATURED - primary focus) -->
+            <section class="connect-section lab-section featured-section">
+                <div class="section-icon">🔬</div>
+                <h2 class="section-title">Join the <span class="glow-word">Lab</span> (Maybe)</h2>
+                <p class="section-description">
+                    I'm considering building a "Lab Notes" email for people practicing RAYGUN:
+                </p>
+                <ul class="lab-benefits">
+                    <li>One experiment to try each month</li>
+                    <li>Shared failure stories (with permission)</li>
+                    <li>Breakthrough moments from the tribe</li>
+                    <li>Framework updates as it evolves</li>
+                </ul>
+                <p class="lab-promise">
+                    <strong>Low-frequency (monthly max), high-signal.</strong> No marketing, just mutual support.
+                </p>
+                <p class="lab-validation">
+                    If that sounds interesting, drop your email below. <strong>If enough people sign up (~20+), I'll build it.</strong> If not, no worries—just email me directly instead.
+                </p>
+
+                <!-- Join Lab Form -->
+                <form id="join-lab-form" class="lab-form" action="https://formspree.io/f/xjkjqgwz" method="POST">
+                    <div class="form-group">
+                        <label for="email" class="form-label">
+                            Email <span class="required">*</span>
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            class="form-input"
+                            placeholder="you@example.com"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label">
+                            What are you experimenting with? <span class="optional">(optional)</span>
+                        </label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            class="form-input"
+                            rows="4"
+                            placeholder="E.g., 'Trying to debug without grinding', 'Parenting with more curiosity', 'Running a business as experiment'..."
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        Join the Lab
+                    </button>
+
+                    <p class="form-note">
+                        This isn't a marketing list. I'm not building an audience. I'm measuring whether people want to <span class="glow-word">practice</span> RAYGUN together. If yes → tribe. If no → no spam.
+                    </p>
+                </form>
+            </section>
+
+            <!-- Section Divider -->
+            <div class="section-divider">
+                <span class="divider-line"></span>
+                <span class="divider-text">or</span>
+                <span class="divider-line"></span>
+            </div>
+
+            <!-- Email Section (Secondary option) -->
+            <section class="connect-section email-section">
+                <div class="section-icon">📧</div>
+                <h2 class="section-title">Email Me Directly</h2>
+                <p class="section-description">
+                    <span class="glow-word">Experimenting</span> with RAYGUN? Running into interesting <span class="glow-word">constraints</span>? Want to share what's working?
+                </p>
+                <div class="email-display">
+                    <div class="email-masked">hello [at] raygunos [dot] com</div>
+                    <button type="button" class="btn-copy-email" onclick="copyEmail()">
+                        <span class="btn-text">Copy Email</span>
+                        <span class="btn-icon">📋</span>
+                    </button>
+                </div>
+                <p class="email-note">
+                    I read every email. Response times vary (I'm <span class="glow-word">experimenting</span> with my own constraints), but I'll get back to you.
+                </p>
+            </section>
+        </div>
+
+        <!-- Other Links -->
+        <section class="other-links">
+            <p class="other-links-title">Other ways to explore RAYGUN:</p>
+            <nav class="other-links-nav">
+                <a href="try-raygun.html" class="other-link">Try the 5-minute experiment</a>
+                <a href="framework.html" class="other-link">Read the full framework</a>
+                <a href="examples.html" class="other-link">See examples across domains</a>
+                <a href="troubleshooting.html" class="other-link">Get help if stuck</a>
+            </nav>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-copyright">RAYGUN OS © 2025 Phillip Clapham</p>
+            <nav class="footer-links">
+                <a href="https://adapthuman.com" class="footer-link">Adaptive Human</a>
+                <span class="footer-separator">•</span>
+                <a href="https://phillipclapham.com" class="footer-link">phillipclapham.com</a>
+                <span class="footer-separator">•</span>
+                <a href="https://github.com/phillipclapham/raygun-os" class="footer-link">GitHub</a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script>
+        // Theme Toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            const icon = document.getElementById('theme-icon');
+
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            icon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        }
+
+        // Initialize theme from localStorage
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            const icon = document.getElementById('theme-icon');
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            icon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+        })();
+
+        // Copy Email to Clipboard
+        function copyEmail() {
+            const email = 'hello@raygunos.com';
+
+            // Modern clipboard API
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(email).then(function() {
+                    showToast('Email copied to clipboard! ✓');
+                }, function() {
+                    // Fallback
+                    fallbackCopyEmail(email);
+                });
+            } else {
+                // Fallback for older browsers
+                fallbackCopyEmail(email);
+            }
+        }
+
+        // Fallback copy method
+        function fallbackCopyEmail(email) {
+            const textarea = document.createElement('textarea');
+            textarea.value = email;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+
+            try {
+                document.execCommand('copy');
+                showToast('Email copied to clipboard! ✓');
+            } catch (err) {
+                showToast('Copy failed. Email: hello@raygunos.com');
+            }
+
+            document.body.removeChild(textarea);
+        }
+
+        // Show Toast Notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+
+            setTimeout(function() {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
