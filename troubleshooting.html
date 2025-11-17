@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>When RAYGUN Fails - RAYGUN OS</title>
+
+  <!-- Meta Description -->
+  <meta name="description" content="Troubleshoot why RAYGUN didn't work and find recovery paths. Depletion, technique, habit, or understanding - here's how to get back to experimenting.">
+
+  <!-- Open Graph / Social Meta Tags -->
+  <meta property="og:title" content="When RAYGUN Fails - RAYGUN OS">
+  <meta property="og:description" content="You will lose this. Everyone does. Here's how to get it back.">
+  <meta property="og:url" content="https://raygunos.com/troubleshooting.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://raygunos.com/assets/images/raygun-og-image.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="When RAYGUN Fails - RAYGUN OS">
+  <meta name="twitter:description" content="You will lose this. Everyone does. Here's how to get it back.">
+  <meta name="twitter:image" content="https://raygunos.com/assets/images/raygun-og-image.png">
+
+  <!-- Canonical URL -->
+  <meta property="og:url" content="https://raygunos.com/troubleshooting.html">
+  <link rel="canonical" href="https://raygunos.com/troubleshooting.html">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/raygun_original_clear 16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/raygun_original_clear 32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/images/raygun_original_clear 48x48.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/tokens.css?v=17-20251116">
+  <link rel="stylesheet" href="styles/base.css?v=17-20251116">
+  <link rel="stylesheet" href="styles/navigation.css?v=17-20251116">
+  <link rel="stylesheet" href="styles/components.css?v=17-20251116">
+  <link rel="stylesheet" href="styles/troubleshooting.css?v=17-20251116">
+</head>
+<body>
+  <!-- Site Header with Navigation -->
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="index.html" class="site-logo">RAYGUN OS</a>
+      <div class="nav-right">
+        <a href="framework.html" class="nav-link">Framework</a>
+        <a href="try-raygun.html" class="nav-link">Try It</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+          <span id="theme-icon">🌙</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="troubleshooting-container">
+    <!-- Opening Section -->
+    <section class="intro-section">
+      <h1 class="page-title">When RAYGUN Fails</h1>
+      <p class="page-subtitle">(And How to Recover)</p>
+
+      <div class="intro-content">
+        <p class="intro-text">
+          You will lose this. Everyone does. Here's how to get it back.
+        </p>
+        <p class="intro-insight">
+          The fact that you're here troubleshooting means <strong>you're already experimenting</strong>. That's RAYGUN in action.
+        </p>
+      </div>
+    </section>
+
+    <!-- Diagnostic Section -->
+    <section class="diagnostic-section">
+      <h2 class="section-heading">Which sounds like you?</h2>
+
+      <form class="diagnostic-form" id="diagnostic-form">
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="failure-mode" value="depletion" class="radio-input">
+            <div class="radio-card">
+              <div class="radio-header">
+                <span class="radio-title">I can't find fascination in anything</span>
+              </div>
+              <p class="radio-description">
+                You understand RAYGUN intellectually, but when you try to find curiosity or fascination, there's nothing there. Energy at 0%.
+              </p>
+            </div>
+          </label>
+
+          <label class="radio-option">
+            <input type="radio" name="failure-mode" value="technique" class="radio-input">
+            <div class="radio-card">
+              <div class="radio-header">
+                <span class="radio-title">I tried the loop, but nothing shifted</span>
+              </div>
+              <p class="radio-description">
+                You ran through the steps (notice, interrupt, reframe, experiment) but didn't feel the shift from grinding to experimenting.
+              </p>
+            </div>
+          </label>
+
+          <label class="radio-option">
+            <input type="radio" name="failure-mode" value="habit" class="radio-input">
+            <div class="radio-card">
+              <div class="radio-header">
+                <span class="radio-title">It worked once, but I can't sustain it</span>
+              </div>
+              <p class="radio-description">
+                You experienced the shift, but now it's gone. You keep falling back into grind mode and can't maintain the practice.
+              </p>
+            </div>
+          </label>
+
+          <label class="radio-option">
+            <input type="radio" name="failure-mode" value="understanding" class="radio-input">
+            <div class="radio-card">
+              <div class="radio-header">
+                <span class="radio-title">I understand it intellectually, but can't do it</span>
+              </div>
+              <p class="radio-description">
+                You get the concept (frames as experiments, meta-perception) but can't translate it into practice. Feels abstract.
+              </p>
+            </div>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-primary btn-diagnose">Show My Recovery Path</button>
+      </form>
+
+      <!-- Empty state before selection -->
+      <div class="diagnostic-prompt" id="diagnostic-prompt">
+        <p>👆 Select the option that best describes your situation, then click "Show My Recovery Path"</p>
+      </div>
+    </section>
+
+    <!-- Recovery Paths (hidden by default, shown by JS) -->
+
+    <!-- PATH 1: Depletion -->
+    <section class="recovery-path" id="path-depletion" data-path="depletion">
+      <div class="path-content">
+        <h2 class="path-heading">You're Too Depleted to Experiment</h2>
+
+        <div class="path-section">
+          <h3 class="path-subheading">Why this happens</h3>
+          <p>
+            When your energy is at 0%, your brain can't access curiosity. Fascination requires minimum baseline energy.
+            <strong>You're not failing at RAYGUN—you're trying to run it on empty battery.</strong>
+          </p>
+        </div>
+
+        <div class="path-section">
+          <h3 class="path-subheading">What to do</h3>
+          <ol class="recovery-steps">
+            <li>
+              <strong>Recognize you're depleted</strong> (this is data, not failure)
+            </li>
+            <li>
+              <strong>Choose:</strong> Rest (if possible) OR Grind on timer (if necessary)
+            </li>
+            <li>
+              <strong>If resting:</strong> Sleep, walk, easy task, anything restorative
+            </li>
+            <li>
+              <strong>If grinding:</strong> Set 25-min timer, grind through it, rest after
+            </li>
+            <li>
+              <strong>Don't try RAYGUN</strong> until energy baseline restored
+            </li>
+          </ol>
+        </div>
+
+        <div class="path-section">
+          <h3 class="path-subheading">Learn more in the framework</h3>
+          <ul class="framework-links">
+            <li>
+              <a href="framework.html#part-4" class="framework-link">
+                <strong>Cold Start Protocol →</strong> How to bootstrap when you're at 0% (Part 4: The Practice)
+              </a>
+            </li>
+            <li>
+              <a href="framework.html#part-4" class="framework-link">
+                <strong>Energy States & Adaptation →</strong> Understanding depletion vs. experimentation (Part 4: The Practice)
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="path-section example-section">
+          <h3 class="path-subheading">Example</h3>
+          <blockquote class="example-quote">
+            "I need to file taxes (boring, necessary). I'm at 10% energy. Trying to make it fascinating fails.
+            <strong>Instead:</strong> Set timer for 25 minutes, grind through what I can, accept it's grinding, stop when timer ends.
+            Not everything is experimentable when depleted."
+          </blockquote>
+        </div>
+
+        <div class="path-actions">
+          <a href="framework.html#part-4" class="btn-primary">Read The Practice (Part 4)</a>
+          <button class="btn-secondary" onclick="resetDiagnostic()">Try Different Path</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PATH 2: Technique -->
+    <section class="recovery-path" id="path-technique" data-path="technique">
+      <div class="path-content">
+        <h2 class="path-heading">The Loop Didn't Shift You</h2>
+
+        <div class="path-section">
+          <h3 class="path-subheading">Why this happens</h3>
+          <p>
+            The Minimum Loop has 6 steps. If one step breaks, the shift won't happen. Let's debug which step failed.
+          </p>
+        </div>
+
+        <div class="path-section">
+          <h3 class="path-subheading">Diagnostic questions</h3>
+          <ol class="diagnostic-questions">
+            <li>
+              <strong>Did you notice you were grinding?</strong> (Step 1: Notice)
+              <br><span class="diagnostic-hint">If NO: Practice meta-perception first</span>
+            </li>
+            <li>
+              <strong>Did you interrupt the pattern?</strong> (Step 2: Interrupt)
+              <br><span class="diagnostic-hint">If NO: Try somatic anchor (tap fingers 5x, embody shift)</span>
+            </li>
+            <li>
+              <strong>Did you identify actual constraint vs story?</strong> (Step 3: Check constraint)
+              <br><span class="diagnostic-hint">If NO: You might be solving wrong problem</span>
+            </li>
+            <li>
+              <strong>Did you feel curiosity about the puzzle?</strong> (Step 4: Reframe)
+              <br><span class="diagnostic-hint">If NO: Might be depletion (see Depletion path)</span>
+            </li>
+            <li>
+              <strong>Did you design smallest experiment?</strong> (Step 5: Experiment)
+              <br><span class="diagnostic-hint">If NO: Too big, scale down</span>
+            </li>
+            <li>
+              <strong>Did you observe what emerged?</strong> (Step 6: Update)
+              <br><span class="diagnostic-hint">If NO: Ran experiment but ignored results</span>
+            </li>
+          </ol>
+        </div>
+
+        <div class="path-section">
+          <h3 class="path-subheading">What to do</h3>
+          <p>
+            Find which step broke, focus practice there. <strong>Don't try to run full loop until that step works.</strong>
+          </p>
+        </div>
+
+        <div class="path-section">
+          <h3 class="path-subheading">Learn more in the framework</h3>
+          <ul class="framework-links">
+            <li>
+              <a href="framework.html#minimum-raygun" class="framework-link">
+                <strong>Minimum RAYGUN Loop →</strong> The complete 6-step process
+              </a>
+            </li>
+            <li>
+              <a href="framework.html#part-3" class="framework-link">
+                <strong>The Mechanism →</strong> How the shift actually works (Part 3: The Mechanism)
+              </a>
+            </li>
+            <li>
+              <a href="framework.html#part-0" class="framework-link">
+                <strong>Meta-Perception Practice →</strong> Building the foundation skill (Part 0: The Foundation)
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="path-section example-section">
+          <h3 class="path-subheading">Example</h3>
+          <blockquote class="example-quote">
+            "I noticed grinding (step 1), interrupted (step 2), but couldn't identify constraint (step 3). Kept solving surface problem not root constraint.
+            <strong>Fixed:</strong> Spent 5 minutes just identifying actual constraint before trying reframe."
+          </blockquote>
+        </div>
+
+        <div class="path-actions">
+          <a href="framework.html#minimum-raygun" class="btn-primary">Read the Minimum Loop</a>
+          <button class="btn-secondary" onclick="resetDiagnostic()">Try Different Path</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PATH 3: Habit -->
+    <section class="recovery-path" id="path-habit" data-path="habit">
+      <div class="path-content">
+        <h2 class="path-heading">It Worked Once, Now It's Gone</h2>
+
+        <div class="path-section">
+          <h3 class="path-subheading">Why this happens</h3>
+          <p>
+            You experienced the shift, then lost it. <strong>This is NORMAL.</strong> The skill takes practice to sustain.
+            You're not broken—you're learning.
+          </p>
+        </div>
+
+        <div class="path-section">
+          <h3 class="path-subheading">What to do</h3>
+          <ol class="recovery-steps">
+            <li>
+              <strong>Recognize this is skill-building,</strong> not one-time fix
+            </li>
+            <li>
+              <strong>Set triggers for meta-awareness:</strong>
+              <ul class="sub-steps">
+                <li>Every doorway you walk through</li>
+                <li>Every time you feel resistance</li>
+                <li>Every time you sit down</li>
+                <li>Every notification</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Practice catch-and-shift:</strong> Notice grinding → interrupt → reframe
+            </li>
+            <li>
+              <strong>Start small:</strong> 1-2 catches per day (not constant)
+            </li>
+            <li>
+              <strong>Build from there</strong> as skill strengthens
+            </li>
+          </ol>
+        </div>
+
+        <div class="path-section">
+          <h3 class="path-subheading">Integration strategies</h3>
+          <ul class="integration-list">
+            <li>
+              <strong>Somatic anchor:</strong> Physical cue triggers experimenter state (tap fingers 5x)
+            </li>
+            <li>
+              <strong>Environmental cues:</strong> Post-it note: "Grinding or experimenting?"
+            </li>
+            <li>
+              <strong>Social cues:</strong> Tell someone, they remind you
+            </li>
+            <li>
+              <strong>Calendar reminders:</strong> 3x/day check-in initially
+            </li>
+          </ul>
+        </div>
+
+        <div class="path-section">
+          <h3 class="path-subheading">Learn more in the framework</h3>
+          <ul class="framework-links">
+            <li>
+              <a href="framework.html#part-0" class="framework-link">
+                <strong>Meta-Perception Practice →</strong> Building sustained awareness (Part 0: The Foundation)
+              </a>
+            </li>
+            <li>
+              <a href="framework.html#part-4" class="framework-link">
+                <strong>When You Lose This →</strong> The return protocol (Part 4: The Practice)
+              </a>
+            </li>
+            <li>
+              <a href="framework.html#part-4" class="framework-link">
+                <strong>Somatic Anchors →</strong> Embodied state triggers (Part 4: The Practice)
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="path-actions">
+          <a href="framework.html#part-4" class="btn-primary">Read The Practice (Part 4)</a>
+          <button class="btn-secondary" onclick="resetDiagnostic()">Try Different Path</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PATH 4: Understanding -->
+    <section class="recovery-path" id="path-understanding" data-path="understanding">
+      <div class="path-content">
+        <h2 class="path-heading">You Get It, But Can't Do It</h2>
+
+        <div class="path-section">
+          <h3 class="path-subheading">Why this happens</h3>
+          <p>
+            Intellectual understanding ≠ embodied practice. You know what RAYGUN is, but haven't felt the shift yet.
+            <strong>You're trying to "succeed at RAYGUN" which is itself grinding.</strong>
+          </p>
+        </div>
+
+        <div class="path-section">
+          <h3 class="path-subheading">What to do</h3>
+          <ol class="recovery-steps">
+            <li>
+              <strong>Stop trying to "do it right"</strong> (that's grinding about experimenting)
+            </li>
+            <li>
+              <strong>Pick ONE small moment today</strong>
+            </li>
+            <li>
+              <strong>Just notice:</strong> "Am I grinding or experimenting right now?"
+            </li>
+            <li>
+              <strong>Don't try to shift,</strong> just observe
+            </li>
+            <li>
+              <strong>Do this for 2-3 days</strong> (build meta-awareness first)
+            </li>
+            <li>
+              <strong>THEN try the Minimum Loop</strong> on something small
+            </li>
+          </ol>
+        </div>
+
+        <div class="path-section">
+          <h3 class="path-subheading">Learn more in the framework</h3>
+          <ul class="framework-links">
+            <li>
+              <a href="try-raygun.html" class="framework-link">
+                <strong>Try RAYGUN Right Now →</strong> Experiential vs intellectual
+              </a>
+            </li>
+            <li>
+              <a href="framework.html#part-0" class="framework-link">
+                <strong>Meta-Perception →</strong> Watching yourself think (Part 0: The Foundation)
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="path-section example-section">
+          <h3 class="path-subheading">Example</h3>
+          <blockquote class="example-quote">
+            "I read the framework 3 times, understood it intellectually, but couldn't practice it. Realized: I was grinding to 'get RAYGUN right.'
+            <strong>Fixed:</strong> Spent 3 days just noticing grind vs experiment states. Didn't try to shift. Just observed.
+            After 3 days, shift started happening naturally."
+          </blockquote>
+        </div>
+
+        <div class="path-actions">
+          <a href="try-raygun.html" class="btn-primary">Do the Guided Experiment</a>
+          <button class="btn-secondary" onclick="resetDiagnostic()">Try Different Path</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Meta-Lesson Section -->
+    <section class="meta-lesson-section">
+      <div class="meta-lesson-content">
+        <h2 class="meta-heading">Notice what you just did?</h2>
+        <p class="meta-text">
+          You troubleshot a problem by:
+        </p>
+        <ol class="meta-steps">
+          <li>Identifying the actual constraint (which failure mode)</li>
+          <li>Treating it as puzzle (which recovery path)</li>
+          <li>Designing experiment (what to try next)</li>
+        </ol>
+        <p class="meta-insight">
+          <strong>That's the Minimum Loop. You're already doing RAYGUN.</strong>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p class="footer-text">
+        RAYGUN OS © 2025 | Built by <a href="https://phillipclapham.com" class="footer-link">Phillip Clapham</a>
+      </p>
+      <p class="footer-text">
+        Part of the <a href="https://adapthuman.com" class="footer-link">Adaptive Human</a> ecosystem
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="scripts/diagnostic.js?v=17-20251116"></script>
+
+  <!-- Theme Toggle -->
+  <script>
+    // Initialize theme from localStorage or system preference
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+
+      document.documentElement.setAttribute('data-theme', theme);
+      updateThemeIcon(theme);
+    }
+
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    }
+
+    function updateThemeIcon(theme) {
+      const icon = document.getElementById('theme-icon');
+      if (icon) {
+        icon.textContent = theme === 'dark' ? '☀️' : '🌙';
+      }
+    }
+
+    // Initialize on load
+    initTheme();
+  </script>
+</body>
+</html>

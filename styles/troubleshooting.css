@@ -1,0 +1,580 @@
+/* Troubleshooting Page Styles
+ * Clean, calm design for troubleshooting RAYGUN failures
+ * Supportive, not judgmental
+ */
+
+/* ============================================
+   MAIN CONTAINER
+   ============================================ */
+
+.troubleshooting-container {
+  max-width: var(--container-md);
+  margin: 0 auto;
+  padding: var(--space-20) var(--space-6);
+}
+
+@media (max-width: 768px) {
+  .troubleshooting-container {
+    padding: var(--space-12) var(--space-4);
+  }
+}
+
+
+/* ============================================
+   INTRO SECTION
+   ============================================ */
+
+.intro-section {
+  text-align: center;
+  margin-bottom: var(--space-20);
+  padding-bottom: var(--space-16);
+  border-bottom: 2px solid var(--border-light);
+}
+
+.page-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-6xl);
+  font-weight: var(--font-extrabold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+  letter-spacing: var(--tracking-tight);
+}
+
+.page-subtitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-12);
+}
+
+.intro-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.intro-text {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-4);
+  line-height: var(--line-relaxed);
+}
+
+.intro-insight {
+  font-size: var(--text-md);
+  color: var(--color-orange);
+  font-weight: var(--font-medium);
+  line-height: var(--line-relaxed);
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: var(--text-5xl);
+  }
+
+  .page-subtitle {
+    font-size: var(--text-xl);
+  }
+
+  .intro-text {
+    font-size: var(--text-md);
+  }
+}
+
+
+/* ============================================
+   DIAGNOSTIC SECTION
+   ============================================ */
+
+.diagnostic-section {
+  margin-bottom: var(--space-20);
+}
+
+.section-heading {
+  font-family: var(--font-heading);
+  font-size: var(--text-4xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.diagnostic-form {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.radio-option {
+  cursor: pointer;
+  display: block;
+}
+
+.radio-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.radio-card {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.radio-card:hover {
+  border-color: var(--color-orange);
+  background: var(--color-orange-faint);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.radio-input:checked + .radio-card {
+  border-color: var(--color-orange);
+  background: var(--color-orange-faint);
+  box-shadow:
+    0 0 0 3px rgba(230, 126, 34, 0.1),
+    var(--shadow-md);
+}
+
+.radio-input:focus + .radio-card {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 2px;
+}
+
+.radio-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.radio-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+}
+
+.radio-description {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: var(--line-relaxed);
+  margin: 0;
+}
+
+.btn-diagnose {
+  width: 100%;
+  padding: var(--space-4) var(--space-6);
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  margin-top: var(--space-4);
+  overflow: hidden; /* Ensure ::before doesn't escape */
+  position: relative; /* For proper pseudo-element containment */
+}
+
+/* Fix button hover glow for both light and dark mode */
+.btn-primary:hover,
+.btn-diagnose:hover {
+  box-shadow:
+    0 0 20px var(--color-accent-faint),
+    0 0 40px var(--color-accent-faint),
+    0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.diagnostic-prompt {
+  text-align: center;
+  padding: var(--space-12) var(--space-6);
+  color: var(--text-tertiary);
+  font-size: var(--text-sm);
+}
+
+.diagnostic-prompt p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .section-heading {
+    font-size: var(--text-3xl);
+  }
+
+  .radio-card {
+    padding: var(--space-5);
+  }
+
+  .radio-title {
+    font-size: var(--text-md);
+  }
+
+  .radio-description {
+    font-size: var(--text-xs);
+  }
+}
+
+
+/* ============================================
+   RECOVERY PATHS
+   ============================================ */
+
+.recovery-path {
+  display: none; /* Hidden by default */
+  max-width: 800px;
+  margin: 0 auto var(--space-20);
+  background: var(--bg-secondary);
+  border: 2px solid var(--color-orange);
+  border-radius: var(--radius-xl);
+  padding: var(--space-10);
+  box-shadow: var(--shadow-lg);
+  animation: slideIn 300ms ease-out;
+  scroll-margin-top: 100px; /* Account for fixed header */
+}
+
+.recovery-path.active {
+  display: block;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.path-content {
+  /* Content container */
+}
+
+.path-heading {
+  font-family: var(--font-heading);
+  font-size: var(--text-4xl);
+  font-weight: var(--font-bold);
+  color: var(--color-orange);
+  margin-bottom: var(--space-8);
+  border-bottom: 2px solid var(--color-orange-faint);
+  padding-bottom: var(--space-4);
+}
+
+.path-section {
+  margin-bottom: var(--space-8);
+}
+
+.path-subheading {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.path-section p {
+  font-size: var(--text-md);
+  color: var(--text-secondary);
+  line-height: var(--line-relaxed);
+  margin-bottom: var(--space-4);
+}
+
+.recovery-steps,
+.diagnostic-questions {
+  list-style: decimal;
+  padding-left: var(--space-6);
+  margin: 0;
+}
+
+.recovery-steps li,
+.diagnostic-questions li {
+  font-size: var(--text-md);
+  color: var(--text-primary);
+  line-height: var(--line-relaxed);
+  margin-bottom: var(--space-4);
+}
+
+.recovery-steps strong,
+.diagnostic-questions strong {
+  color: var(--color-orange);
+  font-weight: var(--font-semibold);
+}
+
+.sub-steps {
+  list-style: disc;
+  padding-left: var(--space-6);
+  margin-top: var(--space-2);
+}
+
+.sub-steps li {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-2);
+}
+
+.diagnostic-hint {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  font-style: italic;
+  margin-top: var(--space-1);
+}
+
+.integration-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.integration-list li {
+  font-size: var(--text-md);
+  color: var(--text-secondary);
+  line-height: var(--line-relaxed);
+  margin-bottom: var(--space-3);
+  padding-left: var(--space-6);
+  position: relative;
+}
+
+.integration-list li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--color-orange);
+  font-weight: var(--font-bold);
+}
+
+.integration-list strong {
+  color: var(--color-orange);
+  font-weight: var(--font-semibold);
+}
+
+.framework-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.framework-link {
+  display: block;
+  padding: var(--space-4);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all var(--transition-normal);
+}
+
+.framework-link:hover {
+  background: var(--color-orange-faint);
+  border-color: var(--color-orange);
+  transform: translateX(4px);
+  box-shadow: var(--shadow-sm);
+}
+
+.framework-link strong {
+  color: var(--color-orange);
+  font-weight: var(--font-semibold);
+}
+
+.example-section {
+  background: var(--bg-tertiary);
+  border-left: 4px solid var(--color-gold);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  margin-top: var(--space-8);
+}
+
+.example-quote {
+  margin: 0;
+  font-size: var(--text-md);
+  color: var(--text-secondary);
+  line-height: var(--line-relaxed);
+  font-style: italic;
+}
+
+.example-quote strong {
+  color: var(--color-orange);
+  font-weight: var(--font-semibold);
+  font-style: normal;
+}
+
+.path-actions {
+  display: flex;
+  gap: var(--space-4);
+  margin-top: var(--space-10);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--border-light);
+}
+
+.path-actions .btn-primary,
+.path-actions .btn-secondary {
+  flex: 1;
+  text-align: center;
+  overflow: hidden; /* Ensure ::before doesn't escape */
+  position: relative; /* For proper pseudo-element containment */
+}
+
+@media (max-width: 768px) {
+  .recovery-path {
+    padding: var(--space-6);
+  }
+
+  .path-heading {
+    font-size: var(--text-3xl);
+  }
+
+  .path-subheading {
+    font-size: var(--text-xl);
+  }
+
+  .path-section p,
+  .recovery-steps li,
+  .diagnostic-questions li {
+    font-size: var(--text-sm);
+  }
+
+  .path-actions {
+    flex-direction: column;
+  }
+}
+
+
+/* ============================================
+   META-LESSON SECTION
+   ============================================ */
+
+.meta-lesson-section {
+  max-width: 700px;
+  margin: var(--space-20) auto;
+  padding: var(--space-10);
+  background: linear-gradient(135deg, var(--color-orange-faint), var(--color-gold-faint));
+  border: 2px solid var(--color-gold);
+  border-radius: var(--radius-xl);
+  text-align: center;
+}
+
+.meta-lesson-content {
+  /* Content container */
+}
+
+.meta-heading {
+  font-family: var(--font-heading);
+  font-size: var(--text-4xl);
+  font-weight: var(--font-bold);
+  color: var(--color-orange);
+  margin-bottom: var(--space-6);
+}
+
+.meta-text {
+  font-size: var(--text-lg);
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.meta-steps {
+  list-style: decimal;
+  padding-left: var(--space-6);
+  margin: 0 auto var(--space-6);
+  max-width: 500px;
+  text-align: left;
+}
+
+.meta-steps li {
+  font-size: var(--text-md);
+  color: var(--text-secondary);
+  line-height: var(--line-relaxed);
+  margin-bottom: var(--space-3);
+}
+
+.meta-insight {
+  font-size: var(--text-xl);
+  color: var(--color-orange);
+  font-weight: var(--font-semibold);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .meta-lesson-section {
+    padding: var(--space-6);
+  }
+
+  .meta-heading {
+    font-size: var(--text-3xl);
+  }
+
+  .meta-text {
+    font-size: var(--text-md);
+  }
+
+  .meta-insight {
+    font-size: var(--text-lg);
+  }
+}
+
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.site-footer {
+  background: var(--bg-tertiary);
+  border-top: 1px solid var(--border-light);
+  padding: var(--space-10) var(--space-6);
+  margin-top: var(--space-20);
+}
+
+.footer-content {
+  max-width: var(--container-lg);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-text {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-2);
+}
+
+.footer-link {
+  color: var(--color-teal);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer-link:hover {
+  color: var(--color-teal-hover);
+  text-decoration: underline;
+}
+
+
+/* ============================================
+   ACCESSIBILITY: REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .radio-card {
+    transition: none;
+  }
+
+  .radio-card:hover {
+    transform: none;
+  }
+
+  .recovery-path {
+    animation: none;
+  }
+
+  .framework-link:hover {
+    transform: none;
+  }
+}

@@ -4,6 +4,17 @@
    ============================================ */
 
 /* ============================================
+   SCROLL OFFSET FIX - Account for Fixed Header
+   ============================================ */
+
+/* Fix scroll position when jumping to anchors */
+.content-section,
+#minimum-raygun,
+[id^="part-"] {
+  scroll-margin-top: 100px;
+}
+
+/* ============================================
    EVIDENCE BADGES - Enhanced
    ============================================ */
 
