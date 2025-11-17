@@ -64,13 +64,48 @@
   <header class="site-header">
     <nav class="site-nav">
       <a href="index.html" class="site-logo">RAYGUN OS</a>
-      <div class="nav-right">
+
+      <!-- Desktop Navigation -->
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="try-raygun.html" class="nav-link">Try RAYGUN</a>
         <a href="framework.html" class="nav-link">Framework</a>
+        <a href="examples.html" class="nav-link">Examples</a>
+        <a href="connect.html" class="nav-link">Connect</a>
+        <div class="nav-dropdown">
+          <button class="nav-link dropdown-toggle">More ▾</button>
+          <div class="dropdown-content">
+            <a href="origin.html" class="dropdown-link">Origin Story</a>
+            <a href="science.html" class="dropdown-link">Science</a>
+            <a href="troubleshooting.html" class="dropdown-link">Troubleshooting</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-right">
         <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
           <span id="theme-icon">🌙</span>
         </button>
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+          <span class="hamburger"></span>
+        </button>
       </div>
     </nav>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav" id="mobile-nav">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="try-raygun.html" class="mobile-nav-link">Try RAYGUN</a>
+      <a href="framework.html" class="mobile-nav-link">Framework</a>
+      <a href="examples.html" class="mobile-nav-link">Examples</a>
+      <a href="connect.html" class="mobile-nav-link">Connect</a>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">More</div>
+        <a href="origin.html" class="mobile-nav-link">Origin Story</a>
+        <a href="science.html" class="mobile-nav-link">Science</a>
+        <a href="troubleshooting.html" class="mobile-nav-link">Troubleshooting</a>
+      </div>
+    </div>
   </header>
 
   <!-- Lab Field Background Layers -->
@@ -328,18 +363,38 @@
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
-      <p class="footer-copyright">RAYGUN OS © 2025 Phillip Clapham</p>
-      <nav class="footer-links">
-        <a href="https://adapthuman.com" class="footer-link">Adaptive Human</a>
-        <span class="footer-separator">•</span>
-        <a href="https://phillipclapham.com" class="footer-link">phillipclapham.com</a>
-        <span class="footer-separator">•</span>
-        <a href="https://github.com/phillipclapham/raygun-os" class="footer-link">GitHub</a>
-      </nav>
+      <div class="footer-nav-grid">
+        <div class="footer-section">
+          <h4 class="footer-section-title">Get Started</h4>
+          <a href="try-raygun.html" class="footer-nav-link">Try RAYGUN</a>
+          <a href="framework.html" class="footer-nav-link">Framework</a>
+          <a href="examples.html" class="footer-nav-link">Examples</a>
+        </div>
+        <div class="footer-section">
+          <h4 class="footer-section-title">Resources</h4>
+          <a href="troubleshooting.html" class="footer-nav-link">Troubleshooting</a>
+          <a href="science.html" class="footer-nav-link">Science</a>
+          <a href="origin.html" class="footer-nav-link">Origin Story</a>
+        </div>
+        <div class="footer-section">
+          <h4 class="footer-section-title">Connect</h4>
+          <a href="connect.html" class="footer-nav-link">Get in Touch</a>
+          <a href="https://github.com/phillipclapham/raygun-os" class="footer-nav-link">GitHub</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">RAYGUN OS © 2025 Phillip Clapham</p>
+        <nav class="footer-links">
+          <a href="https://adapthuman.com" class="footer-link">Adaptive Human</a>
+          <span class="footer-separator">•</span>
+          <a href="https://phillipclapham.com" class="footer-link">phillipclapham.com</a>
+        </nav>
+      </div>
     </div>
   </footer>
 
   <!-- Scripts -->
+  <script src="scripts/mobile-nav.js"></script>
   <script src="scripts/lab-field.js"></script>
   <script src="scripts/experiment-orbs.js"></script>
   <script src="scripts/word-glow.js"></script>
