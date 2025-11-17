@@ -23,7 +23,7 @@
    * Initialize - ROBUST VERSION
    */
   function init() {
-    const elements = document.querySelectorAll('.panel, .pull-quote, .section-title, .principle-card, .framework-cta');
+    const elements = document.querySelectorAll('.panel, .pull-quote, .section-title, .principle-card, .framework-cta, [data-scroll-reveal]');
 
     console.log(`%c🔥 Found ${elements.length} elements to animate (Mobile: ${isMobile})`, 'color: #E67E22; font-weight: bold;');
 
@@ -32,7 +32,10 @@
     // MOBILE FALLBACK: Just show everything immediately on mobile
     if (isMobile) {
       console.log('%c🔥 Mobile detected - showing all elements immediately', 'color: #E67E22;');
-      elements.forEach(el => el.classList.add('is-visible'));
+      elements.forEach(el => {
+        el.classList.add('is-visible');
+        el.classList.add('revealed'); // For origin page sections
+      });
       return;
     }
 
@@ -41,6 +44,7 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
+          entry.target.classList.add('revealed'); // For origin page sections
           observer.unobserve(entry.target);
         }
       });
