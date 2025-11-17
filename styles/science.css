@@ -148,6 +148,41 @@
 }
 
 /* ============================================
+   EVIDENCE BADGES (From framework.css)
+   ============================================ */
+
+.evidence-badge {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  margin-right: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  vertical-align: middle;
+}
+
+.evidence-proven {
+  background: rgba(0, 168, 171, 0.15);
+  color: var(--color-teal);
+  border: 1px solid var(--color-teal);
+}
+
+.evidence-supported {
+  background: rgba(52, 152, 219, 0.15);
+  color: #3498db;
+  border: 1px solid #3498db;
+}
+
+.evidence-extension {
+  background: rgba(230, 126, 34, 0.15);
+  color: var(--color-orange);
+  border: 1px solid var(--color-orange);
+}
+
+/* ============================================
    RESEARCH SECTIONS (ACCORDION)
    ============================================ */
 
@@ -509,8 +544,7 @@
 }
 
 .conclusion-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
 }
 
 .proven-card {
@@ -519,9 +553,8 @@
 
 .proven-card:hover {
   box-shadow:
-    0 0 0 1px var(--color-teal),
-    0 0 20px rgba(0, 168, 171, 0.2),
-    0 4px 12px rgba(0, 0, 0, 0.1);
+    0 12px 40px rgba(0, 168, 171, 0.4),
+    0 6px 16px rgba(0, 0, 0, 0.1);
 }
 
 .supported-card {
@@ -530,9 +563,8 @@
 
 .supported-card:hover {
   box-shadow:
-    0 0 0 1px #3498db,
-    0 0 20px rgba(52, 152, 219, 0.2),
-    0 4px 12px rgba(0, 0, 0, 0.1);
+    0 12px 40px rgba(52, 152, 219, 0.4),
+    0 6px 16px rgba(0, 0, 0, 0.1);
 }
 
 .extension-card {
@@ -541,9 +573,8 @@
 
 .extension-card:hover {
   box-shadow:
-    0 0 0 1px var(--color-orange),
-    0 0 20px rgba(230, 126, 34, 0.2),
-    0 4px 12px rgba(0, 0, 0, 0.1);
+    0 12px 40px rgba(230, 126, 34, 0.4),
+    0 6px 16px rgba(0, 0, 0, 0.1);
 }
 
 .conclusion-card h3 {
