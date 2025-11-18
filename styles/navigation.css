@@ -495,7 +495,7 @@
   .nav-right {
     margin-left: auto;
     flex-direction: row-reverse;
-    gap: var(--space-6);
+    gap: var(--space-8);
   }
 
   .site-nav {

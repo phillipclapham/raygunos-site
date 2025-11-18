@@ -459,6 +459,11 @@
   text-align: center;
   overflow: hidden; /* Ensure ::before doesn't escape */
   position: relative; /* For proper pseudo-element containment */
+  /* CRITICAL: Explicit padding and height for proper touch targets */
+  padding: var(--space-6) var(--space-8) !important;
+  min-height: 56px !important;
+  line-height: 1.4 !important;
+  font-size: var(--text-md) !important;
 }
 
 @media (max-width: 768px) {
@@ -482,6 +487,16 @@
 
   .path-actions {
     flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  /* CRITICAL: Even more explicit for mobile touch targets */
+  .path-actions .btn-primary,
+  .path-actions .btn-secondary {
+    padding: var(--space-8) var(--space-6) !important;
+    min-height: 64px !important;
+    width: 100%;
+    font-size: var(--text-lg) !important;
   }
 }
 
