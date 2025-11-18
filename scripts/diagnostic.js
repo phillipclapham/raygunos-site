@@ -116,14 +116,11 @@
 
   // Global function for reset button
   window.resetDiagnostic = function() {
-    // Scroll to top of diagnostic section
-    const diagnosticSection = document.querySelector('.diagnostic-section');
-    if (diagnosticSection) {
-      diagnosticSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
+    // Scroll to top of page (above diagnostic section for clarity)
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
 
     // Hide all recovery paths
     const allPaths = document.querySelectorAll('.recovery-path');
