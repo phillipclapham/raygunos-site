@@ -17,18 +17,18 @@
     background: linear-gradient(
         180deg,
         var(--bg-primary) 0%,
-        var(--bg-secondary) 40%,
+        var(--bg-secondary) 50%,
         var(--bg-tertiary) 100%
     );
-    /* Subtle warm overlay */
+    /* Subtle warm overlay - smoother transition */
     background-image:
         radial-gradient(
             ellipse at top,
             var(--color-orange-faint) 0%,
-            transparent 50%
+            transparent 70%
         ),
-        linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 40%, var(--bg-tertiary) 100%);
-    background-size: 100% 400px, 100% 100%;
+        linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);
+    background-size: 100% 100%, 100% 100%;
     background-repeat: no-repeat;
 }
 
@@ -37,17 +37,17 @@
     background: linear-gradient(
         180deg,
         var(--bg-primary) 0%,
-        var(--bg-secondary) 40%,
+        var(--bg-secondary) 50%,
         var(--bg-tertiary) 100%
     );
     background-image:
         radial-gradient(
             ellipse at top,
             rgba(243, 156, 18, 0.15) 0%,
-            transparent 60%
+            transparent 70%
         ),
-        linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 40%, var(--bg-tertiary) 100%);
-    background-size: 100% 500px, 100% 100%;
+        linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);
+    background-size: 100% 100%, 100% 100%;
 }
 
 /* ============================================
@@ -209,6 +209,12 @@
     box-shadow:
         var(--shadow-xl),
         0 0 30px var(--color-orange-faint);
+}
+
+/* Preserve border on mobile tap (prevent disappearing on :active) */
+.featured-section:active {
+    border: 2px solid var(--color-orange);
+    transform: translateY(-4px);
 }
 
 /* Dark mode: Stronger featured treatment */

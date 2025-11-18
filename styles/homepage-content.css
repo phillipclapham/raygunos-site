@@ -111,7 +111,8 @@
 .panel-icon {
   width: 100px;
   height: 100px;
-  margin: 0 auto var(--space-6);
+  /* Add vertical margin to contain 1.2x growth (prevent overlap) */
+  margin: var(--space-4) auto var(--space-8);
   filter: drop-shadow(0 0 8px var(--glow-orange));
   /* Smooth transitions for icon hover effects */
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
@@ -537,6 +538,11 @@
     height: 60px;
   }
 
+  /* Reduce icon scale on mobile tap to prevent overlap */
+  .panel:active .panel-icon {
+    transform: scale(1.1) rotate(3deg);
+  }
+
   .quote-section {
     padding: var(--space-16) 0;
   }
@@ -663,6 +669,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
+  text-align: center;
 }
 
 .footer-section-title {
@@ -741,5 +748,10 @@
   .footer-bottom {
     flex-direction: row;
     justify-content: space-between;
+  }
+
+  /* Align footer links to the right on desktop */
+  .footer-links {
+    justify-content: flex-end;
   }
 }

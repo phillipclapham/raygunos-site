@@ -452,14 +452,14 @@
   line-height: var(--line-relaxed);
   color: var(--text-secondary);
   margin-bottom: var(--space-4) !important;
-  padding-left: var(--space-6);
+  padding-left: var(--space-8);
   position: relative;
 }
 
 .papers-list li::before {
   content: "→";
   position: absolute;
-  left: 0;
+  left: var(--space-2);
   color: var(--color-orange);
   font-weight: var(--font-semibold);
 }

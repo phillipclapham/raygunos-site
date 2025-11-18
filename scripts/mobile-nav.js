@@ -17,6 +17,8 @@ function toggleMobileMenu() {
 
   // Prevent body scroll when menu is open
   if (mobileNav.classList.contains('open')) {
+    // Scroll to top so menu is fully visible (mobile UX fix)
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     document.body.style.overflow = 'hidden';
   } else {
     document.body.style.overflow = '';
