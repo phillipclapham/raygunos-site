@@ -100,7 +100,7 @@ raygunos-site/
 
 ## Content Source
 
-Framework content lives in `/Documents/raygun-os/RAYGUN.md` (v4.8) — this is the source of truth. The website renders that content with visual polish and interactive elements.
+Framework content lives in `/Documents/raygun-os/RAYGUN.md` (v4.9) — this is the source of truth. The website renders that content with visual polish and interactive elements.
 
 Updates flow: `RAYGUN.md` → `framework.html` (manual sync as needed).
 
@@ -166,7 +166,7 @@ Code: Open for reference and learning. Please don't clone the site directly, but
 
 **Built by:** [Phillip Clapham](https://phillipclapham.com)
 **Part of:** [Adaptive Human](https://adapthuman.com) ecosystem
-**Content:** RAYGUN OS framework v4.8
+**Content:** RAYGUN OS framework v4.9
 **Development:** Partnership with Claude (Anthropic)
 
 ## Links
