@@ -57,6 +57,9 @@
       href="assets/images/raygun_original_clear 48x48.png"
     />
 
+    <!-- Plausible Analytics -->
+    <script defer data-domain="raygunos.com" src="https://plausible.io/js/script.outbound-links.file-downloads.js"></script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -7972,6 +7975,32 @@ Influences Next Perception → LOOP CONTINUES
 
         // Initial check
         toggleButtonVisibility();
+      })();
+    </script>
+
+    <!-- Plausible: Track Framework Completion (scroll to bottom) -->
+    <script>
+      (function() {
+        'use strict';
+
+        // Track when user scrolls to the footer (finished reading)
+        const footer = document.querySelector('.site-footer');
+        if (footer) {
+          let hasTracked = false;
+
+          const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !hasTracked) {
+              hasTracked = true;
+              if (typeof plausible !== 'undefined') {
+                plausible('Framework Complete');
+                console.log('%c📊 Plausible: Framework Complete event fired', 'color: #22c55e;');
+              }
+              observer.disconnect(); // Only fire once
+            }
+          }, { threshold: 0.1 }); // Fire when 10% of footer is visible
+
+          observer.observe(footer);
+        }
       })();
     </script>
   </body>

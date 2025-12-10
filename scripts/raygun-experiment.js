@@ -212,6 +212,12 @@
       }
 
       if (ending) {
+        // Track completion in Plausible Analytics
+        if (typeof plausible !== 'undefined') {
+          plausible('Try RAYGUN Complete');
+          console.log('%c📊 Plausible: Try RAYGUN Complete event fired', 'color: #22c55e;');
+        }
+
         this.transitionTo(ending);
 
         // If celebration, populate summary
