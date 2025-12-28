@@ -1,0 +1,492 @@
+/* ==========================================================================
+   TOUCHSTONES PAGE STYLES
+   Cultural validation page - Fellow travelers across domains
+   ========================================================================== */
+
+/* Hero Section */
+.touchstones-hero {
+  padding: var(--space-20) var(--space-6) var(--space-16);
+  text-align: center;
+  background: linear-gradient(
+    180deg,
+    var(--color-bg-primary) 0%,
+    var(--color-bg-secondary) 100%
+  );
+}
+
+.touchstones-hero .hero-content {
+  max-width: var(--container-sm);
+  margin: 0 auto;
+}
+
+.touchstones-hero .hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 800;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-4);
+  line-height: 1.1;
+}
+
+.touchstones-hero .hero-subtitle {
+  font-size: var(--text-xl);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* Introduction Section */
+.touchstones-intro {
+  padding: var(--space-12) var(--space-6);
+  background: var(--color-bg-secondary);
+}
+
+.touchstones-intro .container {
+  max-width: var(--container-md);
+  margin: 0 auto;
+}
+
+.touchstones-intro .intro-content {
+  text-align: center;
+}
+
+.touchstones-intro p {
+  font-size: var(--text-lg);
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+}
+
+.touchstones-intro .intro-highlight {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-orange);
+  font-style: italic;
+  padding: var(--space-6);
+  border-left: 4px solid var(--color-orange);
+  background: rgba(230, 126, 34, 0.05);
+  text-align: left;
+  margin-top: var(--space-8);
+}
+
+[data-theme="dark"] .touchstones-intro .intro-highlight {
+  background: rgba(230, 126, 34, 0.1);
+}
+
+/* Touchstones Grid */
+.touchstones-grid {
+  padding: var(--space-16) var(--space-6);
+  background: var(--color-bg-primary);
+}
+
+.touchstones-grid .container {
+  max-width: var(--container-lg);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-8);
+}
+
+@media (max-width: 900px) {
+  .touchstones-grid .container {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+}
+
+/* Individual Touchstone Cards */
+.touchstone-card {
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  border: 1px solid var(--color-border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.touchstone-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(230, 126, 34, 0.15);
+  border-color: var(--color-orange);
+}
+
+[data-theme="dark"] .touchstone-card:hover {
+  box-shadow: 0 12px 40px rgba(230, 126, 34, 0.25);
+}
+
+/* Card Header */
+.touchstone-card .card-header {
+  margin-bottom: var(--space-6);
+}
+
+.domain-tag {
+  display: inline-block;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-orange);
+  background: rgba(230, 126, 34, 0.1);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-3);
+}
+
+[data-theme="dark"] .domain-tag {
+  background: rgba(230, 126, 34, 0.2);
+}
+
+.touchstone-name {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+  line-height: 1.2;
+}
+
+.touchstone-context {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* Blockquote */
+.touchstone-quote {
+  font-size: var(--text-lg);
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--color-text-primary);
+  padding: var(--space-6);
+  margin: var(--space-6) 0;
+  background: linear-gradient(
+    135deg,
+    rgba(230, 126, 34, 0.08) 0%,
+    rgba(230, 126, 34, 0.02) 100%
+  );
+  border-left: 4px solid var(--color-orange);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  position: relative;
+}
+
+.touchstone-quote::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  font-size: 4rem;
+  font-family: Georgia, serif;
+  color: var(--color-orange);
+  opacity: 0.3;
+  line-height: 1;
+}
+
+[data-theme="dark"] .touchstone-quote {
+  background: linear-gradient(
+    135deg,
+    rgba(230, 126, 34, 0.15) 0%,
+    rgba(230, 126, 34, 0.05) 100%
+  );
+}
+
+/* RAYGUN Connection */
+.raygun-connection {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+.raygun-connection h3 {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-orange);
+  margin-bottom: var(--space-3);
+}
+
+.raygun-connection p {
+  font-size: var(--text-base);
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-4);
+}
+
+.raygun-connection p:last-child {
+  margin-bottom: 0;
+}
+
+.raygun-connection strong {
+  color: var(--color-text-primary);
+}
+
+.raygun-connection em {
+  color: var(--color-text-primary);
+  font-style: italic;
+}
+
+/* Closing Section */
+.touchstones-closing {
+  padding: var(--space-16) var(--space-6);
+  background: var(--color-bg-secondary);
+  text-align: center;
+}
+
+.touchstones-closing .container {
+  max-width: var(--container-md);
+  margin: 0 auto;
+}
+
+.touchstones-closing h2 {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-6);
+}
+
+.touchstones-closing > .container > p {
+  font-size: var(--text-lg);
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+}
+
+/* Insight Box */
+.insight-box {
+  background: linear-gradient(
+    135deg,
+    rgba(230, 126, 34, 0.1) 0%,
+    rgba(230, 126, 34, 0.05) 100%
+  );
+  border: 2px solid var(--color-orange);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  margin: var(--space-10) 0;
+}
+
+[data-theme="dark"] .insight-box {
+  background: linear-gradient(
+    135deg,
+    rgba(230, 126, 34, 0.15) 0%,
+    rgba(230, 126, 34, 0.08) 100%
+  );
+}
+
+.insight-box p {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+  line-height: 1.4;
+}
+
+.insight-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* Closing Invitation */
+.closing-invitation {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-orange);
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-8);
+}
+
+/* CTA Buttons */
+.cta-buttons {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--space-8);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4) var(--space-8);
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: all 0.3s ease;
+  min-width: 180px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Primary Button - Homepage level polish */
+.btn-primary {
+  background: var(--color-orange);
+  color: white;
+  border: 2px solid var(--color-orange);
+  box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(230, 126, 34, 0.4);
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background: transparent;
+  color: var(--color-orange);
+  border: 2px solid var(--color-orange);
+}
+
+.btn-secondary:hover {
+  background: var(--color-orange);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(230, 126, 34, 0.3);
+}
+
+/* Footer */
+.site-footer {
+  padding: var(--space-8) var(--space-6);
+  background: var(--color-bg-primary);
+  border-top: 1px solid var(--color-border);
+}
+
+.footer-content {
+  max-width: var(--container-lg);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.copyright {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.footer-links {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.footer-link {
+  font-size: var(--text-sm);
+  color: var(--color-teal);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--color-teal-bright, #5eead4);
+}
+
+@media (max-width: 600px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .touchstones-hero {
+    padding: var(--space-16) var(--space-4) var(--space-12);
+  }
+
+  .touchstones-intro {
+    padding: var(--space-10) var(--space-4);
+  }
+
+  .touchstones-intro p {
+    font-size: var(--text-base);
+  }
+
+  .touchstones-intro .intro-highlight {
+    font-size: var(--text-lg);
+    padding: var(--space-4);
+  }
+
+  .touchstones-grid {
+    padding: var(--space-10) var(--space-4);
+  }
+
+  .touchstone-card {
+    padding: var(--space-6);
+  }
+
+  .touchstone-name {
+    font-size: var(--text-xl);
+  }
+
+  .touchstone-quote {
+    font-size: var(--text-base);
+    padding: var(--space-4);
+  }
+
+  .touchstone-quote::before {
+    font-size: 3rem;
+    top: -5px;
+    left: 5px;
+  }
+
+  .touchstones-closing {
+    padding: var(--space-10) var(--space-4);
+  }
+
+  .touchstones-closing h2 {
+    font-size: var(--text-2xl);
+  }
+
+  .insight-box {
+    padding: var(--space-6);
+  }
+
+  .insight-box p {
+    font-size: var(--text-lg);
+  }
+
+  .btn {
+    width: 100%;
+    min-width: unset;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .touchstone-card,
+  .btn,
+  .btn-primary::before {
+    transition: none;
+  }
+
+  .touchstone-card:hover {
+    transform: none;
+  }
+
+  .btn:hover {
+    transform: none;
+  }
+}
