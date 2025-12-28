@@ -100,7 +100,7 @@ raygunos-site/
 
 ## Content Source
 
-Framework content lives in `/Documents/raygun-os/RAYGUN.md` (v5.0) — this is the source of truth. The website renders that content with visual polish and interactive elements.
+Framework content lives in `/Documents/raygun-os/RAYGUN.md` (v6.0) — this is the source of truth. The website renders that content with visual polish and interactive elements.
 
 Updates flow: `RAYGUN.md` → `framework.html` (manual sync as needed).
 
@@ -136,9 +136,13 @@ Built across 9 sessions (Nov 9-11, 2025), with ongoing updates:
 - **Nov 28:** v4.10 updates (body-mind synchronization)
 - **Dec 25:** v5.0 Gap-First Reframe - major framework update
   - Physiological sigh breathing guide (double inhale nose, long exhale mouth)
-  - Framework version/changelog updated
-  - try-raygun.html breathing step updated
   - Based on insight from Vishal Patel
+- **Dec 28:** v6.0 Framework Expansion - four major additions
+  - The RAYGUN Paradox (Part 0): ego as vehicle, not destination
+  - Stage Transitions (Part 6): phase change mechanics, honest warnings
+  - The Probability Edge (Part 5): debunks "luck" with concrete formula
+  - The Frame War (Closing): cognitive sovereignty as civilizational purpose
+  - Inspired by BLUE LOCK analysis session
 
 See `/Documents/flow/projects/raygunos_site/` for detailed session notes.
 
@@ -173,7 +177,7 @@ Code: Open for reference and learning. Please don't clone the site directly, but
 
 **Built by:** [Phillip Clapham](https://phillipclapham.com)
 **Part of:** [Adaptive Human](https://adapthuman.com) ecosystem
-**Content:** RAYGUN OS framework v5.0
+**Content:** RAYGUN OS framework v6.0
 **Development:** Partnership with Claude (Anthropic)
 
 ## Links
@@ -186,6 +190,6 @@ Code: Open for reference and learning. Please don't clone the site directly, but
 
 ---
 
-**Status:** ✅ Production live — v5.0 (Dec 25, 2025)
+**Status:** ✅ Production live — v6.0 (Dec 28, 2025)
 
 Built with vanilla HTML/CSS/JS. No frameworks. No build process. Just mad scientist energy and clean code.
