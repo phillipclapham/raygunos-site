@@ -1,0 +1,12 @@
+# RAYGUN OS - robots.txt
+# https://raygunos.com
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://raygunos.com/sitemap.xml
+
+# Block deprecated/unused files
+Disallow: /framework-content.html
