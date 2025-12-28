@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="styles/tokens.css">
     <link rel="stylesheet" href="styles/navigation.css?v=FINAL-20251117-2045">
     <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/touchstones.css?v=1">
+    <link rel="stylesheet" href="styles/touchstones.css?v=2-20251228">
 </head>
 <body>
     <!-- Site Header with Navigation -->
@@ -260,17 +260,40 @@
 
     <!-- Footer -->
     <footer class="site-footer">
-        <div class="footer-content">
-            <p class="copyright">© 2025 Phillip Clapham. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="https://github.com/phillipclapham/raygun-os" target="_blank" class="footer-link">GitHub</a>
-                <a href="https://adapthuman.com" target="_blank" class="footer-link">Adaptive Human</a>
-            </div>
+        <div class="container">
+            <p class="footer-copyright">RAYGUN OS © 2025 Phillip Clapham</p>
+            <nav class="footer-links">
+                <a href="https://adapthuman.com" class="footer-link">Adaptive Human</a>
+                <span class="footer-separator">•</span>
+                <a href="https://phillipclapham.com" class="footer-link">phillipclapham.com</a>
+                <span class="footer-separator">•</span>
+                <a href="https://github.com/phillipclapham/raygun-os" class="footer-link">GitHub</a>
+            </nav>
         </div>
     </footer>
 
     <!-- Scripts -->
-    <script src="scripts/theme-toggle.js"></script>
+    <script>
+        // Theme Toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            const icon = document.getElementById('theme-icon');
+
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            icon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        }
+
+        // Initialize theme from localStorage
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            const icon = document.getElementById('theme-icon');
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            icon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+        })();
+    </script>
     <script src="scripts/mobile-nav.js"></script>
 </body>
 </html>
