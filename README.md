@@ -100,7 +100,7 @@ raygunos-site/
 
 ## Content Source
 
-Framework content lives in `/Documents/raygun-os/RAYGUN.md` (v6.0) — this is the source of truth. The website renders that content with visual polish and interactive elements.
+Framework content lives in `/Documents/raygun-os/RAYGUN.md` (v6.1) — this is the source of truth. The website renders that content with visual polish and interactive elements.
 
 Updates flow: `RAYGUN.md` → `framework.html` (manual sync as needed).
 
@@ -143,6 +143,10 @@ Built across 9 sessions (Nov 9-11, 2025), with ongoing updates:
   - The Probability Edge (Part 5): debunks "luck" with concrete formula
   - The Frame War (Closing): cognitive sovereignty as civilizational purpose
   - Inspired by BLUE LOCK analysis session
+- **Dec 29:** v6.1 Framework Completion - two critical additions
+  - The Harvest (Part 5): completion as scientific duty, epistemic debt concept
+  - Theoretical Foundations: Active Inference: grounding in Friston's Free Energy Principle
+  - Based on Gemini AI analysis identifying completion and credibility gaps
 
 See `/Documents/flow/projects/raygunos_site/` for detailed session notes.
 
@@ -177,7 +181,7 @@ Code: Open for reference and learning. Please don't clone the site directly, but
 
 **Built by:** [Phillip Clapham](https://phillipclapham.com)
 **Part of:** [Adaptive Human](https://adapthuman.com) ecosystem
-**Content:** RAYGUN OS framework v6.0
+**Content:** RAYGUN OS framework v6.1
 **Development:** Partnership with Claude (Anthropic)
 
 ## Links
@@ -190,6 +194,6 @@ Code: Open for reference and learning. Please don't clone the site directly, but
 
 ---
 
-**Status:** ✅ Production live — v6.0 (Dec 28, 2025)
+**Status:** ✅ Production live — v6.1 (Dec 29, 2025)
 
 Built with vanilla HTML/CSS/JS. No frameworks. No build process. Just mad scientist energy and clean code.
