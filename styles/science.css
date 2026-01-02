@@ -223,6 +223,51 @@
 }
 
 /* ============================================
+   RESEARCH PART WRAPPERS (4-part structure)
+   ============================================ */
+
+.research-part {
+  margin-bottom: var(--space-12);
+}
+
+.research-part:last-child {
+  margin-bottom: 0;
+}
+
+.part-header {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-extrabold);
+  color: var(--color-orange);
+  margin-bottom: var(--space-3);
+  letter-spacing: var(--tracking-tight);
+}
+
+.part-intro {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  line-height: var(--line-relaxed);
+  margin-bottom: var(--space-8);
+  max-width: 600px;
+}
+
+@media (max-width: 768px) {
+  .research-part {
+    margin-bottom: var(--space-10);
+  }
+
+  .part-header {
+    font-size: var(--text-2xl);
+  }
+
+  .part-intro {
+    font-size: var(--text-md);
+    margin-bottom: var(--space-6);
+  }
+}
+
+/* ============================================
    SECTION HEADER (CLICKABLE)
    ============================================ */
 
@@ -257,7 +302,8 @@
   flex-wrap: wrap;
 }
 
-.section-header h2 {
+.section-header h2,
+.section-header h3 {
   font-family: var(--font-heading);
   font-size: var(--text-2xl);
   font-weight: var(--font-bold);
@@ -295,7 +341,8 @@
     padding-bottom: var(--space-5);
   }
 
-  .section-header h2 {
+  .section-header h2,
+  .section-header h3 {
     font-size: var(--text-lg);
   }
 

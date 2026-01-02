@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="styles/tokens.css">
     <link rel="stylesheet" href="styles/navigation.css?v=FINAL-20251117-2045">
     <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/science.css?v=16b-20251117">
+    <link rel="stylesheet" href="styles/science.css?v=17-20260102">
 </head>
 <body>
     <!-- Site Header with Navigation -->
@@ -94,6 +94,8 @@
 
                     <p><strong>If you're a skeptic, this is for you.</strong> If you're an academic or professional who needs to vet claims before integrating RAYGUN, this is for you. If you want to recommend RAYGUN to others and need credibility signals, this is for you.</p>
 
+                    <p><strong>Organization:</strong> Research is grouped by the framework's four-part structure—Understanding, Practicing, Deepening, Meaning—so you can find the science backing for each section. Expand any topic for core claims, research summaries, mechanisms, and key papers.</p>
+
                     <div class="evidence-legend">
                         <h3>Evidence Legend</h3>
                         <div class="legend-items">
@@ -119,11 +121,16 @@
         <section class="research-sections">
             <div class="container">
 
-                <!-- Part 0: Meta-Perception -->
-                <div class="research-section" data-section="part0">
-                    <button class="section-header" onclick="toggleSection('part0')">
+                <!-- Part 1: Understanding -->
+                <div class="research-part" id="part-1-understanding">
+                    <h2 class="part-header">Part 1: Understanding</h2>
+                    <p class="part-intro">Research backing the foundational concepts: how perception works, what frames are, and where conscious intervention happens.</p>
+
+                <!-- Meta-Perception -->
+                <div class="research-section" data-section="meta-perception">
+                    <button class="section-header" onclick="toggleSection('meta-perception')">
                         <div class="header-content">
-                            <h2>Part 0: Meta-Perception (The Foundation)</h2>
+                            <h3>Meta-Perception (The Foundation)</h3>
                             <span class="evidence-badge evidence-supported">SUPPORTED</span>
                         </div>
                         <span class="expand-icon">+</span>
@@ -163,11 +170,11 @@
                     </div>
                 </div>
 
-                <!-- Part 1: Perception-Action Loop -->
-                <div class="research-section" data-section="part1">
-                    <button class="section-header" onclick="toggleSection('part1')">
+                <!-- Perception-Action Loop -->
+                <div class="research-section" data-section="perception-action">
+                    <button class="section-header" onclick="toggleSection('perception-action')">
                         <div class="header-content">
-                            <h2>Part 1: Perception-Action Loop</h2>
+                            <h3>Perception-Action Loop</h3>
                             <span class="evidence-badge evidence-proven">PROVEN</span>
                         </div>
                         <span class="expand-icon">+</span>
@@ -211,11 +218,11 @@
                     </div>
                 </div>
 
-                <!-- Part 2: Frames as Experiments -->
-                <div class="research-section" data-section="part2">
-                    <button class="section-header" onclick="toggleSection('part2')">
+                <!-- Frames as Experiments -->
+                <div class="research-section" data-section="frames-experiments">
+                    <button class="section-header" onclick="toggleSection('frames-experiments')">
                         <div class="header-content">
-                            <h2>Part 2: Frames as Experiments</h2>
+                            <h3>Frames as Experiments</h3>
                             <span class="evidence-badge evidence-supported">SUPPORTED</span>
                         </div>
                         <span class="expand-icon">+</span>
@@ -257,11 +264,11 @@
                     </div>
                 </div>
 
-                <!-- Part 3: Frame-Selection Point -->
-                <div class="research-section" data-section="part3">
-                    <button class="section-header" onclick="toggleSection('part3')">
+                <!-- Frame-Selection Point -->
+                <div class="research-section" data-section="frame-selection">
+                    <button class="section-header" onclick="toggleSection('frame-selection')">
                         <div class="header-content">
-                            <h2>Part 3: Frame-Selection Point</h2>
+                            <h3>Frame-Selection Point</h3>
                             <span class="evidence-badge evidence-proven">PROVEN</span>
                         </div>
                         <span class="expand-icon">+</span>
@@ -304,11 +311,18 @@
                     </div>
                 </div>
 
-                <!-- Part 4: Depletion States -->
-                <div class="research-section" data-section="part4">
-                    <button class="section-header" onclick="toggleSection('part4')">
+                </div><!-- End Part 1: Understanding -->
+
+                <!-- Part 2: Practicing -->
+                <div class="research-part" id="part-2-practicing">
+                    <h2 class="part-header">Part 2: Practicing</h2>
+                    <p class="part-intro">Research backing the practical mechanics: how capacity works, what drives sustainable engagement.</p>
+
+                <!-- Depletion States -->
+                <div class="research-section" data-section="depletion-states">
+                    <button class="section-header" onclick="toggleSection('depletion-states')">
                         <div class="header-content">
-                            <h2>Part 4: Depletion States</h2>
+                            <h3>Depletion States</h3>
                             <span class="evidence-badge evidence-proven">PROVEN</span>
                         </div>
                         <span class="expand-icon">+</span>
@@ -355,11 +369,11 @@
                     </div>
                 </div>
 
-                <!-- Part 5: Fascination/Dopamine -->
-                <div class="research-section" data-section="part5">
-                    <button class="section-header" onclick="toggleSection('part5')">
+                <!-- Fascination & Dopamine -->
+                <div class="research-section" data-section="fascination-dopamine">
+                    <button class="section-header" onclick="toggleSection('fascination-dopamine')">
                         <div class="header-content">
-                            <h2>Part 5: Fascination & Dopamine</h2>
+                            <h3>Fascination & Dopamine</h3>
                             <span class="evidence-badge evidence-supported">SUPPORTED</span>
                         </div>
                         <span class="expand-icon">+</span>
@@ -403,11 +417,18 @@
                     </div>
                 </div>
 
-                <!-- Part 6: Frame Superposition -->
-                <div class="research-section" data-section="part6">
-                    <button class="section-header" onclick="toggleSection('part6')">
+                </div><!-- End Part 2: Practicing -->
+
+                <!-- Part 3: Deepening -->
+                <div class="research-part" id="part-3-deepening">
+                    <h2 class="part-header">Part 3: Deepening</h2>
+                    <p class="part-intro">Research backing advanced techniques: holding multiple frames, expanded cognitive flexibility.</p>
+
+                <!-- Frame Superposition -->
+                <div class="research-section" data-section="frame-superposition">
+                    <button class="section-header" onclick="toggleSection('frame-superposition')">
                         <div class="header-content">
-                            <h2>Part 6: Frame Superposition (Advanced)</h2>
+                            <h3>Frame Superposition (Advanced)</h3>
                             <span class="evidence-badge evidence-extension">LOGICAL EXTENSION</span>
                         </div>
                         <span class="expand-icon">+</span>
@@ -461,11 +482,18 @@
                     </div>
                 </div>
 
+                </div><!-- End Part 3: Deepening -->
+
+                <!-- Part 4: Meaning -->
+                <div class="research-part" id="part-4-meaning">
+                    <h2 class="part-header">Part 4: Meaning</h2>
+                    <p class="part-intro">Research backing the theoretical foundations: how RAYGUN connects to contemporary neuroscience.</p>
+
                 <!-- Theoretical Framework: Active Inference -->
                 <div class="research-section" data-section="active-inference">
                     <button class="section-header" onclick="toggleSection('active-inference')">
                         <div class="header-content">
-                            <h2>Theoretical Framework: Active Inference</h2>
+                            <h3>Theoretical Framework: Active Inference</h3>
                             <span class="evidence-badge evidence-supported">SUPPORTED</span>
                         </div>
                         <span class="expand-icon">+</span>
@@ -537,6 +565,8 @@
                         </div>
                     </div>
                 </div>
+
+                </div><!-- End Part 4: Meaning -->
 
             </div>
         </section>
