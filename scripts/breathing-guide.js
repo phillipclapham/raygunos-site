@@ -1,23 +1,30 @@
 /**
- * Breathing Guide Component - Physiological Sigh + Body Reset
+ * Breathing Guide Component - Calm, Simple Pattern
  *
- * Pattern: Physiological sigh (double inhale through nose, long exhale through mouth)
- * Plus body relaxation cues - teaches the full "touch the gap" technique from RAYGUN v5.0
+ * Pattern: 4-2-6-2 (inhale-hold-exhale-pause)
+ * - Inhale: 4 seconds (circle expands)
+ * - Hold: 2 seconds (gentle pause at peak)
+ * - Exhale: 6 seconds (slow contraction - parasympathetic activation)
+ * - Pause: 2 seconds (rest before next cycle)
  *
- * Sequence per cycle:
- * 1. First inhale through nose (2s)
- * 2. Second inhale/sniff through nose (1s) - fills alveoli
- * 3. Body cue: "Relax shoulders, unclench jaw" (1s pause)
- * 4. Long exhale through mouth (5s)
- * 5. "Let the story pause" (1s pause)
+ * Total: 14 seconds per cycle, 2 cycles = 28 seconds
  *
- * Total: ~10s per cycle, 2 cycles = ~20s
+ * Design principles:
+ * - Body cue is STATIC (in HTML, always visible)
+ * - Only 3 instruction text changes: inhale, hold, exhale
+ * - Pause phase is silent (no text change)
+ * - Smooth animations matched EXACTLY to timing
  */
 
 (function() {
   'use strict';
 
-  console.log('%c🫁 Breathing Guide loading...', 'color: #E67E22; font-weight: bold;');
+  // Timing constants (in milliseconds)
+  const INHALE_DURATION = 4000;
+  const HOLD_DURATION = 2000;
+  const EXHALE_DURATION = 6000;
+  const PAUSE_DURATION = 2000;
+  const MAX_CYCLES = 2;
 
   // Check for reduced motion preference
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -28,7 +35,6 @@
   window.breathingGuide = {
     isRunning: false,
     cycleCount: 0,
-    maxCycles: 2,
     currentPhase: null,
 
     /**
@@ -36,15 +42,11 @@
      */
     start: function() {
       if (this.isRunning) {
-        console.log('%c🫁 Breathing guide already running', 'color: #E67E22;');
         return;
       }
 
-      console.log('%c🫁 Starting breathing guide (physiological sigh)...', 'color: #E67E22;');
-
       this.isRunning = true;
       this.cycleCount = 0;
-      this.currentPhase = 'inhale1';
 
       // Get elements
       const circle = document.querySelector('.breathing-circle');
@@ -55,9 +57,11 @@
         return;
       }
 
-      // If reduced motion, skip animation and just show static guide
+      // Reset circle to base state
+      circle.className = 'breathing-circle';
+
+      // If reduced motion, use simplified text-only guide
       if (prefersReducedMotion) {
-        console.log('%c🫁 Reduced motion detected, using simplified guide', 'color: #E67E22;');
         this.runSimplifiedGuide(instruction);
         return;
       }
@@ -67,46 +71,39 @@
     },
 
     /**
-     * Run one breathing cycle (physiological sigh + body reset)
+     * Run one breathing cycle
      */
     runCycle: function(circle, instruction) {
-      console.log('%c🫁 Cycle', 'color: #E67E22;', this.cycleCount + 1, 'of', this.maxCycles);
-
-      // Phase 1: First inhale through nose (2 seconds)
-      this.setPhase('inhale1', circle, instruction);
+      // Phase 1: Inhale (4 seconds)
+      this.setPhase('inhale', circle, instruction);
 
       setTimeout(() => {
-        // Phase 2: Second inhale/sniff (1 second)
-        this.setPhase('inhale2', circle, instruction);
+        // Phase 2: Hold (2 seconds)
+        this.setPhase('hold', circle, instruction);
 
         setTimeout(() => {
-          // Phase 3: Body cue (1 second)
-          this.setPhase('body', circle, instruction);
+          // Phase 3: Exhale (6 seconds)
+          this.setPhase('exhale', circle, instruction);
 
           setTimeout(() => {
-            // Phase 4: Long exhale through mouth (5 seconds)
-            this.setPhase('exhale', circle, instruction);
+            // Phase 4: Pause (2 seconds) - silent, no text change
+            this.setPhase('pause', circle, instruction);
 
             setTimeout(() => {
-              // Phase 5: Story pause (1 second)
-              this.setPhase('story', circle, instruction);
+              // Cycle complete
+              this.cycleCount++;
 
-              setTimeout(() => {
-                // Cycle complete
-                this.cycleCount++;
-
-                if (this.cycleCount < this.maxCycles) {
-                  // Run next cycle
-                  this.runCycle(circle, instruction);
-                } else {
-                  // All cycles complete
-                  this.complete(instruction);
-                }
-              }, 1000); // Story pause duration
-            }, 5000); // Exhale duration
-          }, 1000); // Body cue duration
-        }, 1000); // Second inhale duration
-      }, 2000); // First inhale duration
+              if (this.cycleCount < MAX_CYCLES) {
+                // Run next cycle
+                this.runCycle(circle, instruction);
+              } else {
+                // All cycles complete
+                this.complete(instruction);
+              }
+            }, PAUSE_DURATION);
+          }, EXHALE_DURATION);
+        }, HOLD_DURATION);
+      }, INHALE_DURATION);
     },
 
     /**
@@ -115,41 +112,34 @@
     setPhase: function(phase, circle, instruction) {
       this.currentPhase = phase;
 
-      // Update instruction text
+      // Instruction text (only 3 visible states, pause is silent)
       const instructions = {
-        inhale1: 'Breathe in through nose...',
-        inhale2: '...and a little more',
-        body: 'Relax shoulders, unclench jaw',
-        exhale: 'Long breath out through mouth...',
-        story: 'Let the story pause'
+        inhale: 'Breathe in...',
+        hold: 'Hold...',
+        exhale: 'Breathe out slowly...',
+        pause: 'Breathe out slowly...'  // Keep exhale text during pause
       };
 
-      // Update circle animation class
+      // Circle animation classes
       const circleClasses = {
-        inhale1: 'breathing-inhale',
-        inhale2: 'breathing-inhale',
-        body: 'breathing-hold',
+        inhale: 'breathing-inhale',
+        hold: 'breathing-hold',
         exhale: 'breathing-exhale',
-        story: 'breathing-hold'
+        pause: 'breathing-pause'
       };
 
       instruction.textContent = instructions[phase];
       circle.className = 'breathing-circle ' + circleClasses[phase];
-
-      console.log('%c🫁 Phase:', 'color: #E67E22;', phase);
     },
 
     /**
      * Complete breathing guide
      */
     complete: function(instruction) {
-      console.log('%c🫁 Breathing complete', 'color: #E67E22; font-weight: bold;');
-
       instruction.textContent = 'You touched the gap ✓';
-
       this.isRunning = false;
 
-      // Auto-advance to next state after 1.5 seconds
+      // Auto-advance to next state after brief pause
       setTimeout(() => {
         if (window.experimentEngine) {
           experimentEngine.nextState();
@@ -158,23 +148,20 @@
     },
 
     /**
-     * Simplified guide (for reduced motion)
+     * Simplified guide (for reduced motion preference)
      */
     runSimplifiedGuide: function(instruction) {
-      console.log('%c🫁 Running simplified guide (no animation)', 'color: #E67E22;');
-
-      // Text prompts without animation - physiological sigh pattern
       const phases = [
-        { text: 'Breathe in through nose... (2 sec)', duration: 2000 },
-        { text: '...and a little more (1 sec)', duration: 1000 },
-        { text: 'Relax shoulders, unclench jaw', duration: 1000 },
-        { text: 'Long breath out through mouth... (5 sec)', duration: 5000 },
-        { text: 'Let the story pause', duration: 1000 },
-        { text: 'Breathe in through nose... (2 sec)', duration: 2000 },
-        { text: '...and a little more (1 sec)', duration: 1000 },
-        { text: 'Relax shoulders, unclench jaw', duration: 1000 },
-        { text: 'Long breath out through mouth... (5 sec)', duration: 5000 },
-        { text: 'Let the story pause', duration: 1000 }
+        // Cycle 1
+        { text: 'Breathe in... (4 sec)', duration: INHALE_DURATION },
+        { text: 'Hold... (2 sec)', duration: HOLD_DURATION },
+        { text: 'Breathe out slowly... (6 sec)', duration: EXHALE_DURATION },
+        { text: '...', duration: PAUSE_DURATION },
+        // Cycle 2
+        { text: 'Breathe in... (4 sec)', duration: INHALE_DURATION },
+        { text: 'Hold... (2 sec)', duration: HOLD_DURATION },
+        { text: 'Breathe out slowly... (6 sec)', duration: EXHALE_DURATION },
+        { text: '...', duration: PAUSE_DURATION }
       ];
 
       let currentIndex = 0;
@@ -189,7 +176,6 @@
             showPhase();
           }, phase.duration);
         } else {
-          // Complete
           this.complete(instruction);
         }
       };
@@ -198,14 +184,11 @@
     },
 
     /**
-     * Stop breathing guide (if needed)
+     * Stop breathing guide
      */
     stop: function() {
       this.isRunning = false;
-      console.log('%c🫁 Breathing guide stopped', 'color: #E67E22;');
     }
   };
-
-  console.log('%c🫁 Breathing Guide ready (physiological sigh pattern)', 'color: #E67E22; font-weight: bold;');
 
 })();
